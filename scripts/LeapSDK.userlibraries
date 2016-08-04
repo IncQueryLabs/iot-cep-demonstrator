@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="LeapSDK" systemlibrary="false">
+        <archive path="/opt/leapmotion/LeapSDK/lib/LeapJava.jar"/>
+    </library>
+</eclipse-userlibraries>
