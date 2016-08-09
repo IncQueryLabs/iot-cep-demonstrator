@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Zmq
+Bundle-SymbolicName: com.incquerylabs.iot.communication.zmq
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: com.incquerylabs.iot.communication;bundle-version="1.0.0"

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Communication
+Bundle-SymbolicName: com.incquerylabs.iot.communication
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.incquerylabs.iot.communication
+Require-Bundle: com.google.guava;bundle-version="15.0.0"
