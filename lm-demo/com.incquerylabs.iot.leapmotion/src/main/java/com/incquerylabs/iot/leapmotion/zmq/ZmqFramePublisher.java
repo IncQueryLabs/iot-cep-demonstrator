@@ -2,7 +2,6 @@ package com.incquerylabs.iot.leapmotion.zmq;
 
 import com.incquerylabs.iot.communication.IAddress;
 import com.incquerylabs.iot.communication.PublisherPool;
-import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 import com.leapmotion.leap.Listener;
@@ -20,8 +19,7 @@ public class ZmqFramePublisher extends Listener {
 		try {
 			Frame frame = controller.frame();
 			PublisherPool.getInstance().next(address).publish(frame.serialize(), 0);
-			System.out.println(frame.currentFramesPerSecond());
-		} catch (PoolNotInitializedException e) {
+		} catch (Exception e) {
 			// TODO: logging
 			e.printStackTrace();
 		}
