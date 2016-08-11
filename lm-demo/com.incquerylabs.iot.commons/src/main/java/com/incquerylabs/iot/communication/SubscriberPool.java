@@ -41,12 +41,16 @@ public class SubscriberPool {
 	
 	public void registerCallback(IAddress address, ISubscriberCallback callback) {
 		if(subscribers.containsKey(address.getFullAddress())) {
-			subscribers.get(address.getFullAddress()).subscribe(address, callback);
+			subscribers.get(address.getFullAddress()).registerCallback(address, callback);
 		} else {
 			ISubscriber subscriber = factory.createSubscriber(pool);
-			subscriber.subscribe(address, callback);
+			subscriber.registerCallback(address, callback);
 			subscribers.put(address.getFullAddress(), subscriber);
-		}
+		}	
+	}
+	
+	public void unregisterCallback(ISubscriberCallback callback) {
+		// TODO: 
 	}
 	
 	private static class DefaultExecutor extends ThreadPoolExecutor implements IExecutorPool {
