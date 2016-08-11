@@ -1,6 +1,7 @@
 package com.incquerylabs.iot.communication.zmq;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.zeromq.ZMQ;
@@ -43,7 +44,7 @@ public class ZSubscriber implements ISubscriber, Runnable {
 		if(!running)
 			pool.execute(this);
 	}
-
+	
 	@Override
 	public void disconnectAll() {
 		running = false;
@@ -58,7 +59,9 @@ public class ZSubscriber implements ISubscriber, Runnable {
 				String topic = new String(sub.recv(ZMQ.NOBLOCK));
 				byte[] data = sub.recv();
 				IAddress address = addresses.get(topic);
-				callbacks.get(topic).forEach(callback -> callback.messageArrived(address));
+				Iterator<ISubscriberCallback> cit = callbacks.get(topic).iterator();
+				while(cit.hasNext())
+					cit.next().messageArrived(address, data);
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				
