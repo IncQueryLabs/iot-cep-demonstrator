@@ -3,6 +3,7 @@ package com.incquerylabs.iot.communication.zmq;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.zeromq.ZMQ;
 
@@ -19,7 +20,7 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	
 	private ZMQ.Socket sub;
 	
-	private Multimap<String, ISubscriberCallback> callbacks = LinkedListMultimap.create();
+	private AtomicReference<Multimap<String, ISubscriberCallback>> callbacks = new AtomicReference(LinkedListMultimap.create());
 	
 	// XXX: workaround - unable to get zmq socket address; store registered addresses by topic name
 	private Map<String, IAddress> addresses = new HashMap<>();
@@ -36,13 +37,15 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	}
 	
 	@Override
-	public void subscribe(IAddress address, ISubscriberCallback callback) {
+	public void registerCallback(IAddress address, ISubscriberCallback callback) {
 		sub.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
 		sub.subscribe(address.getTopic().getBytes());
-		callbacks.put(address.getTopic(), callback);
+		callbacks.get().put(address.getTopic(), callback);
 		addresses.put(address.getFullAddress(), address);
-		if(!running)
+		if(!running) {
+			running = true;
 			pool.execute(this);
+		}
 	}
 	
 	@Override
@@ -56,16 +59,24 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	public void run() {
 		while(running) {
 			try {
-				String topic = new String(sub.recv(ZMQ.NOBLOCK));
+				String topic = new String(sub.recv());
 				byte[] data = sub.recv();
 				IAddress address = addresses.get(topic);
-				Iterator<ISubscriberCallback> cit = callbacks.get(topic).iterator();
+				Iterator<ISubscriberCallback> cit = callbacks.get().get(topic).iterator();
 				while(cit.hasNext())
 					cit.next().messageArrived(address, data);
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
-				
+				System.err.println(String.format("Subscriber thread interrupted: %s", e.getCause()));
 			}
+		}
+	}
+
+	@Override
+	public void unregisterCallback(IAddress address, ISubscriberCallback callback) {
+		if(callbacks.get().containsValue(callback)) {
+			//TODO: implement unregistration method
+			
 		}
 	}
 
