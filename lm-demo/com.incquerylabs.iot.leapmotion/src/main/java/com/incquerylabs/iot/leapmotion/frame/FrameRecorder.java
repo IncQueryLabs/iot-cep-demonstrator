@@ -28,7 +28,7 @@ public class FrameRecorder extends Listener {
 			outputStream.write(frame.serialize());
 			outputStream.flush();
 		} catch (IOException e) {
-			System.out.println(String.format("Unable to write frame (id / timestamp): %d / %d",frame.id(), frame.timestamp()));
+			System.err.println(String.format("Unable to write frame (id / timestamp): %d / %d",frame.id(), frame.timestamp()));
 		}
 		
 	}

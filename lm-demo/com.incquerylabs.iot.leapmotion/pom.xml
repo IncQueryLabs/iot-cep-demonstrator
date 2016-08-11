@@ -1,18 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.incquerylabs.iot.leapmotion</groupId>
-  <artifactId>com.incquerylabs.iot.leapmotion</artifactId>
+  <groupId>com.incquerylabs.iot</groupId>
+  <artifactId>iot-leapmotion</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
+  	
   	<dependency>
-  		<groupId>com.incquerylabs.iot.communication</groupId>
-  		<artifactId>ZeroMQ</artifactId>
+  		<groupId>com.incquerylabs.iot</groupId>
+  		<artifactId>communication-zeromq</artifactId>
   		<version>0.0.1-SNAPSHOT</version> 
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>com.incquerylabs.iot</groupId>
+  		<artifactId>iot-commons</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  	</dependency>
+  	
   </dependencies>
   
   <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

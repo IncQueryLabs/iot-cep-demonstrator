@@ -7,15 +7,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.incquerylabs.iot.communication.IAddress;
+import com.incquerylabs.iot.communication.PublisherPool;
 import com.leapmotion.leap.Frame;
 
-public class FrameStreamer {
+public class FrameStreamer implements Runnable {
 	
 	DataInputStream inputStream;
 	
 	IAddress target;
 	
 	private boolean reachedStreamEnd = false;
+	
+	private volatile boolean autostream;
+	
+	Frame nextFrame;
 	
 	public FrameStreamer(String inputfilepath, IAddress target) throws FileNotFoundException, IOException {
 		this.target = target;
@@ -28,6 +33,7 @@ public class FrameStreamer {
 		Frame frame = new Frame();
 		
 		byte[] data = null;
+		
 		try {
 			int size = inputStream.readInt();
 			data = new byte[size];
@@ -49,6 +55,30 @@ public class FrameStreamer {
 	
 	public boolean hasNextFrame() {
 		return !reachedStreamEnd;
+	}
+
+	@Override
+	public void run() {
+		while(autostream) {
+			try {
+				if(nextFrame == null) {	
+					nextFrame = readNext();
+				}
+
+				PublisherPool.getInstance().next(target).publish(nextFrame.serialize(), 0);
+				
+			} catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+	}
+	
+	public void step() {
+		
+	}
+	
+	public void pause() {
+		
 	}
 	
 }
