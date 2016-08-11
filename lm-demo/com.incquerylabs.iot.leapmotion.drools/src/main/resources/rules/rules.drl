@@ -1,0 +1,39 @@
+//created on: Aug 11, 2016
+package rules
+
+import com.leapmotion.leap.Frame;
+import com.leapmotion.leap.Finger;
+import com.leapmotion.leap.Finger.Type;
+
+//list any import classes here.
+
+declare Frame
+	@role(event)
+end
+
+declare Finger
+	@role(event)
+end
+
+declare window FrameEvents
+	Frame() over window:time( 3s ) from entry-point "FrameStream"
+end
+
+//declare any global variables here
+
+rule "Frame arrived!"
+
+    when
+        $frame : Frame(  ) from window FrameEvents
+
+    then
+        System.out.println("Frame processed in drools: " + $frame.timestamp());
+
+end
+
+rule "Fingers"
+	when
+		$finger : Finger( extended == true && type == Type.TYPE_INDEX )
+	then
+		System.out.println("Index finger extended!");
+end
