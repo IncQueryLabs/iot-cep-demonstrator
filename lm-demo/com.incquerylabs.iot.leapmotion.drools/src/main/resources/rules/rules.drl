@@ -16,24 +16,16 @@ declare Finger
 end
 
 declare window FrameEvents
-	Frame() over window:time( 3s ) from entry-point "FrameStream"
+	Frame() over window:time( 200ms ) from entry-point "FrameStream"
 end
 
 //declare any global variables here
 
-rule "Frame arrived!"
-
+rule "Grab gesture"
     when
-        $frame : Frame(  ) from window FrameEvents
-
+        $A1 : Frame( fingers.extended().count() == 5 ) from window FrameEvents
+        $A2 : Frame( fingers.extended().count() == 0, this after [ 50ms ] $A1 ) from window FrameEvents
     then
-        System.out.println("Frame processed in drools: " + $frame.timestamp());
-
+        System.out.println("GRAB!");
 end
 
-rule "Fingers"
-	when
-		$finger : Finger( extended == true && type == Type.TYPE_INDEX )
-	then
-		System.out.println("Index finger extended!");
-end
