@@ -4,8 +4,7 @@ package rules
 import com.leapmotion.leap.Frame;
 import com.leapmotion.leap.Finger;
 import com.leapmotion.leap.Finger.Type;
-
-//list any import classes here.
+import java.util.Date;
 
 declare Frame
 	@role(event)
@@ -16,16 +15,18 @@ declare Finger
 end
 
 declare window FrameEvents
-	Frame() over window:time( 200ms ) from entry-point "FrameStream"
+	Frame() over window:time( 2s ) from entry-point "FrameStream"
 end
 
-//declare any global variables here
+global java.util.List accepted_grabs
 
 rule "Grab gesture"
     when
         $A1 : Frame( fingers.extended().count() == 5 ) from window FrameEvents
-        $A2 : Frame( fingers.extended().count() == 0, this after [ 50ms ] $A1 ) from window FrameEvents
+        $A2 : Frame( fingers.extended().count() == 0, this after $A1 ) from window FrameEvents
     then
-        System.out.println("GRAB!");
+        if(accepted_grabs.isEmpty() || $A2.timestamp() - ((Frame)accepted_grabs.get(0)).timestamp() > 2000000) {
+	        System.out.println("GRAB! " + new Date($A2.timestamp() / 1000).toLocaleString());
+	        accepted_grabs.add(0, $A2);
+        }
 end
-

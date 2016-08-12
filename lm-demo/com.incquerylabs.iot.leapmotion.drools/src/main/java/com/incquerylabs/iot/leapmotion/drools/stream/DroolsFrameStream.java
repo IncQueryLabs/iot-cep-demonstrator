@@ -1,5 +1,7 @@
 package com.incquerylabs.iot.leapmotion.drools.stream;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.kie.api.KieBase;
@@ -22,6 +24,10 @@ public class DroolsFrameStream extends AbstractFrameStream {
 	
 	public static final String STREAM_ID = "FrameStream";
 	
+	List<Frame> accepted_grabs;
+	
+	long counter = 0;
+	
 	public DroolsFrameStream(IAddress sourceAddress) {
 		super(sourceAddress);
 		
@@ -35,6 +41,10 @@ public class DroolsFrameStream extends AbstractFrameStream {
 		
 		kieSession = new AtomicReference<KieSession>(kieBase.newKieSession());
 		
+		accepted_grabs = new ArrayList<Frame>();
+		
+		kieSession.get().setGlobal("accepted_grabs", accepted_grabs);
+		
 		stream = new AtomicReference<EntryPoint>(kieSession.get().getEntryPoint( STREAM_ID ));
 		
 	}
@@ -43,7 +53,9 @@ public class DroolsFrameStream extends AbstractFrameStream {
 	public void processFrame(Frame frame) {
 		if(stream != null)
 		stream.get().insert(frame);
-		kieSession.get().fireAllRules();
+		counter++;
+		if(counter % 10 == 0)
+			kieSession.get().fireAllRules();
 	}
 	
 }

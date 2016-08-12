@@ -18,9 +18,10 @@ public class ZmqFramePublisher extends Listener {
 	public void onFrame(Controller controller) {
 		try {
 			Frame frame = controller.frame();
-			if(frame.isValid() && !frame.hands().isEmpty())
+			if(frame.isValid() && !frame.hands().isEmpty()) {
 				PublisherPool.getInstance().next(address).publish(frame.serialize(), 0);
-//			System.out.println(String.format("Frame published: %d / %d", frame.id(), frame.timestamp()));
+				System.out.println(String.format("Frame published: %d / %d", frame.id(), frame.timestamp()));				
+			}
 		} catch (Exception e) {
 			// TODO: logging
 			e.printStackTrace();

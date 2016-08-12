@@ -15,9 +15,12 @@ public class Main {
 		// XXX. read from args
 		String workingDirectory = String.format("%s/leapmotion", System.getProperty("user.dir"));
 		
-//		String streampath = String.format("%s/stream_%d.lmstream", workingDirectory, System.currentTimeMillis());
+		String streampath = String.format("%s/stream_%d.lmstream", workingDirectory, System.currentTimeMillis());
 		
 		Controller controller = new Controller();
+		
+		controller.frame(30);
+		
 		PublisherPool.initializePool(new ZMQFactory());
 		
 		controller.enableGesture(Gesture.Type.TYPE_CIRCLE);
