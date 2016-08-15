@@ -1,44 +1,77 @@
 package com.incquerylabs.iot.leapmotion;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.ParseException;
 
 import com.incquerylabs.iot.communication.PublisherPool;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
-import com.incquerylabs.iot.leapmotion.zmq.ZmqFramePublisher;
-import com.leapmotion.leap.Controller;
-import com.leapmotion.leap.Gesture;
+import com.incquerylabs.iot.leapmotion.cli.CommandOptions.Commands;
+import com.incquerylabs.iot.leapmotion.cli.ControllerOptions;
 
 public class Main {
 	
+	private static LeapMotionApplication application;
+	
 	public static void main(String[] args) throws IOException, InterruptedException {
-		
-		// XXX. read from args
-		String workingDirectory = String.format("%s/leapmotion", System.getProperty("user.dir"));
-		
-		String streampath = String.format("%s/stream_%d.lmstream", workingDirectory, System.currentTimeMillis());
-		
-		Controller controller = new Controller();
-		
-		controller.frame(30);
-		
+
 		PublisherPool.initializePool(new ZMQFactory());
 		
-		controller.enableGesture(Gesture.Type.TYPE_CIRCLE);
-		controller.enableGesture(Gesture.Type.TYPE_SWIPE);
+		CommandLineParser parser = new DefaultParser();
 		
-		ZmqFramePublisher framePublisher = new ZmqFramePublisher(YellowPages.getFrameStreamAddress());
+		CommandLine cli = null;
 		
-//		FrameRecorder recorder = new FrameRecorder(streampath);
-		
-		controller.addListener(framePublisher);
-//		controller.addListener(recorder);
-		
-		Thread.currentThread();
-		while(!Thread.interrupted()) {
-			Thread.sleep(1000);
+		try {
+			cli = parser.parse(new ControllerOptions(), args);
+		} catch (ParseException e) {
+			System.err.println("Argument parsing failed: " + e.getMessage());
+			System.exit(-1);
 		}
 		
-		controller.delete();
+		if(cli.hasOption(ControllerOptions.RECORD) && cli.hasOption(ControllerOptions.REPLAY)) {
+			System.err.println("Conflicting arguments: both record and replay used! ");
+			System.exit(-1);
+		}
+		
+		if(cli.hasOption(ControllerOptions.RECORD)) {
+			String streampath = cli.getOptionValue(ControllerOptions.RECORD);
+			application = new LeapMotionApplication(LeapMotionApplication.MODE.RECORD, streampath);
+		} else if(cli.hasOption(ControllerOptions.REPLAY)) {
+			String streampath = cli.getOptionValue(ControllerOptions.REPLAY);
+			application = new LeapMotionApplication(LeapMotionApplication.MODE.REPLAY, streampath);
+		} else {
+			application = new LeapMotionApplication();
+		}
+		
+		application.start();
+		
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				application.stop();
+			}
+		});
+		
+		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+		
+		String commandLine = "";
+		System.out.print("> ");
+		while(!(commandLine = console.readLine().trim()).equals(Commands.EXIT)) {
+			try {
+				String command = commandLine.split("\\s+")[0];
+				if(command.length() > 0)
+					application.performCommand(Commands.valueOf(command.toUpperCase()));
+			} catch (Exception e) {
+				System.err.println(String.format("Failed to perform command: %s. Cause: %s", commandLine, e.getMessage()));
+				System.out.println();
+			}
+			System.out.print("> ");
+		}
+
 	}
 
 }
