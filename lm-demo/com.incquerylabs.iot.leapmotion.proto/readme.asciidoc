@@ -1,0 +1,65 @@
+# Protobuf implementation of LeapMotion model
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Vector.html[Vector]
+
+### Ignored methods from model
+
+_Will be implemented as utility methods._
+
+#### Vector operations:
+
+* `float angleTo(Vector other)``
+* `Vector cross(Vector other)`
+* `float distanceTo(Vector other)`
+* `Vector divide(float scalar)`
+* `float dot(Vector other)`
+* `Vector minus(Vector other)`
+* `Vector plus(Vector other)`
+* `Vector times(float scalar)`
+
+#### Static methods:
+
+* `Vector backward()`
+* `Vector down()`
+* `Vector forward()`
+* `Vector left()`
+* `Vector right()`
+* `Vector up()`
+* `Vector xAxis()`
+* `Vector yAxis()`
+* `Vector zAxis()`
+* `Vector zero()`
+
+#### Other methods:
+
+* `float get(long index)` - returns vector component according to the index parameter
+
+### Fields from calculated values
+
+* `float magnitude`
+* `float magnitudeSquered`
+* `Vector normalized`
+* `Vector opposite`
+* `float pitch`
+* `float roll`
+* `float yaw`
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Matrix.html[Matrix]
+
+### Ignored methods from model
+
+#### Matrix operations:
+
+* `void setRotation(Vector axis, float angleRadians)`
+* `Matrix times(Matrix other)`
+* `Vector transformDirection(Vector in)`
+* `Vector transformPoint(Vector in)`
+
+#### Static methods:
+
+* `Matrix identity()`
+
+### Fields from calculated values
+
+* `Vector origin`
+* `Matrix rigidInverse`
