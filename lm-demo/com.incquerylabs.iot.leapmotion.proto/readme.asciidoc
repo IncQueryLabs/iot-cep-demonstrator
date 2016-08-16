@@ -2,9 +2,23 @@
 
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Vector.html[Vector]
 
-### Ignored methods from model
+### Fields
 
-_Will be implemented as utility methods._
+* `float x`
+* `float y`
+* `float z`
+* `boolean valid`
+* `float magnitude`
+* `float magnitudeSquared`
+* `Vector normalized`
+* `Vector opposite`
+* `float pitch`
+* `float roll`
+* `float yaw`
+
+### Ignored methods
+
+_Could be implemented as utility methods._
 
 #### Vector operations:
 
@@ -34,19 +48,17 @@ _Will be implemented as utility methods._
 
 * `float get(long index)` - returns vector component according to the index parameter
 
-### Fields from calculated values
-
-* `float magnitude`
-* `float magnitudeSquered`
-* `Vector normalized`
-* `Vector opposite`
-* `float pitch`
-* `float roll`
-* `float yaw`
-
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Matrix.html[Matrix]
 
-### Ignored methods from model
+### Fields from calculated values
+
+* `Vector xBasis`
+* `Vector yBasis`
+* `Vector zBasis`
+* `Vector origin`
+* `Matrix rigidInverse`
+
+### Ignored methods
 
 #### Matrix operations:
 
@@ -59,7 +71,53 @@ _Will be implemented as utility methods._
 
 * `Matrix identity()`
 
-### Fields from calculated values
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Bone.html[Bone]
 
-* `Vector origin`
-* `Matrix rigidInverse`
+### Fields
+
+* `Matrix basis`
+* `Vector center`
+* `Vector direction`
+* `boolean valid`
+* `float length`
+* `Vector nextJoint()`
+* `Vector prevJoint()`
+* `Bone.Type type`
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Arm.html[Arm]
+
+### Fields based on api methods
+
+* `Matrix basis`
+* `Vector center`
+* `Vector direction`
+* `Vector elbowPosition`
+* `boolean valid`
+* `float width`
+* `Vector wristPosition`
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Finger.html[Finger]
+
+### Fields
+
+* `Finger.Type type`
+* `Vector direction`
+* `Frame frame`
+* `Hand hand`
+* `int id`
+* `boolean isExtended`
+* `boolean isFinger`
+* `boolean isTool`
+* `boolean valid`
+* `float length`
+* `Vector stabilizedTipPosition`
+* `float timeVisible`
+* `Vector tipPosition`
+* `Vector tipVelocity`
+* `float touchDistance`
+* `Pointable.Zone touchZone`
+
+### Ignored api methods
+
+* `Bone bone(Bone.Type boneIx)`
+* `Vector jointPosition(Finger.Joint jointIx)` - _deprecated_
