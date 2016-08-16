@@ -1,0 +1,29 @@
+
+syntax = "proto2"; // In the latest stable release (2.6.1) proto3 syntax is not supported yet.
+
+package leapmotion;
+
+option java_package = "com.incquerylabs.iot.leapmotion.proto";
+option java_outer_classname = "LeapMotionProtos";
+
+message Vector {
+  required float x = 1;
+  required float y = 2;
+  required float z = 3;
+  required bool valid = 4;
+  required float magnitude = 5;
+  required float magnitudeSquared = 6;
+  required Vector normalized = 7;
+  required Vector opposite = 8;
+  required float pitch = 9;
+  required float roll = 10;
+  required float yaw = 11;
+}
+
+message Matrix {
+  required Vector xBasis = 1;
+  required Vector yBasis = 2;
+  required Vector zBasis = 3;
+  required Vector origin = 4;
+  required Matrix rigidInverse = 5;
+}
