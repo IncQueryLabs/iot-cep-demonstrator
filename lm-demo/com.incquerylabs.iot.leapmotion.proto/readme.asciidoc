@@ -86,7 +86,7 @@ _Could be implemented as utility methods._
 
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Arm.html[Arm]
 
-### Fields based on api methods
+### Fields
 
 * `Matrix basis`
 * `Vector center`
@@ -100,24 +100,76 @@ _Could be implemented as utility methods._
 
 ### Fields
 
-* `Finger.Type type`
+* `int id`
+* `boolean valid`
 * `Vector direction`
+* `float length`
+* `float width`
 * `Frame frame`
 * `Hand hand`
-* `int id`
-* `boolean isExtended`
-* `boolean isFinger`
-* `boolean isTool`
-* `boolean valid`
-* `float length`
+* `boolean extended`
+* `boolean finger`
+* `boolean tool`
+
 * `Vector stabilizedTipPosition`
-* `float timeVisible`
 * `Vector tipPosition`
 * `Vector tipVelocity`
-* `float touchDistance`
 * `Pointable.Zone touchZone`
+* `float touchDistance`
+* `float timeVisible`
+* `BoneList bones`
+* `Finger.Type type`
 
 ### Ignored api methods
 
 * `Bone bone(Bone.Type boneIx)`
 * `Vector jointPosition(Finger.Joint jointIx)` - _deprecated_
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Hand.html[Hand]
+
+### Fields
+
+* `int id`
+* `Arm arm`
+* `Matrix basis`
+* `float confidence`
+* `Vector direction`
+* `Frame frame`
+* `FingerList fingers`
+* `float grabStrength`
+* `boolean left`
+* `boolean right`
+* `boolean valid`
+* `Vector palmNormal`
+* `Vector palmPosition`
+* `Vector palmVelocity`
+* `flaot palmWidth`
+* `float pinchStrength`
+* `Vector sphereCenter`
+* `Vector sphereRadius`
+* `Vector stabilizedPalmPosition`
+* `float timeVisible`
+* `Vector wristPosition`
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Gesture.html[Gesture]
+
+### Fields
+
+* `int id`
+* `FingerList fingers`
+* `GestureList gestures`
+* `HandList hands`
+* `boolean valid`
+* `State state`
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Frame.html[Frame]
+
+### Fields
+
+* `long id`
+* `FingerList fingers`
+* `GestureList gestures`
+* `HandList hands`
+* `float curentFramePerSeconds`
+* `boolean valid`
+* `long timestamp`
