@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.incquerylabs.iot.leapmotion.emf/src-gen" modelPluginID="com.incquerylabs.iot.leapmotion.emf"
+    modelName="Lmemf" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>lmemf.ecore</foreignModel>
+  <genPackages prefix="Lmemf" basePackage="com.incquerylabs.iot.leapmotion" disposableProviderFactory="true"
+      ecorePackage="lmemf.ecore#/" publicationLocation="">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="lmemf.ecore#//FingerType">
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//FingerType/THUMB"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//FingerType/INDEX"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//FingerType/MIDDLE"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//FingerType/RING"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//FingerType/PINKY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="lmemf.ecore#//BoneType">
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//BoneType/METACARPAL"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//BoneType/PROXIMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//BoneType/INTREMEDIATE"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//BoneType/DISTAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="lmemf.ecore#//TouchZone">
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//TouchZone/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//TouchZone/HOVERING"/>
+      <genEnumLiterals ecoreEnumLiteral="lmemf.ecore#//TouchZone/TOUCHING"/>
+    </genEnums>
+    <genClasses ecoreClass="lmemf.ecore#//Frame">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//Frame/fingerList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Frame/timestamp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//Frame/gestureList"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//FingerList">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/extended"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/thumbs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/indexes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/middles"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/rings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//FingerList/pinkies"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//Finger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//Finger/frame"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//Finger/hand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/extended"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/finger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/tool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//Finger/stabilizedTipPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//Finger/tipPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//Finger/tipVelocity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/touchZone"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Finger/touchDistance"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//Bone">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Bone/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//Bone/nextJoint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf.ecore#//Bone/prevJoint"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//Gesture"/>
+    <genClasses ecoreClass="lmemf.ecore#//GestureList"/>
+    <genClasses ecoreClass="lmemf.ecore#//BoneList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//BoneList/metacarpal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//BoneList/proximal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//BoneList/intermediate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//BoneList/distal"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//Arm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf.ecore#//Arm/elbowPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf.ecore#//Hand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf.ecore#//Hand/confidence"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Lmemf_base" basePackage="com.incquerylabs.iot.leapmotion" disposableProviderFactory="true"
+      ecorePackage="lmemf_base.ecore#/">
+    <genClasses ecoreClass="lmemf_base.ecore#//LMElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//LMElement/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf_base.ecore#//Vector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/z"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/magnitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/magnitudeSquared"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/roll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Vector/yaw"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Vector/normalized"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Vector/opposite"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//LMList">
+      <genTypeParameters ecoreTypeParameter="lmemf_base.ecore#//LMList/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//LMList/empty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//LMList/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//LMList/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//ArrangementList">
+      <genTypeParameters ecoreTypeParameter="lmemf_base.ecore#//ArrangementList/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//ArrangementList/frontmost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//ArrangementList/leftmost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//ArrangementList/rightmost"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//Identifiable/id"/>
+    </genClasses>
+    <genClasses ecoreClass="lmemf_base.ecore#//Matrix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Matrix/xBasis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Matrix/yBasis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Matrix/zBasis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Matrix/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//Matrix/rigidInverse"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//DirectionalElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//DirectionalElement/direction"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//CenterableElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//CenterableElement/center"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//OrientationalElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lmemf_base.ecore#//OrientationalElement/basis"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//MeasurableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//MeasurableElement/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//MeasurableElement/width"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="lmemf_base.ecore#//VisibleElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lmemf_base.ecore#//VisibleElement/timeVisible"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

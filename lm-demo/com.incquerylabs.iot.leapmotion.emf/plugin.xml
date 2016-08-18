@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated lmemf -->
+      <package
+            uri="http://incquerylabs.com/iot/leapmotion/lmemf"
+            class="com.incquerylabs.iot.leapmotion.lmemf.LmemfPackage"
+            genModel="model/lmemf.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated lmemf -->
+      <package
+            uri="http://incquerylabs.com/iot/leapmotion/lmemf_base"
+            class="com.incquerylabs.iot.leapmotion.lmemf_base.Lmemf_basePackage"
+            genModel="model/lmemf.genmodel"/>
+   </extension>
+</plugin>

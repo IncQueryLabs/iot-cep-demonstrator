@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lmemf_base" nsURI="http://incquerylabs.com/iot/leapmotion/lmemf_base"
+    nsPrefix="lmemf_base">
+  <eClassifiers xsi:type="ecore:EClass" name="LMElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vector" eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="magnitude" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="magnitudeSquared" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normalized" lowerBound="1"
+        eType="#//Vector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" lowerBound="1"
+        eType="#//Vector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LMList" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//LMElement"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements" upperBound="-1">
+      <eGenericType eTypeParameter="#//LMList/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrangementList" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//LMElement"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frontmost" lowerBound="1">
+      <eGenericType eTypeParameter="#//ArrangementList/T"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leftmost" lowerBound="1">
+      <eGenericType eTypeParameter="#//ArrangementList/T"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightmost" lowerBound="1">
+      <eGenericType eTypeParameter="#//ArrangementList/T"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//LMList">
+      <eTypeArguments eTypeParameter="#//ArrangementList/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Matrix" eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xBasis" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="yBasis" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zBasis" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rigidInverse" lowerBound="1"
+        eType="#//Matrix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectionalElement" abstract="true"
+      eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="direction" lowerBound="1"
+        eType="#//Matrix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CenterableElement" abstract="true" eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="center" lowerBound="1"
+        eType="#//Matrix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrientationalElement" abstract="true"
+      eSuperTypes="#//DirectionalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basis" lowerBound="1" eType="#//Matrix"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasurableElement" abstract="true" eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="0.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VisibleElement" abstract="true" eSuperTypes="#//LMElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeVisible" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>
