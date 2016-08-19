@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 import com.google.common.base.Stopwatch;
 import com.incquerylabs.iot.communication.IAddress;
-import com.incquerylabs.iot.communication.PublisherPool;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
+import com.incquerylabs.iot.leapmotion.zmq.FramePublisher;
 import com.leapmotion.leap.Frame;
 
 public class FrameStreamer implements Runnable {
@@ -68,11 +68,6 @@ public class FrameStreamer implements Runnable {
 		return !reachedStreamEnd;
 	}
 
-	public void publishFrame(Frame frame) throws PoolNotInitializedException {
-		if (frame != null)
-			PublisherPool.getInstance().next(target).publish(nextFrame.serialize(), 0);
-	}
-
 	@Override
 	public void run() {
 		try {
@@ -91,7 +86,7 @@ public class FrameStreamer implements Runnable {
 					Thread.sleep(delay / 1000);
 
 				stopWatch.reset();
-				publishFrame(nextFrame);
+				FramePublisher.publishFrame(nextFrame);
 				currentTimestamp = nextFrame.timestamp();
 				nextFrame = readNext();
 			}
@@ -107,7 +102,7 @@ public class FrameStreamer implements Runnable {
 	public void step() throws PoolNotInitializedException, IOException {
 		if(nextFrame == null && hasNextFrame())
 			nextFrame = readNext();
-		publishFrame(nextFrame);
+		FramePublisher.publishFrame(nextFrame);
 		nextFrame = readNext();
 	}
 

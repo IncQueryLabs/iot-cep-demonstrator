@@ -34,7 +34,7 @@ public class Main {
 		}
 		
 		if(cli.hasOption(ControllerOptions.RECORD) && cli.hasOption(ControllerOptions.REPLAY)) {
-			System.err.println("Conflicting arguments: both record and replay used! ");
+			System.err.println("Conflicting arguments: both record and replay are used! ");
 			System.exit(-1);
 		}
 		

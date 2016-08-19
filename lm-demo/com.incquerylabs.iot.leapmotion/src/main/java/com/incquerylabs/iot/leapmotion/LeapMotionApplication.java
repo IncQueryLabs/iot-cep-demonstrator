@@ -9,13 +9,13 @@ import com.incquerylabs.iot.leapmotion.cli.CommandOptions.Commands;
 import com.incquerylabs.iot.leapmotion.frame.FrameRecorder;
 import com.incquerylabs.iot.leapmotion.frame.FrameStreamer;
 import com.incquerylabs.iot.leapmotion.frame.FrameUtils;
-import com.incquerylabs.iot.leapmotion.zmq.ZmqFramePublisher;
+import com.incquerylabs.iot.leapmotion.zmq.FramePublisher;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Gesture.Type;
 
 public class LeapMotionApplication extends Controller {
 		
-	private ZmqFramePublisher framePublisher = null;
+	private FramePublisher framePublisher = null;
 	
 	private FrameRecorder frameRecorder = null;
 	
@@ -37,15 +37,16 @@ public class LeapMotionApplication extends Controller {
 		
 		switch(mode) {
 			case RECORD:
-				framePublisher = new ZmqFramePublisher(YellowPages.getFrameStreamAddress());
+				framePublisher = new FramePublisher();
 				frameRecorder = new FrameRecorder(prepareStreamFile(filepath));
 				break;
 			case REPLAY:
 				frameStreamer = new FrameStreamer(prepareStreamFile(filepath), YellowPages.getFrameStreamAddress());
 				break;
 			case DEFAULT:
-				framePublisher = new ZmqFramePublisher(YellowPages.getFrameStreamAddress());
+				framePublisher = new FramePublisher();
 		}
+	
 	}
 	
 	public LeapMotionApplication() throws IOException {

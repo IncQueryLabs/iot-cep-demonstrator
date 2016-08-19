@@ -4,9 +4,8 @@ import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
-import com.incquerylabs.iot.leapmotion.transform.Leap2ProtoConverter;
 import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Frame;
 import com.leapmotion.leap.Listener;
 
 public class FrameRecorder extends Listener {
@@ -20,15 +19,16 @@ public class FrameRecorder extends Listener {
 	@Override
 	public void onFrame(Controller controller) {
 		
-		Frame frame = Leap2ProtoConverter.convert(controller.frame());
+		Frame frame = controller.frame();
 		
-		if(!frame.getValid() || frame.getHandList().getEmpty()) return;
+		if(!frame.isValid() || frame.hands().isEmpty()) return;
 		
 		try {
-			frame.writeDelimitedTo(outputStream);
+			outputStream.writeInt(frame.serializeLength());
+			outputStream.write(frame.serialize());
 			outputStream.flush();
 		} catch (IOException e) {
-			System.err.println(String.format("Unable to write frame (id / timestamp): %d / %d",frame.getId(), frame.getTimestamp()));
+			System.err.println(String.format("Unable to write frame (id / timestamp): %d / %d",frame.id(), frame.timestamp()));
 		}
 		
 	}
