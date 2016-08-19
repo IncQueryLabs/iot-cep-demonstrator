@@ -14,8 +14,6 @@
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FingerList">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1"
-        eType="#//Finger"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thumbs" upperBound="-1"
         eType="#//Finger"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
@@ -26,33 +24,9 @@
         eType="#//Finger"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pinkies" upperBound="-1"
         eType="#//Finger"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//ArrangementList">
+    <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//PointableList">
       <eTypeArguments eClassifier="#//Finger"/>
     </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Finger" eSuperTypes="lmemf_base.ecore#//DirectionalElement lmemf_base.ecore#//Identifiable lmemf_base.ecore#//MeasurableElement lmemf_base.ecore#//VisibleElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//FingerType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="#//Frame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hand" lowerBound="1" eType="#//Hand"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finger" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
-        defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stabilizedTipPosition"
-        lowerBound="1" eType="ecore:EClass lmemf_base.ecore#//Vector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tipPosition" lowerBound="1"
-        eType="ecore:EClass lmemf_base.ecore#//Vector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tipVelocity" lowerBound="1"
-        eType="ecore:EClass lmemf_base.ecore#//Vector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchZone" lowerBound="1"
-        eType="#//TouchZone"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchDistance" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bones" lowerBound="1" eType="#//BoneList"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bone" eSuperTypes="lmemf_base.ecore#//OrientationalElement lmemf_base.ecore#//CenterableElement lmemf_base.ecore#//MeasurableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BoneType"/>
@@ -117,6 +91,22 @@
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arm" eType="#//Arm" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HandList">
+    <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//ArrangementList">
+      <eTypeArguments eClassifier="#//Hand"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Finger" eSuperTypes="lmemf_base.ecore#//Pointable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bones" lowerBound="1" eType="#//BoneList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//FingerType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tool" eSuperTypes="lmemf_base.ecore#//Pointable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToolList">
+    <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//PointableList">
+      <eTypeArguments eClassifier="#//Tool"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FingerType">
     <eLiterals name="THUMB"/>
     <eLiterals name="INDEX" value="1"/>
@@ -130,7 +120,7 @@
     <eLiterals name="INTREMEDIATE" value="2"/>
     <eLiterals name="DISTAL" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TouchZone">
+  <eClassifiers xsi:type="ecore:EEnum" name="PointableZone">
     <eLiterals name="NONE"/>
     <eLiterals name="HOVERING" value="1"/>
     <eLiterals name="TOUCHING" value="2"/>
@@ -147,10 +137,5 @@
     <eLiterals name="CIRCLE" value="2"/>
     <eLiterals name="SCREEN_TAP" value="3"/>
     <eLiterals name="KEY_TAP" value="4"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HandList">
-    <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//ArrangementList">
-      <eTypeArguments eClassifier="#//Hand"/>
-    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

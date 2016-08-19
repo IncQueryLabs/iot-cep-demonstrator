@@ -89,4 +89,36 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeVisible" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pointable" abstract="true" eSuperTypes="#//DirectionalElement #//Identifiable #//MeasurableElement #//VisibleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="ecore:EClass lmemf.ecore#//Frame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hand" lowerBound="1" eType="ecore:EClass lmemf.ecore#//Hand"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finger" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stabilizedTipPosition"
+        lowerBound="1" eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tipPosition" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tipVelocity" lowerBound="1"
+        eType="#//Vector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchZone" lowerBound="1"
+        eType="ecore:EEnum lmemf.ecore#//PointableZone"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchDistance" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointableList" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Pointable"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1">
+      <eGenericType eTypeParameter="#//PointableList/T"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ArrangementList">
+      <eTypeArguments eTypeParameter="#//PointableList/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
 </ecore:EPackage>
