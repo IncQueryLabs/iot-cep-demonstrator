@@ -84,6 +84,18 @@ _Could be implemented as utility methods._
 * `Vector prevJoint()`
 * `Bone.Type type`
 
+## BoneList
+
+### Fields
+
+* `List<Bone> bones`
+* `int count`
+* `boolean empty`
+* `Bone metacarpal`
+* `Bone proximal`
+* `Bone intermediate`
+* `Bone distal`
+
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Arm.html[Arm]
 
 ### Fields
@@ -105,8 +117,9 @@ _Could be implemented as utility methods._
 * `Vector direction`
 * `float length`
 * `float width`
-* `Frame frame`
-* `Hand hand`
+* `long frame`
+* `int hand`
+
 * `boolean extended`
 * `boolean finger`
 * `boolean tool`
@@ -114,16 +127,34 @@ _Could be implemented as utility methods._
 * `Vector stabilizedTipPosition`
 * `Vector tipPosition`
 * `Vector tipVelocity`
+
 * `Pointable.Zone touchZone`
 * `float touchDistance`
 * `float timeVisible`
-* `BoneList bones`
+* `BoneList boneList`
 * `Finger.Type type`
 
 ### Ignored api methods
 
 * `Bone bone(Bone.Type boneIx)`
 * `Vector jointPosition(Finger.Joint jointIx)` - _deprecated_
+
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.FingerList.html[FingerList]
+
+### Fields
+
+* `List<Finger> fingers`
+* `int count`
+* `bool empty`
+* `Finger frontmost`
+* `Finger leftmost`
+* `Finger rightmost`
+* `List<Finger> extended`
+* `List<Finger> thumbs`
+* `List<Finger> indexes`
+* `List<Finger> middles`
+* `List<Finger> rings`
+* `List<Finger> pinkies`
 
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Hand.html[Hand]
 
@@ -134,8 +165,8 @@ _Could be implemented as utility methods._
 * `Matrix basis`
 * `float confidence`
 * `Vector direction`
-* `Frame frame`
-* `FingerList fingers`
+* `long frame`
+* `FingerList fingerList`
 * `float grabStrength`
 * `boolean left`
 * `boolean right`
@@ -151,25 +182,39 @@ _Could be implemented as utility methods._
 * `float timeVisible`
 * `Vector wristPosition`
 
+## https://developer.leapmotion.com/documentation/v2/java/api/Leap.HandList.html[HandList]
+
+### Fields
+
+* `List<Hand> hands`
+* `int count`
+* `boolean empty`
+* `Hand frontmost`
+* `Hand leftmost`
+* `Hand rightmost`
+
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Gesture.html[Gesture]
 
 ### Fields
 
 * `int id`
-* `FingerList fingers`
-* `GestureList gestures`
-* `HandList hands`
+* `long duration`
+* `float durationSeconds`
+* `long frame`
+* `FingerList fingerList`
+* `HandList handList`
 * `boolean valid`
 * `State state`
+* `Type type`
 
 ## https://developer.leapmotion.com/documentation/v2/java/api/Leap.Frame.html[Frame]
 
 ### Fields
 
 * `long id`
-* `FingerList fingers`
-* `GestureList gestures`
-* `HandList hands`
+* `FingerList fingerList`
+* `GestureList gestureList`
+* `HandList handList`
 * `float curentFramePerSeconds`
 * `boolean valid`
 * `long timestamp`
