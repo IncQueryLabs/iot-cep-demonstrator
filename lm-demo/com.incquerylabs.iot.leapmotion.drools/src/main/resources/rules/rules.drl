@@ -1,9 +1,7 @@
 //created on: Aug 11, 2016
 package rules
 
-import com.leapmotion.leap.Frame;
-import com.leapmotion.leap.Finger;
-import com.leapmotion.leap.Finger.Type;
+import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
 import java.util.Date;
 
 declare Frame
@@ -22,11 +20,12 @@ global java.util.List accepted_grabs
 
 rule "Grab gesture"
     when
-        $A1 : Frame( fingers.extended().count() == 5 ) from window FrameEvents
-        $A2 : Frame( fingers.extended().count() == 0, this after $A1 ) from window FrameEvents
+        $A1 : Frame( fingers.getExtendedCount() == 5 ) from window FrameEvents
+        $A2 : Frame( fingers.getExtendedCount() == 0, this after $A1 ) from window FrameEvents
+        eval($A2.getHands().getFrontmost().getGrabStrength() > 0.5)
     then
-        if(accepted_grabs.isEmpty() || $A2.timestamp() - ((Frame)accepted_grabs.get(0)).timestamp() > 2000000) {
-	        System.out.println("GRAB! " + new Date($A2.timestamp() / 1000).toLocaleString());
+        if(accepted_grabs.isEmpty() || $A2.getTimestamp() - ((Frame)accepted_grabs.get(0)).getTimestamp() > 2000000) {
+	        System.out.println("GRAB! " + new Date($A2.getTimestamp() / 1000).toLocaleString());
 	        accepted_grabs.add(0, $A2);
         }
 end

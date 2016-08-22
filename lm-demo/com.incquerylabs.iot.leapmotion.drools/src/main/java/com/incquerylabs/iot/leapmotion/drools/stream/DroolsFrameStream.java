@@ -13,10 +13,10 @@ import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.EntryPoint;
 
 import com.incquerylabs.iot.communication.IAddress;
-import com.incquerylabs.iot.leapmotion.processor.AbstractLeapFrameStream;
-import com.leapmotion.leap.Frame;
+import com.incquerylabs.iot.leapmotion.processor.AbstractProtoFrameStream;
+import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
 
-public class DroolsFrameStream extends AbstractLeapFrameStream {
+public class DroolsFrameStream extends AbstractProtoFrameStream {
 	
 	AtomicReference<KieSession> kieSession;
 	
@@ -27,7 +27,7 @@ public class DroolsFrameStream extends AbstractLeapFrameStream {
 	List<Frame> accepted_grabs;
 	
 	long counter = 0;
-	
+		
 	public DroolsFrameStream(IAddress sourceAddress) {
 		super(sourceAddress);
 		
@@ -54,8 +54,7 @@ public class DroolsFrameStream extends AbstractLeapFrameStream {
 		if(stream != null)
 		stream.get().insert(frame);
 		counter++;
-		if(counter % 10 == 0)
-			kieSession.get().fireAllRules();
+		kieSession.get().fireAllRules();
 	}
 	
 }
