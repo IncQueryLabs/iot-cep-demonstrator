@@ -1,4 +1,4 @@
-package com.incquerylabs.iot.leapmotion;
+package com.incquerylabs.iot.leapmotion.test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

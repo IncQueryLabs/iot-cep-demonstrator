@@ -13,10 +13,10 @@ import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.EntryPoint;
 
 import com.incquerylabs.iot.communication.IAddress;
-import com.incquerylabs.iot.leapmotion.processor.AbstractFrameStream;
+import com.incquerylabs.iot.leapmotion.processor.AbstractLeapFrameStream;
 import com.leapmotion.leap.Frame;
 
-public class DroolsFrameStream extends AbstractFrameStream {
+public class DroolsFrameStream extends AbstractLeapFrameStream {
 	
 	AtomicReference<KieSession> kieSession;
 	

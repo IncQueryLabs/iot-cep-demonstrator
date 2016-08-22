@@ -5,9 +5,9 @@ import com.incquerylabs.iot.processor.AbstractProcessorComponent;
 import com.incquerylabs.iot.processor.IDataProcessor;
 import com.leapmotion.leap.Frame;
 
-public abstract class AbstractFrameStream extends AbstractProcessorComponent implements IDataProcessor {
+public abstract class AbstractLeapFrameStream extends AbstractProcessorComponent implements IDataProcessor {
 
-	public AbstractFrameStream(IAddress sourceAddress) {
+	public AbstractLeapFrameStream(IAddress sourceAddress) {
 		super(sourceAddress);
 		setProcessor(this);
 	}
