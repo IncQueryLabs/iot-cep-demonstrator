@@ -21,7 +21,11 @@ public class AbstractProcessorComponent implements ISubscriberCallback {
 	
 	@Override
 	public void messageArrived(IAddress address, byte[] data) {
-		processor.process(data);		
+		try {
+			processor.process(data);
+		} catch (Exception e) {
+			System.out.println(String.format("Exception occured during data processing: %s", e.getMessage()));
+		}	
 	}
 	
 	public void start() throws PoolNotInitializedException {

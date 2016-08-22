@@ -3,5 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Communication
 Bundle-SymbolicName: com.incquerylabs.iot.commons
 Bundle-Version: 1.0.0.qualifier
-Export-Package: com.incquerylabs.iot.communication
+Export-Package: com.incquerylabs.iot.communication,
+ com.incquerylabs.iot.communication.exception,
+ com.incquerylabs.iot.processor
 Require-Bundle: com.google.guava;bundle-version="15.0.0"

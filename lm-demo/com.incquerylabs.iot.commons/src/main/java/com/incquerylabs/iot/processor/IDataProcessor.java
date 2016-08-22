@@ -2,6 +2,6 @@ package com.incquerylabs.iot.processor;
 
 public interface IDataProcessor {
 	
-	public void process(byte[] data);
+	public void process(byte[] data) throws Exception;
 	
 }

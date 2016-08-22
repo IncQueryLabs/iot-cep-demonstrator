@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Leapmotion
+Bundle-SymbolicName: com.incquerylabs.iot.leapmotion
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.incquerylabs.iot.leapmotion,
+ com.incquerylabs.iot.leapmotion.cli,
+ com.incquerylabs.iot.leapmotion.frame,
+ com.incquerylabs.iot.leapmotion.model,
+ com.incquerylabs.iot.leapmotion.processor,
+ com.incquerylabs.iot.leapmotion.test,
+ com.incquerylabs.iot.leapmotion.transform,
+ com.incquerylabs.iot.leapmotion.zmq
+Import-Package: com.incquerylabs.iot.leapmotion.proto
+Require-Bundle: com.incquerylabs.iot.leapmotion.proto;bundle-version="1.0.0",
+ com.incquerylabs.iot.commons;bundle-version="1.0.0",
+ com.incquerylabs.iot.zmq;bundle-version="1.0.0"
