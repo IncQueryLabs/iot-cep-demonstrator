@@ -1,0 +1,10 @@
+package com.incquerylabs.iot.leapmotion.viatracep.vepl
+
+import-queries com.incquerylabs.iot.leapmotion.proto2emf.queries.*
+
+queryEvent TEST() as frameFingers(_) found
+
+rule testRule on TEST {
+	System.out.println("It works!");
+}
+
