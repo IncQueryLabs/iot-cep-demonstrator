@@ -1,0 +1,7 @@
+package com.incquerylabs.iot.leapmotion.proto2emf.queries
+
+import "http://incquerylabs.com/iot/leapmotion/lmemf"
+
+pattern frameFingers(frame : Frame, fingers : FingerList) {
+	Frame.fingers(frame, fingers);
+}
