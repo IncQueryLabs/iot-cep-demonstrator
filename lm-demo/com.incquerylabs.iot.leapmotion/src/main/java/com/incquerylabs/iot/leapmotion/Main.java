@@ -71,11 +71,11 @@ public class Main {
 		System.out.println("LeapMotion controller application started.");
 		
 		String commandLine = "";
-		while(!(commandLine = console.readLine().trim()).equals(Commands.EXIT)) {
+		while(!(commandLine = console.readLine().trim().toUpperCase()).equals(Commands.EXIT.name())) {
 			try {
 				String command = commandLine.split("\\s+")[0];
 				if(command.length() > 0)
-					application.performCommand(Commands.valueOf(command.toUpperCase()));
+					application.performCommand(Commands.valueOf(command));
 			} catch (Exception e) {
 				System.err.println(String.format("Failed to perform command: %s. Cause: %s", commandLine, e.getMessage()));
 			}
