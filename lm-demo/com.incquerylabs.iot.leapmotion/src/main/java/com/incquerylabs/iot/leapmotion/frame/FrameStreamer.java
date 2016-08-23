@@ -30,33 +30,56 @@ public class FrameStreamer implements Runnable {
 	Stopwatch stopWatch;
 	
 	ExecutorService executor = Executors.newCachedThreadPool();
+
+	private boolean freerun = true;
+
+	private int frametimemicros = -1;
 	
-	public FrameStreamer(String inputfilepath, IAddress target) throws FileNotFoundException, IOException {
+	private long nextframetimemicros = -1;
+	
+	public FrameStreamer(String inputfilepath, IAddress target, int fps) throws FileNotFoundException, IOException {
 		this.target = target;
 		inputStream = new DataInputStream(new FileInputStream(inputfilepath));
 		reachedStreamEnd = false;
+		if(fps > 0 && fps < 150) {
+			frametimemicros  = 1000000 / fps;
+			freerun = false;
+		} else 
+			freerun = true;
 	}
-
+	
+	public FrameStreamer(String inputfilepath, IAddress target) throws FileNotFoundException, IOException {
+		this(inputfilepath, target, -1);
+	}
+	
 	public Frame readNext() throws IOException {
 
-		Frame frame = new Frame();
-
+		Frame frame = null;
 		byte[] data = null;
 
 		try {
 			int size = inputStream.readInt();
+			long timestamp = inputStream.readLong();
+			while(!freerun && timestamp <= nextframetimemicros) {
+				inputStream.skipBytes(size);
+				size = inputStream.readInt();
+				timestamp = inputStream.readLong();
+			}
+			nextframetimemicros = timestamp + frametimemicros;
 			data = new byte[size];
 			inputStream.read(data);
 		} catch (EOFException eof) {
 			reachedStreamEnd = true;
 		} finally {
-			if (data != null)
+			if (data != null) {
+				frame = new Frame();
 				frame.deserialize(data);
+			}
 		}
 
 		return frame;
 	}
-
+	
 	public void reset() throws IOException {
 		if (inputStream != null)
 			inputStream.reset();

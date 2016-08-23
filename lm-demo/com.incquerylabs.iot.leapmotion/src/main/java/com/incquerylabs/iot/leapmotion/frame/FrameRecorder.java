@@ -25,6 +25,7 @@ public class FrameRecorder extends Listener {
 		
 		try {
 			outputStream.writeInt(frame.serializeLength());
+			outputStream.writeLong(frame.timestamp());
 			outputStream.write(frame.serialize());
 			outputStream.flush();
 		} catch (IOException e) {

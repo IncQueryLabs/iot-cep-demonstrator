@@ -3,6 +3,8 @@ package com.incquerylabs.iot.leapmotion;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.leapmotion.cli.CommandOptions.Commands;
@@ -12,23 +14,24 @@ import com.incquerylabs.iot.leapmotion.frame.FrameUtils;
 import com.incquerylabs.iot.leapmotion.zmq.FramePublisher;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Gesture.Type;
+import com.leapmotion.leap.Listener;
 
 public class LeapMotionApplication extends Controller {
-		
-	private FramePublisher framePublisher = null;
-	
-	private FrameRecorder frameRecorder = null;
-	
-	private FrameStreamer frameStreamer = null;
-	
+			
 	public static enum MODE {
 		RECORD,
 		REPLAY,
 		DEFAULT
 	}
 	
-	public LeapMotionApplication(MODE mode, String filepath) throws IOException {
-
+	Set<Listener> listeners;
+	
+	FrameStreamer streamer = null;
+	
+	public LeapMotionApplication(MODE mode, String filepath, int fps) throws IOException {
+		
+		listeners = new HashSet<Listener>();
+		
 		enableGesture(Type.TYPE_CIRCLE);
 		enableGesture(Type.TYPE_SWIPE);
 		enableGesture(Type.TYPE_KEY_TAP);
@@ -37,20 +40,20 @@ public class LeapMotionApplication extends Controller {
 		
 		switch(mode) {
 			case RECORD:
-				framePublisher = new FramePublisher();
-				frameRecorder = new FrameRecorder(prepareStreamFile(filepath));
+				listeners.add(new FramePublisher(fps));
+				listeners.add(new FrameRecorder(prepareStreamFile(filepath)));
 				break;
 			case REPLAY:
-				frameStreamer = new FrameStreamer(prepareStreamFile(filepath), YellowPages.getFrameStreamAddress());
+				streamer = new FrameStreamer(prepareStreamFile(filepath), YellowPages.getFrameStreamAddress(), fps);
 				break;
 			case DEFAULT:
-				framePublisher = new FramePublisher();
+				listeners.add(new FramePublisher());
 		}
 	
 	}
 	
-	public LeapMotionApplication() throws IOException {
-		this(MODE.DEFAULT, "");
+	public LeapMotionApplication(int fps) throws IOException {
+		this(MODE.DEFAULT, "", fps);
 	}
 	
 	private String prepareStreamFile(String streampath) throws IOException {
@@ -70,16 +73,16 @@ public class LeapMotionApplication extends Controller {
 	public void performCommand(Commands command) throws PoolNotInitializedException, IOException {
 		switch(command) {
 			case REPLAY:
-				frameStreamer.start();
+				streamer.start();
 				break;
 			case STEP:
-				frameStreamer.step();
+				streamer.step();
 				break;
 			case PAUSE:
-				frameStreamer.pause();
+				streamer.pause();
 				break;
 			case RESET:
-				frameStreamer.reset();
+				streamer.reset();
 				break;
 			default:
 		}
@@ -87,18 +90,12 @@ public class LeapMotionApplication extends Controller {
 	
 	public void start() {
 		// Register leap motion listeners
-		if(framePublisher != null)
-			addListener(framePublisher);
-		if(frameRecorder != null)
-			addListener(frameRecorder);
+		listeners.forEach(listener -> addListener(listener));
 	}
 	
 	public void stop() {
 		// Remove listeners & delete controller
-		if(framePublisher != null)
-			removeListener(framePublisher);
-		if(frameRecorder != null)
-			removeListener(frameRecorder);
+		listeners.forEach(listener -> removeListener(listener));
 		delete();
 	}
 	

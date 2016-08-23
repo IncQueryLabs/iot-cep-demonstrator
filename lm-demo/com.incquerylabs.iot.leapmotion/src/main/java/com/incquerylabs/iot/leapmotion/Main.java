@@ -26,6 +26,8 @@ public class Main {
 		
 		CommandLine cli = null;
 		
+		int fps = -1;
+		
 		try {
 			cli = parser.parse(new ControllerOptions(), args);
 		} catch (ParseException e) {
@@ -38,14 +40,18 @@ public class Main {
 			System.exit(-1);
 		}
 		
+		if(cli.hasOption(ControllerOptions.FPS)) {
+			fps = Integer.valueOf(cli.getOptionValue(ControllerOptions.FPS));
+		}
+		
 		if(cli.hasOption(ControllerOptions.RECORD)) {
 			String streampath = cli.getOptionValue(ControllerOptions.RECORD);
-			application = new LeapMotionApplication(LeapMotionApplication.MODE.RECORD, streampath);
+			application = new LeapMotionApplication(LeapMotionApplication.MODE.RECORD, streampath, fps);
 		} else if(cli.hasOption(ControllerOptions.REPLAY)) {
 			String streampath = cli.getOptionValue(ControllerOptions.REPLAY);
-			application = new LeapMotionApplication(LeapMotionApplication.MODE.REPLAY, streampath);
+			application = new LeapMotionApplication(LeapMotionApplication.MODE.REPLAY, streampath, fps);
 		} else {
-			application = new LeapMotionApplication();
+			application = new LeapMotionApplication(fps);
 		}
 		
 		application.start();
