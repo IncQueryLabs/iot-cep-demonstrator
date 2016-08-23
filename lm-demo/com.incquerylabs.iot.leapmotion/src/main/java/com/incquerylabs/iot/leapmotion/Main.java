@@ -80,7 +80,8 @@ public class Main {
 				System.err.println(String.format("Failed to perform command: %s. Cause: %s", commandLine, e.getMessage()));
 			}
 		}
-
+		
+		console.close();
 	}
 
 }

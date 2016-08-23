@@ -17,7 +17,7 @@ import com.leapmotion.leap.Frame;
 
 public class FrameStreamer implements Runnable {
 
-	DataInputStream inputStream;
+	DataInputStream inputStream = null;
 
 	IAddress target;
 
@@ -25,7 +25,7 @@ public class FrameStreamer implements Runnable {
 
 	private volatile boolean autostream;
 
-	Frame nextFrame;
+	Frame nextFrame = null;
 
 	Stopwatch stopWatch;
 	
@@ -90,6 +90,7 @@ public class FrameStreamer implements Runnable {
 		reachedStreamEnd = false;
 		autostream = false;
 		nextframetimemicros = -1;
+		nextFrame = null;
 	}
 
 	public boolean hasNextFrame() {
