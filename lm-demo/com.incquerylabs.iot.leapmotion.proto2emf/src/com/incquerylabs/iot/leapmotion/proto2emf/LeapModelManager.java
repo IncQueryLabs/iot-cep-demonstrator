@@ -14,9 +14,13 @@ import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException;
 import org.eclipse.viatra.query.runtime.emf.EMFScope;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
+import com.incquerylabs.iot.leapmotion.lmemf.FingerList;
+import com.incquerylabs.iot.leapmotion.lmemf.HandList;
 import com.incquerylabs.iot.leapmotion.lmemf.LmemfFactory;
 import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.Leapqueries;
+
+import static com.incquerylabs.iot.leapmotion.proto2emf.Proto2EMFConverter.*;
 
 public class LeapModelManager implements ILeapModelUpdater {
 
@@ -71,6 +75,15 @@ public class LeapModelManager implements ILeapModelUpdater {
 	public synchronized void updateModel(Frame frame) {
 		currentFrame.setCurrentFramePerSecond(frame.getCurrentFramePerSecond());
 		currentFrame.setValid(frame.getValid());
+
+		FingerList fingers = convert(frame.getFingers());
+		currentFrame.setFingers(fingers);
+		fingers.setCount(fingers.getExtended().size());
+		
+		System.out.println("Extended fingers: " + fingers.getExtended().size());
+		
+		HandList hands = convert(frame.getHands());
+		currentFrame.setHands(hands);
 	}
 	
 	

@@ -1,7 +1,20 @@
 package com.incquerylabs.iot.leapmotion.proto2emf.queries
 
 import "http://incquerylabs.com/iot/leapmotion/lmemf"
+import "http://incquerylabs.com/iot/leapmotion/lmemf_base"
+import "http://www.eclipse.org/emf/2002/Ecore"
 
-pattern frameFingers(frame : Frame, fingers : FingerList) {
+pattern allExtended(frame : Frame) {
+	find extendedFinger(frame, N);
+	check(N == 5);
+}
+
+pattern allBent(frame : Frame) {
+	find extendedFinger(frame, N);
+	check(N == 0);
+}
+
+pattern extendedFinger(frame : Frame, N : EInt) {
 	Frame.fingers(frame, fingers);
+	FingerList.^count(fingers, N);
 }

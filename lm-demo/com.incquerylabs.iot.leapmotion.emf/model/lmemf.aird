@@ -55,11 +55,11 @@
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </endLabelStyleDescription>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_KB4w0GX8EeaKi4nnDYZrsA" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='EClass']"/>
+          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_y7MwoGhBEeaZPOIT5MCLyQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='Inherited']"/>
+            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </computedStyleDescriptions>
         </data>
       </ownedAnnotationEntries>
@@ -89,6 +89,10 @@
           <children xmi:type="notation:Node" xmi:id="_uecMIGT5EeaBUceuGXWbmQ" type="2003" element="_ueUQUGT5EeaBUceuGXWbmQ">
             <children xmi:type="notation:Node" xmi:id="_ueczMGT5EeaBUceuGXWbmQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_ueczMWT5EeaBUceuGXWbmQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_y8Ao8GhBEeaZPOIT5MCLyQ" type="3010" element="_y7IfMGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8Ao8WhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" italic="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8Ao8mhBEeaZPOIT5MCLyQ"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_KCi4IGX8EeaKi4nnDYZrsA" type="3010" element="_KCAsoGX8EeaKi4nnDYZrsA">
                 <styles xmi:type="notation:FontStyle" xmi:id="_KCi4IWX8EeaKi4nnDYZrsA" fontName="Cantarell" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_KCi4ImX8EeaKi4nnDYZrsA"/>
@@ -121,6 +125,18 @@
               <children xmi:type="notation:Node" xmi:id="_G4IIoGVOEeaBUceuGXWbmQ" type="3010" element="_G34RAGVOEeaBUceuGXWbmQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_G4IIoWVOEeaBUceuGXWbmQ" fontColor="2697711" fontName="Cantarell" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_G4IIomVOEeaBUceuGXWbmQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8GvkGhBEeaZPOIT5MCLyQ" type="3010" element="_y7MJkGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8GvkWhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8GvkmhBEeaZPOIT5MCLyQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8HWoGhBEeaZPOIT5MCLyQ" type="3010" element="_y7NXsGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8HWoWhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8HWomhBEeaZPOIT5MCLyQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8HWo2hBEeaZPOIT5MCLyQ" type="3010" element="_y7N-wGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8HWpGhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8HWpWhBEeaZPOIT5MCLyQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_M9lzkGVlEeamuLCYh7VEHw" type="3010" element="_M8-IgGVlEeamuLCYh7VEHw">
                 <styles xmi:type="notation:FontStyle" xmi:id="_M9lzkWVlEeamuLCYh7VEHw" fontName="Cantarell" fontHeight="8"/>
@@ -178,6 +194,18 @@
           <children xmi:type="notation:Node" xmi:id="_PrVG0GVSEeaBUceuGXWbmQ" type="2003" element="_PrCy8GVSEeaBUceuGXWbmQ">
             <children xmi:type="notation:Node" xmi:id="_PrVG02VSEeaBUceuGXWbmQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_PrVt4GVSEeaBUceuGXWbmQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_y8Ikw2hBEeaZPOIT5MCLyQ" type="3010" element="_y7SQMGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8IkxGhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8IkxWhBEeaZPOIT5MCLyQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8H9sGhBEeaZPOIT5MCLyQ" type="3010" element="_y7S3QWhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8H9sWhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8H9smhBEeaZPOIT5MCLyQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8IkwGhBEeaZPOIT5MCLyQ" type="3010" element="_y7UFYGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8IkwWhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8IkwmhBEeaZPOIT5MCLyQ"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_M9maoGVlEeamuLCYh7VEHw" type="3010" element="_M9CZ8GVlEeamuLCYh7VEHw">
                 <styles xmi:type="notation:FontStyle" xmi:id="_M9maoWVlEeamuLCYh7VEHw" fontName="Cantarell" fontHeight="8" bold="true"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_M9maomVlEeamuLCYh7VEHw"/>
@@ -215,6 +243,14 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_7Ev6AWV1EeaMW-wIKLYTOg" fontName="Cantarell" fontHeight="8" bold="true"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_7Ev6AmV1EeaMW-wIKLYTOg"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_y8JL0GhBEeaZPOIT5MCLyQ" type="3010" element="_y7Zk8GhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8JL0WhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8JL0mhBEeaZPOIT5MCLyQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_y8Jy4GhBEeaZPOIT5MCLyQ" type="3010" element="_y7aMAGhBEeaZPOIT5MCLyQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_y8Jy4WhBEeaZPOIT5MCLyQ" fontColor="8224125" fontName="Cantarell" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_y8Jy4mhBEeaZPOIT5MCLyQ"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_rWOLoGV1EeaMW-wIKLYTOg" type="3010" element="_rVZsQGV1EeaMW-wIKLYTOg">
                 <styles xmi:type="notation:FontStyle" xmi:id="_rWOLoWV1EeaMW-wIKLYTOg" fontName="Cantarell" fontHeight="8" bold="true"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_rWOLomV1EeaMW-wIKLYTOg"/>
@@ -244,6 +280,15 @@
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_E28FQWVUEeaBUceuGXWbmQ" fontName="Cantarell" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E28FQmVUEeaBUceuGXWbmQ" x="360" y="180"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_zlzDcGhaEeaZPOIT5MCLyQ" type="2002" element="_zlI8IGhaEeaZPOIT5MCLyQ">
+            <children xmi:type="notation:Node" xmi:id="_zl2t0GhaEeaZPOIT5MCLyQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_zl3U4GhaEeaZPOIT5MCLyQ" type="7001">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_zl3U4WhaEeaZPOIT5MCLyQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_zl3U4mhaEeaZPOIT5MCLyQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_zlzDcWhaEeaZPOIT5MCLyQ" fontName="Cantarell" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zlzDcmhaEeaZPOIT5MCLyQ" x="960" y="497"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_V1lnEmT5EeaBUceuGXWbmQ"/>
           <edges xmi:type="notation:Edge" xmi:id="_dBm2UGVQEeaBUceuGXWbmQ" type="4001" element="_dBT7YGVQEeaBUceuGXWbmQ" source="_IcBSYGVQEeaBUceuGXWbmQ" target="_vpg3UGUpEeaBUceuGXWbmQ">
@@ -424,13 +469,15 @@
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ayb7kGT5EeaBUceuGXWbmQ" name="Frame" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Frame/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'" outgoingEdges="_rVucYGV1EeaMW-wIKLYTOg _rVvDc2V1EeaMW-wIKLYTOg" incomingEdges="_rVvqhmV1EeaMW-wIKLYTOg _rVxfsGV1EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ayb7kGT5EeaBUceuGXWbmQ" name="Frame" tooltipText="" outgoingEdges="_rVucYGV1EeaMW-wIKLYTOg _rVvDc2V1EeaMW-wIKLYTOg" incomingEdges="_rVvqhmV1EeaMW-wIKLYTOg _rVxfsGV1EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//Frame"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//Frame"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cUuPAGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y64AgGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A9dEUGUqEeaBUceuGXWbmQ" name="timestamp : ELong" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="lmemf.ecore#//Frame/timestamp"/>
@@ -457,14 +504,25 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ueUQUGT5EeaBUceuGXWbmQ" name="FingerList" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//FingerList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//PointableList}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//FingerList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//PointableList}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//FingerList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//PointableList}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//FingerList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//PointableList}'&#xA;ERROR : The generic type associated with the 'null' classifier must not have 1 argument(s) when the classifier has 0 type parameter(s)" incomingEdges="_rVucYGV1EeaMW-wIKLYTOg _rVwRk2V1EeaMW-wIKLYTOg _rVyGwGV1EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ueUQUGT5EeaBUceuGXWbmQ" name="FingerList" tooltipText="" incomingEdges="_rVucYGV1EeaMW-wIKLYTOg _rVwRk2V1EeaMW-wIKLYTOg _rVyGwGV1EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//FingerList"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//FingerList"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_KB5-8GX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y66cwGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7IfMGhBEeaZPOIT5MCLyQ" name=" extended : T" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//PointableList/extended"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//PointableList/extended"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7JGQGhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT">
+            <labelFormat>italic</labelFormat>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_KCAsoGX8EeaKi4nnDYZrsA" name=" thumbs : Finger" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//FingerList/thumbs"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//FingerList/thumbs"/>
@@ -506,13 +564,15 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_vpZikGUpEeaBUceuGXWbmQ" name="Bone" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/nextJoint}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/nextJoint}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/nextJoint/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/nextJoint/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/prevJoint}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/prevJoint}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/prevJoint/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/prevJoint/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Bone/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'" incomingEdges="_dBT7YGVQEeaBUceuGXWbmQ _jH7UUGVQEeaBUceuGXWbmQ _liOzkGVQEeaBUceuGXWbmQ _pocbAGVQEeaBUceuGXWbmQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_vpZikGUpEeaBUceuGXWbmQ" name="Bone" tooltipText="" incomingEdges="_dBT7YGVQEeaBUceuGXWbmQ _jH7UUGVQEeaBUceuGXWbmQ _liOzkGVQEeaBUceuGXWbmQ _pocbAGVQEeaBUceuGXWbmQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//Bone"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//Bone"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cUygcGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y67D0GhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_G34RAGVOEeaBUceuGXWbmQ" name="type : BoneType = METACARPAL" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="lmemf.ecore#//Bone/type"/>
@@ -522,7 +582,31 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M8-IgGVlEeamuLCYh7VEHw" name=" nextJoint" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7MJkGhBEeaZPOIT5MCLyQ" name=" direction : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7MwoWhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7NXsGhBEeaZPOIT5MCLyQ" name=" basis : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7NXsWhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7N-wGhBEeaZPOIT5MCLyQ" name=" center : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//CenterableElement/center"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//CenterableElement/center"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7N-wWhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M8-IgGVlEeamuLCYh7VEHw" name=" nextJoint : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Bone/nextJoint"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Bone/nextJoint"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_M8-vkGVlEeamuLCYh7VEHw" labelAlignment="LEFT" color="114,159,207">
@@ -530,7 +614,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M8-vkWVlEeamuLCYh7VEHw" name=" prevJoint" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M8-vkWVlEeamuLCYh7VEHw" name=" prevJoint : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Bone/prevJoint"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Bone/prevJoint"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_M8-vkmVlEeamuLCYh7VEHw" labelAlignment="LEFT" color="114,159,207">
@@ -539,13 +623,15 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_XXFgUGVMEeaBUceuGXWbmQ" name="Gesture" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Gesture/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'" outgoingEdges="_rVvqhmV1EeaMW-wIKLYTOg _rVwRk2V1EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_XXFgUGVMEeaBUceuGXWbmQ" name="Gesture" tooltipText="" outgoingEdges="_rVvqhmV1EeaMW-wIKLYTOg _rVwRk2V1EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//Gesture"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//Gesture"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cUzukGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y68R8GhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVOGEGV1EeaMW-wIKLYTOg" name="state : GestureState = INVALID" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="lmemf.ecore#//Gesture/state"/>
@@ -572,22 +658,26 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_baaL0GVMEeaBUceuGXWbmQ" name="GestureList" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//GestureList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//GestureList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//GestureList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//GestureList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The generic type associated with the 'null' classifier must not have 1 argument(s) when the classifier has 0 type parameter(s)" incomingEdges="_rVvDc2V1EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_baaL0GVMEeaBUceuGXWbmQ" name="GestureList" tooltipText="" incomingEdges="_rVvDc2V1EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//GestureList"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//GestureList"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cU0VoGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y6-HIGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_IbwMoGVQEeaBUceuGXWbmQ" name="BoneList" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//BoneList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//BoneList}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//BoneList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//BoneList/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//LMList}'&#xA;ERROR : The generic type associated with the 'null' classifier must not have 1 argument(s) when the classifier has 0 type parameter(s)" outgoingEdges="_dBT7YGVQEeaBUceuGXWbmQ _jH7UUGVQEeaBUceuGXWbmQ _liOzkGVQEeaBUceuGXWbmQ _pocbAGVQEeaBUceuGXWbmQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_IbwMoGVQEeaBUceuGXWbmQ" name="BoneList" tooltipText="" outgoingEdges="_dBT7YGVQEeaBUceuGXWbmQ _jH7UUGVQEeaBUceuGXWbmQ _liOzkGVQEeaBUceuGXWbmQ _pocbAGVQEeaBUceuGXWbmQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//BoneList"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//BoneList"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cU08sGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y6-uMGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_dBT7YGVQEeaBUceuGXWbmQ" name="[0..1] metacarpal" sourceNode="_IbwMoGVQEeaBUceuGXWbmQ" targetNode="_vpZikGUpEeaBUceuGXWbmQ">
@@ -626,15 +716,41 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_PrCy8GVSEeaBUceuGXWbmQ" name="Arm" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/elbowPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/elbowPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/elbowPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/elbowPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//CenterableElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Arm/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'" incomingEdges="_KAL-kGV2EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_PrCy8GVSEeaBUceuGXWbmQ" name="Arm" tooltipText="" incomingEdges="_KAL-kGV2EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//Arm"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//Arm"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cU1jwGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y6_8UGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M9CZ8GVlEeamuLCYh7VEHw" name=" elbowPosition" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7SQMGhBEeaZPOIT5MCLyQ" name=" direction : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7S3QGhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7S3QWhBEeaZPOIT5MCLyQ" name=" basis : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7TeUGhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7UFYGhBEeaZPOIT5MCLyQ" name=" center : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//CenterableElement/center"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//CenterableElement/center"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7UscGhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_M9CZ8GVlEeamuLCYh7VEHw" name=" elbowPosition : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Arm/elbowPosition"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Arm/elbowPosition"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_M9CZ8WVlEeamuLCYh7VEHw" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -643,13 +759,15 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_E2ojQGVUEeaBUceuGXWbmQ" name="Hand" tooltipText="&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//VisibleElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eAllSuperTypes' of 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//VisibleElement}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmNormal}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmNormal}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmNormal/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmNormal/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmVelocity}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmVelocity}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmVelocity/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/palmVelocity/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/sphereCenter}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/sphereCenter}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/sphereCenter/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/sphereCenter/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/stabilizedPalmPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/stabilizedPalmPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/stabilizedPalmPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/stabilizedPalmPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/wristPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/wristPosition}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/wristPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/wristPosition/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Vector}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.0}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//OrientationalElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.1}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//Identifiable}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.2}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//MeasurableElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.3}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//VisibleElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf.ecore#//Hand/@eGenericSuperTypes.3}' contains an unresolved proxy 'EClass{platform:/resource/com.incquerylabs.iot.leapmotion.emf/model/lmemf_base.ecore#//VisibleElement}'" outgoingEdges="_rVxfsGV1EeaMW-wIKLYTOg _rVyGwGV1EeaMW-wIKLYTOg _KAL-kGV2EeaMW-wIKLYTOg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_E2ojQGVUEeaBUceuGXWbmQ" name="Hand" tooltipText="" outgoingEdges="_rVxfsGV1EeaMW-wIKLYTOg _rVyGwGV1EeaMW-wIKLYTOg _KAL-kGV2EeaMW-wIKLYTOg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="lmemf.ecore#//Hand"/>
         <semanticElements xmi:type="ecore:EClass" href="lmemf.ecore#//Hand"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cU4AAGX8EeaKi4nnDYZrsA" labelColor="239,41,41" description="_KB4w0GX8EeaKi4nnDYZrsA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_y7AjYGhBEeaZPOIT5MCLyQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_dazcoGVUEeaBUceuGXWbmQ" name="confidence : EFloat = 0.0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="lmemf.ecore#//Hand/confidence"/>
@@ -699,7 +817,23 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVZsQGV1EeaMW-wIKLYTOg" name=" palmNormal" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7Zk8GhBEeaZPOIT5MCLyQ" name=" direction : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//DirectionalElement/direction"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7Zk8WhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_y7aMAGhBEeaZPOIT5MCLyQ" name=" basis : Matrix" tooltipText="">
+          <target xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <semanticElements xmi:type="ecore:EReference" href="lmemf_base.ecore#//OrientationalElement/basis"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_y7aMAWhBEeaZPOIT5MCLyQ" labelColor="125,125,125" labelAlignment="LEFT" description="_y7MwoGhBEeaZPOIT5MCLyQ">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVZsQGV1EeaMW-wIKLYTOg" name=" palmNormal : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmNormal"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmNormal"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rVZsQWV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -707,7 +841,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVaTUGV1EeaMW-wIKLYTOg" name=" palmPosition" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVaTUGV1EeaMW-wIKLYTOg" name=" palmPosition : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmPosition"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmPosition"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rVaTUWV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -715,7 +849,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVaTUmV1EeaMW-wIKLYTOg" name=" palmVelocity" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVaTUmV1EeaMW-wIKLYTOg" name=" palmVelocity : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmVelocity"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/palmVelocity"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rVa6YGV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -723,7 +857,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVa6YWV1EeaMW-wIKLYTOg" name=" sphereCenter" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVa6YWV1EeaMW-wIKLYTOg" name=" sphereCenter : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/sphereCenter"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/sphereCenter"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rVbhcGV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -731,7 +865,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7EeNMGV1EeaMW-wIKLYTOg" name=" stabilizedPalmPosition" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7EeNMGV1EeaMW-wIKLYTOg" name=" stabilizedPalmPosition : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/stabilizedPalmPosition"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/stabilizedPalmPosition"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_7Ee0QGV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -739,7 +873,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVcIgWV1EeaMW-wIKLYTOg" name=" wristPosition" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rVcIgWV1EeaMW-wIKLYTOg" name=" wristPosition : Vector" tooltipText="">
           <target xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/wristPosition"/>
           <semanticElements xmi:type="ecore:EReference" href="lmemf.ecore#//Hand/wristPosition"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rVcIgmV1EeaMW-wIKLYTOg" labelAlignment="LEFT" description="_M84B4WVlEeamuLCYh7VEHw" color="114,159,207">
@@ -840,6 +974,14 @@
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_RU0p0mV2EeaMW-wIKLYTOg" labelSize="6" showIcon="false" labelColor="39,76,114"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_zlI8IGhaEeaZPOIT5MCLyQ" name="lmemf" width="24" height="16">
+        <target xmi:type="ecore:EPackage" href="lmemf.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="lmemf.ecore#/"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_zlKKQGhaEeaZPOIT5MCLyQ" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="217,210,220">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']/@containerMappings[name='Dropped%20Package']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']/@containerMappings[name='Dropped%20Package']"/>
       </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_V1NzpWT5EeaBUceuGXWbmQ"/>

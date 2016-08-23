@@ -9,6 +9,7 @@ Export-Package: com.incquerylabs.iot.leapmotion.viatracep.vepl,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.jobs,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.mapping,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult,
+ com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.rules
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.viatra.cep.core,

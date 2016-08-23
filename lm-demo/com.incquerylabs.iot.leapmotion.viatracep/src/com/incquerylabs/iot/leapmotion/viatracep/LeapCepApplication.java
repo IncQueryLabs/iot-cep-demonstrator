@@ -28,6 +28,7 @@ public class LeapCepApplication {
 	public LeapCepApplication() throws ViatraQueryException {
 		engine = CEPEngine.newEngine().eventContext(EventContext.CHRONICLE).rules(CepFactory.getInstance().allRules()).prepare();
 		stream = new Proto2EMFFrameStream(YellowPages.getFrameStreamAddress(), LeapModelManager.getInstance());
+		eventStream = engine.getStreamManager().newEventStream();
 	}
 	
 	public void start() throws PoolNotInitializedException, ViatraQueryException, ViatraBaseException {

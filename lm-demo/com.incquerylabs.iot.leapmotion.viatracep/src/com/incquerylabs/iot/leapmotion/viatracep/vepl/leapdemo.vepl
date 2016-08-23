@@ -2,9 +2,16 @@ package com.incquerylabs.iot.leapmotion.viatracep.vepl
 
 import-queries com.incquerylabs.iot.leapmotion.proto2emf.queries.*
 
-queryEvent TEST() as frameFingers(_) found
+queryEvent ALL_EXTENDED() as allExtended(_) found
 
-rule testRule on TEST {
-	System.out.println("It works!");
+queryEvent ALL_BENT() as allBent(_) found
+
+queryEvent EXTENDED_FINGER() as extendedFinger(_) found
+
+complexEvent GRAB() {
+	as (ALL_EXTENDED -> ALL_BENT)[100]
 }
 
+rule grabRule on GRAB {
+//	System.out.println("GRAB!");
+}
