@@ -28,8 +28,10 @@ public class DroolsFrameStream extends AbstractProtoFrameStream {
 	
 	long counter = 0;
 		
-	public DroolsFrameStream(IAddress sourceAddress) {
+	public DroolsFrameStream(IAddress sourceAddress, List<Frame> output) {
 		super(sourceAddress);
+		
+		accepted_grabs = output;
 		
 		KieServices kieServices = KieServices.Factory.get();
 
@@ -41,19 +43,19 @@ public class DroolsFrameStream extends AbstractProtoFrameStream {
 		
 		kieSession = new AtomicReference<KieSession>(kieBase.newKieSession());
 		
-		accepted_grabs = new ArrayList<Frame>();
-		
 		kieSession.get().setGlobal("accepted_grabs", accepted_grabs);
 		
-		stream = new AtomicReference<EntryPoint>(kieSession.get().getEntryPoint( STREAM_ID ));
-		
+		stream = new AtomicReference<EntryPoint>(kieSession.get().getEntryPoint( STREAM_ID ));		
+	}
+	
+	public DroolsFrameStream(IAddress sourceAddress) {
+		this(sourceAddress, new ArrayList<Frame>());
 	}
 
 	@Override
 	public void processFrame(Frame frame) {
 		if(stream != null)
 		stream.get().insert(frame);
-		counter++;
 		kieSession.get().fireAllRules();
 	}
 	

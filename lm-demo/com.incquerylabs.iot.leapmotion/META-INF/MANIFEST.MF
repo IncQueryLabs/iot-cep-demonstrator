@@ -6,9 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Export-Package: com.incquerylabs.iot.leapmotion,
  com.incquerylabs.iot.leapmotion.cli,
  com.incquerylabs.iot.leapmotion.frame,
- com.incquerylabs.iot.leapmotion.model,
  com.incquerylabs.iot.leapmotion.processor,
- com.incquerylabs.iot.leapmotion.test,
  com.incquerylabs.iot.leapmotion.transform,
  com.incquerylabs.iot.leapmotion.zmq
 Import-Package: com.incquerylabs.iot.leapmotion.proto
