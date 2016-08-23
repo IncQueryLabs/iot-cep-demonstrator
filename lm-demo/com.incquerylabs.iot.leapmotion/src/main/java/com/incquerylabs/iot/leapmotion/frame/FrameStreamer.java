@@ -37,15 +37,17 @@ public class FrameStreamer implements Runnable {
 	
 	private long nextframetimemicros = -1;
 	
+	private String inputfilepath = "";
+	
 	public FrameStreamer(String inputfilepath, IAddress target, int fps) throws FileNotFoundException, IOException {
+		this.inputfilepath = inputfilepath;
 		this.target = target;
-		inputStream = new DataInputStream(new FileInputStream(inputfilepath));
-		reachedStreamEnd = false;
 		if(fps > 0 && fps < 150) {
 			frametimemicros  = 1000000 / fps;
 			freerun = false;
 		} else 
 			freerun = true;
+		reset();
 	}
 	
 	public FrameStreamer(String inputfilepath, IAddress target) throws FileNotFoundException, IOException {
@@ -70,6 +72,7 @@ public class FrameStreamer implements Runnable {
 			inputStream.read(data);
 		} catch (EOFException eof) {
 			reachedStreamEnd = true;
+			System.out.println("Reached the end of the frame stream!");
 		} finally {
 			if (data != null) {
 				frame = new Frame();
@@ -81,10 +84,12 @@ public class FrameStreamer implements Runnable {
 	}
 	
 	public void reset() throws IOException {
-		if (inputStream != null)
-			inputStream.reset();
+		if(inputStream != null)
+			inputStream.close();
+		inputStream = new DataInputStream(new FileInputStream(inputfilepath));
 		reachedStreamEnd = false;
 		autostream = false;
+		nextframetimemicros = -1;
 	}
 
 	public boolean hasNextFrame() {
@@ -132,5 +137,10 @@ public class FrameStreamer implements Runnable {
 	public void pause() {
 		autostream = false;
 	}
-
+	
+	public void stop() throws IOException {
+		if(inputStream!=null)
+			inputStream.close();
+		autostream = false;
+	}
 }

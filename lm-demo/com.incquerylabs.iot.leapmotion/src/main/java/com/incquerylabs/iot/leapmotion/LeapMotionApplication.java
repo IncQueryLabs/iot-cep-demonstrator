@@ -84,7 +84,8 @@ public class LeapMotionApplication extends Controller {
 			case RESET:
 				streamer.reset();
 				break;
-			default:
+			case EXIT:
+				streamer.stop();
 		}
 	}
 	

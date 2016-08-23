@@ -13,13 +13,19 @@ import com.incquerylabs.iot.communication.PublisherPool;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
 import com.incquerylabs.iot.leapmotion.cli.CommandOptions.Commands;
 import com.incquerylabs.iot.leapmotion.cli.ControllerOptions;
+import com.incquerylabs.iot.leapmotion.cli.LMInputReader;
+import com.incquerylabs.iot.leapmotion.cli.LMPrintStream;
 
 public class Main {
 	
 	private static LeapMotionApplication application;
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
-
+		
+		LMPrintStream out = new LMPrintStream(System.out);
+		System.setOut(out);
+		BufferedReader console = new LMInputReader(new InputStreamReader(System.in), out);
+		
 		PublisherPool.initializePool(new ZMQFactory());
 		
 		CommandLineParser parser = new DefaultParser();
@@ -62,10 +68,9 @@ public class Main {
 			}
 		});
 		
-		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("LeapMotion controller application started.");
 		
 		String commandLine = "";
-		System.out.print("> ");
 		while(!(commandLine = console.readLine().trim()).equals(Commands.EXIT)) {
 			try {
 				String command = commandLine.split("\\s+")[0];
@@ -73,9 +78,7 @@ public class Main {
 					application.performCommand(Commands.valueOf(command.toUpperCase()));
 			} catch (Exception e) {
 				System.err.println(String.format("Failed to perform command: %s. Cause: %s", commandLine, e.getMessage()));
-				System.out.println();
 			}
-			System.out.print("> ");
 		}
 
 	}

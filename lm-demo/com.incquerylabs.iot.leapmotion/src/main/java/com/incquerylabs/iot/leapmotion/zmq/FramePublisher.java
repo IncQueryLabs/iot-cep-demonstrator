@@ -59,7 +59,6 @@ public class FramePublisher extends Listener {
 		converted.writeTo(stream);
 		PublisherPool.getInstance().next(YellowPages.getFrameStreamAddress()).publish(stream.toByteArray(), 0);
 		stream.close();
-		System.out.println(String.format("Frame published id: %d, timestamp: %d", frame.id(), frame.timestamp()));
 	}
 	
 }
