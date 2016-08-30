@@ -4,14 +4,19 @@
     nsPrefix="lmemf">
   <eClassifiers xsi:type="ecore:EClass" name="Frame" eSuperTypes="lmemf_base.ecore#//LMElement lmemf_base.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fingers" lowerBound="1"
-        eType="#//FingerList"/>
+        eType="#//FingerList" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="gestures" lowerBound="1"
         eType="#//GestureList" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hands" lowerBound="1" eType="#//HandList"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hands" lowerBound="1" eType="#//HandList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentFramePerSecond"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tools" lowerBound="1" eType="#//ToolList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="ecore:EClass lmemf_base.ecore#//LMContainer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FingerList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="thumbs" upperBound="-1"
@@ -30,15 +35,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bone" eSuperTypes="lmemf_base.ecore#//OrientationalElement lmemf_base.ecore#//CenterableElement lmemf_base.ecore#//MeasurableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BoneType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextJoint" eType="ecore:EClass lmemf_base.ecore#//Vector"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prevJoint" eType="ecore:EClass lmemf_base.ecore#//Vector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextJoint" eType="ecore:EClass lmemf_base.ecore#//Vector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prevJoint" eType="ecore:EClass lmemf_base.ecore#//Vector"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gesture" eSuperTypes="lmemf_base.ecore#//LMElement lmemf_base.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="#//Frame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fingerList" lowerBound="1"
-        eType="#//FingerList"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="handList" lowerBound="1"
-        eType="#//HandList"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointables" lowerBound="1"
+        eType="ecore:EClass lmemf_base.ecore#//PointableList"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hands" lowerBound="1" eType="#//HandList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//GestureState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GestureType"/>
   </eClassifiers>
@@ -67,7 +74,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Hand" eSuperTypes="lmemf_base.ecore#//OrientationalElement lmemf_base.ecore#//Identifiable lmemf_base.ecore#//MeasurableElement lmemf_base.ecore#//VisibleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="#//Frame"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fingerList" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fingers" lowerBound="1"
         eType="#//FingerList"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabStrength" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>

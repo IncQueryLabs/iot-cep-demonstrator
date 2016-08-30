@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lmemf_base" nsURI="http://incquerylabs.com/iot/leapmotion/lmemf_base"
     nsPrefix="lmemf_base">
-  <eClassifiers xsi:type="ecore:EClass" name="LMElement">
+  <eClassifiers xsi:type="ecore:EClass" name="LMElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vector" eSuperTypes="#//LMElement">
@@ -17,9 +17,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="normalized" lowerBound="1"
-        eType="#//Vector"/>
+        eType="#//Vector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" lowerBound="1"
-        eType="#//Vector"/>
+        eType="#//Vector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LMList" abstract="true">
     <eTypeParameters name="T">
@@ -29,7 +29,7 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1">
       <eGenericType eTypeParameter="#//LMList/T"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -114,12 +114,15 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Pointable"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1"
-        containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1">
       <eGenericType eTypeParameter="#//PointableList/T"/>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//ArrangementList">
       <eTypeArguments eTypeParameter="#//PointableList/T"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LMContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//LMElement" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
