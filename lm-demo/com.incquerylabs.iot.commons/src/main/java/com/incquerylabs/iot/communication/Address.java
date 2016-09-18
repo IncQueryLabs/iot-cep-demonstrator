@@ -1,10 +1,12 @@
 package com.incquerylabs.iot.communication;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class Address implements IAddress {
 	
-	private String host;
-	private int port;
-	private String topic;
+	protected String host;
+	protected int port;
+	protected String topic;
 	
 	public Address(String host, int port, String topic) {
 		this.host = host;
@@ -38,5 +40,14 @@ public class Address implements IAddress {
 					this.topic.equals(((Address) other).getTopic());
 		} else return false;
 	}
-
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 31)
+				.append(host)
+				.append(port)
+				.append(topic)
+				.toHashCode();
+	}
+	
 }

@@ -1,14 +1,12 @@
 package com.incquerylabs.iot.communication.zmq;
 
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.zeromq.ZMQ;
 
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.Multimap;
 import com.incquerylabs.iot.communication.IAddress;
 import com.incquerylabs.iot.communication.IExecutorPool;
 import com.incquerylabs.iot.communication.ISubscriber;
@@ -20,11 +18,10 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	
 	private ZMQ.Socket sub;
 	
-	private AtomicReference<Multimap<String, ISubscriberCallback>> callbacks = new AtomicReference(LinkedListMultimap.create());
+	private AtomicReference<List<ISubscriberCallback>> callbacks = new AtomicReference<List<ISubscriberCallback>>(new LinkedList<ISubscriberCallback>());
 	
-	// XXX: workaround - unable to get zmq socket address; store registered addresses by topic name
-	private Map<String, IAddress> addresses = new HashMap<>();
-	
+	private IAddress address;
+		
 	private volatile boolean running;
 	
 	private IExecutorPool pool;
@@ -37,11 +34,15 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	}
 	
 	@Override
-	public void registerCallback(IAddress address, ISubscriberCallback callback) {
-		sub.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
-		sub.subscribe(address.getTopic().getBytes());
-		callbacks.get().put(address.getTopic(), callback);
-		addresses.put(address.getFullAddress(), address);
+	public void registerCallback(IAddress _address, ISubscriberCallback callback) {
+		
+		// If not subscribed yet
+		if(address == null) {
+			this.address = _address;
+			sub.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
+			sub.subscribe(address.getTopic().getBytes());
+		}
+		callbacks.get().add(callback);
 		if(!running) {
 			running = true;
 			pool.execute(this);
@@ -61,8 +62,7 @@ public class ZSubscriber implements ISubscriber, Runnable {
 			try {
 				String topic = new String(sub.recv());
 				byte[] data = sub.recv();
-				IAddress address = addresses.get(topic);
-				Iterator<ISubscriberCallback> cit = callbacks.get().get(topic).iterator();
+				Iterator<ISubscriberCallback> cit = callbacks.get().iterator();
 				while(cit.hasNext())
 					cit.next().messageArrived(address, data);
 				Thread.sleep(10);
@@ -73,11 +73,8 @@ public class ZSubscriber implements ISubscriber, Runnable {
 	}
 
 	@Override
-	public void unregisterCallback(IAddress address, ISubscriberCallback callback) {
-		if(callbacks.get().containsValue(callback)) {
-			//TODO: implement unregistration method
-			
-		}
+	public void unregisterCallback(ISubscriberCallback callback) {
+		callbacks.get().remove(callback);
 	}
 
 }

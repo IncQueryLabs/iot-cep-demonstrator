@@ -33,7 +33,7 @@ public class AbstractProcessorComponent implements ISubscriberCallback {
 	}
 	
 	public void stop() throws PoolNotInitializedException {
-		SubscriberPool.getInstance().unregisterCallback(this);
+		SubscriberPool.getInstance().unregisterCallback(sourceAddress, this);
 	}
 	
 }

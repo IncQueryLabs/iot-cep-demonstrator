@@ -18,7 +18,7 @@ public class SubscriberPool {
 	
 	private static volatile boolean initialized = false;
 
-	private Map<String, ISubscriber> subscribers = new HashMap<>();
+	private Map<IAddress, ISubscriber> subscribers = new HashMap<>();
 	
 	private SubscriberPool(CommunicationComponentFactory factory) {
 		pool = new DefaultExecutor();
@@ -40,17 +40,19 @@ public class SubscriberPool {
 	}
 	
 	public void registerCallback(IAddress address, ISubscriberCallback callback) {
-		if(subscribers.containsKey(address.getFullAddress())) {
-			subscribers.get(address.getFullAddress()).registerCallback(address, callback);
+		if(subscribers.containsKey(address)) {
+			subscribers.get(address).registerCallback(address, callback);
 		} else {
 			ISubscriber subscriber = factory.createSubscriber(pool);
 			subscriber.registerCallback(address, callback);
-			subscribers.put(address.getFullAddress(), subscriber);
+			subscribers.put(address, subscriber);
 		}	
 	}
 	
-	public void unregisterCallback(ISubscriberCallback callback) {
-		// TODO: 
+	public void unregisterCallback(IAddress address, ISubscriberCallback callback) {
+		if(subscribers.containsKey(address)) {
+			subscribers.get(address).unregisterCallback(callback);
+		}
 	}
 	
 	private static class DefaultExecutor extends ThreadPoolExecutor implements IExecutorPool {
