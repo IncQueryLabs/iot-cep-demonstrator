@@ -53,9 +53,10 @@ public class SubscriberService extends WebBridgeService implements ISubscriberCa
 					e.printStackTrace();
 				}
 			}
-			if (validProtocol)
+			if (validProtocol) {
 				metaBroadcaster.broadcastTo(((WSEndpoint) address).toEndpointPath(), messageAsJson);
-			else
+				System.out.println("Message broadcasted to: " + address.getFullAddress());
+			} else
 				System.err.println(
 						"Unable to forward message over websocket: could not find appropriate builder for message on endpoint: "
 								+ address.getFullAddress());

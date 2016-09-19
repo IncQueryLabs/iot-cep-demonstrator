@@ -1,46 +1,69 @@
 /**
  * Websocket bridge to IoT communication technologies.
  * 
- * @author Papp Istvan
+ * @author Istvan Papp
  * 
- * Initial javascript api and implementation.
+ * Initial Javascript API and implementation.
  * 
  */
+String.prototype.format = function() {
+    var formatted = this;
+    for (var arg in arguments) {
+        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+    }
+    return formatted;
+};
 
-$(
-	function () {
-		
-	    var socket = atmosphere;
-	    var transport = 'websocket';
-	    var clientSocket;
-	    
-	    var endpoint = '2/127.0.0.1/5555/framestream';
-	    
-	    var request = { url: 'ws://127.0.0.1:8080/ws/' + endpoint,
-	            contentType : "text/plain",
-	            logLevel : 'debug',
-	            transport : transport ,
-	            trackMessageLength : true,
-	            reconnectInterval : 5000 };
-	    
-	    request.onOpen = function(response) {
-	        transport = response.transport;
-	        // Carry the UUID. This is required if you want to call subscribe(request) again.
-	        request.uuid = response.request.uuid;
-	        console.log("Connection opened: " + request.uuid);
-	    };
+function WSConnection(type, host, port, topic) {
+	
+	this.type = type;
+	this.host = host;
+	this.port = port;
+	this.topic = topic;
 
-	    request.onMessage = function (response) {
+	this.socket = atmosphere;
+	this.transport = 'websocket';
+	
+	this.request = { 
+			url: "ws://127.0.0.1:8080/ws/{0}/{1}/{2}/{3}".format(this.type,this.host,this.port,this.topic),
+	        contentType : "application/json",
+	        logLevel : 'debug',
+	        transport : this.transport ,
+	        trackMessageLength : true,
+	        reconnectInterval : 5000,
+	        wsconnection: this
+	     	};
+	    
+	WSConnection.prototype.connect = function() {
+		this.clientSocket = this.socket.subscribe(this.request);		
+	}
 
-	        var message = JSON.parse(response.responseBody);
-	        
-	        console.log(message);
-	    };
-	    
-	    request.onClose = function(response) {
-	    	console.log("Connection closed: " + response.responseBody);
-	    }
-	    
-	    clientSocket = socket.subscribe(request);
-	    
-});
+	this.request.onOpen = function(response) {
+		console.log("Connection opened: " + response.request.uuid);
+    };
+	
+    WSConnection.prototype.onMessageArrived = function(msg) {};
+    
+	this.request.onMessage = function(response) {
+		if(this.wsconnection.onMessageArrived && typeof this.wsconnection.onMessageArrived == "function") {
+			var msg = JSON.parse(response.responseBody);
+			this.wsconnection.onMessageArrived(msg);
+		}
+	}
+	
+    this.request.onClose = function(response) {
+	    console.log("Connection closed: " + response.responseBody);
+	};
+	
+	this.request.onClientTimeout = function(response) {
+        setTimeout(function (){
+           this.connect();
+        }, this.request.reconnectInterval);
+    };
+	
+	WSConnection.prototype.publish = function(jsonMessage) {
+		var strMessage = JSON.stringify(jsonMessage);
+		console.log("Publishing message: " + strMessage);
+		this.clientSocket.push(strMessage);
+	}
+}

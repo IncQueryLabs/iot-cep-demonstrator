@@ -46,9 +46,10 @@ public class PublisherService extends WebBridgeService {
 					e.printStackTrace();
 				}
 			}
-			if (validProtocol && serializedMessage != null)
+			if (validProtocol && serializedMessage != null) {
 				PublisherPool.getInstance().next(address).publish(serializedMessage, 0);
-
+				System.out.println("Message published to " + address.getFullAddress() + ": \n"+ message);
+			}
 		} catch (PoolNotInitializedException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
