@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lmemf" nsURI="http://incquerylabs.com/iot/leapmotion/lmemf"
     nsPrefix="lmemf">
-  <eClassifiers xsi:type="ecore:EClass" name="Frame" eSuperTypes="lmemf_base.ecore#//LMElement lmemf_base.ecore#//Identifiable">
+  <eClassifiers xsi:type="ecore:EClass" name="Frame" eSuperTypes="lmemf_base.ecore#//LMElement lmemf_base.ecore#//Identifiable lmemf_base.ecore#//LMContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fingers" lowerBound="1"
         eType="#//FingerList" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" lowerBound="1"
@@ -15,8 +15,6 @@
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tools" lowerBound="1" eType="#//ToolList"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
-        eType="ecore:EClass lmemf_base.ecore#//LMContainer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FingerList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="thumbs" upperBound="-1"

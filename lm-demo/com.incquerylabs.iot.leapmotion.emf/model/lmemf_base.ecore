@@ -37,13 +37,13 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//LMElement"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frontmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightmost" lowerBound="1">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leftmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftmost" lowerBound="1">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frontmost" lowerBound="1">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//LMList">
