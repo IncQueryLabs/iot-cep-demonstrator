@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.incquerylabs.iot</groupId>
+	<artifactId>iot-parent</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho-version>0.26.0</tycho-version>
+		<maven-version>3.5.1</maven-version>
+		<module-packaging>eclipse-plugin</module-packaging>
+		<protobuf-version>3.0.0</protobuf-version>
+		<protoc-version>2.6.1</protoc-version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>eclipse-neon</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/neon</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<modules>
+		<module>../../lm-demo/com.incquerylabs.iot.libs</module>
+		<module>../../lm-demo/com.incquerylabs.iot.commons</module>
+		<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
+		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
+		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
+	</modules>
+	
+</project>
