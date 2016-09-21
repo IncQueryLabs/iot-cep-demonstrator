@@ -1,7 +1,4 @@
-package com.incquerylabs.iot.leapmotion;
-
-import com.incquerylabs.iot.communication.Address;
-import com.incquerylabs.iot.communication.IAddress;
+package com.incquerylabs.iot.communication;
 
 public class YellowPages {
 

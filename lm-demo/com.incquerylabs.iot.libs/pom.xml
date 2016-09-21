@@ -1,8 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>communication-zeromq</artifactId>
+	<artifactId>com.incquerylabs.iot.libs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${module-packaging}</packaging>
 	
 	<parent>
 		<groupId>com.incquerylabs.iot</groupId>
@@ -10,21 +11,5 @@
 		<version>0.0.1</version>
 		<relativePath>../../parent/com.incquerylabs.iot.parent/pom.xml</relativePath>
 	</parent>
-	
-	<dependencies>
-
-		<dependency>
-			<groupId>com.incquerylabs.iot</groupId>
-			<artifactId>iot-commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.zeromq</groupId>
-			<artifactId>jzmq</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
-	</dependencies>
 
 </project>

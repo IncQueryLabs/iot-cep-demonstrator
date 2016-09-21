@@ -1,9 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Communication
+Bundle-Name: com.incquerylabs.iot.commons
 Bundle-SymbolicName: com.incquerylabs.iot.commons
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Export-Package: com.incquerylabs.iot.communication,
  com.incquerylabs.iot.communication.exception,
  com.incquerylabs.iot.processor
-Require-Bundle: com.google.guava;bundle-version="15.0.0"
+Require-Bundle: com.google.guava;bundle-version="15.0.0",
+ org.apache.commons.lang;bundle-version="2.6.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

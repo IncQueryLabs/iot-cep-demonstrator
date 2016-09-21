@@ -1,4 +1,4 @@
-package com.incquerylabs.iot.leapmotion.processor;
+package com.incquerylabs.iot.leapmotion.proto;
 
 import java.io.ByteArrayInputStream;
 

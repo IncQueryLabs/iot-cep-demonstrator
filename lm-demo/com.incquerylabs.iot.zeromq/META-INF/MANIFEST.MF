@@ -2,8 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Zmq
 Bundle-SymbolicName: com.incquerylabs.iot.zmq
-Bundle-Version: 1.0.0.qualifier
-Require-Bundle: com.incquerylabs.iot.commons;bundle-version="1.0.0",
- com.incquerylabs.iot.libs;bundle-version="1.0.0",
- com.google.guava;bundle-version="15.0.0"
+Bundle-Version: 0.0.1.qualifier
+Require-Bundle: com.incquerylabs.iot.commons;bundle-version="0.0.1",
+ com.google.guava;bundle-version="15.0.0",
+ com.incquerylabs.iot.libs;bundle-version="0.0.1"
 Export-Package: com.incquerylabs.iot.communication.zmq
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

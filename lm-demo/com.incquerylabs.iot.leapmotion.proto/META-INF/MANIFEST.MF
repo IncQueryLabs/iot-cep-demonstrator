@@ -1,7 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Proto
+Bundle-Name: com.incquerylabs.iot.leapmotion.proto
 Bundle-SymbolicName: com.incquerylabs.iot.leapmotion.proto
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Export-Package: com.incquerylabs.iot.leapmotion.proto
-Require-Bundle: com.incquerylabs.iot.libs;bundle-version="1.0.0"
+Require-Bundle: com.incquerylabs.iot.libs;bundle-version="0.0.1",
+ com.incquerylabs.iot.commons;bundle-version="0.0.1"
