@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Zmq
-Bundle-SymbolicName: com.incquerylabs.iot.zmq
+Bundle-SymbolicName: com.incquerylabs.iot.zeromq
 Bundle-Version: 0.0.1.qualifier
 Require-Bundle: com.incquerylabs.iot.commons;bundle-version="0.0.1",
  com.google.guava;bundle-version="15.0.0",

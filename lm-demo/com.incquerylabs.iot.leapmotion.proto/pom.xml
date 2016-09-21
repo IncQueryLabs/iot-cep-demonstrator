@@ -52,7 +52,7 @@
 				<version>2.10</version>
 				<executions>
 					<execution>
-						<id>Unpack Atmosphere Client Libraries</id>
+						<id>Unpack Protobuf libraries</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>unpack</goal>
