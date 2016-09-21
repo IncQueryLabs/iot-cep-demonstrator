@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.incquerylabs.iot.leapmotion</groupId>
+	<artifactId>com.incquerylabs.iot.leapmotion.emf</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${module-packaging}</packaging>
+
+	<parent>
+		<groupId>com.incquerylabs.iot</groupId>
+		<artifactId>iot-parent</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../../parent/com.incquerylabs.iot.parent/pom.xml</relativePath>
+	</parent>
+
+	<build>
+		<sourceDirectory>src-gen</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-eclipserun-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<appArgLine>-data target/workspace -application org.eclipse.emf.codegen.ecore.Generator -projects ${project.basedir} -reconcile -model ${project.basedir}/model/lmemf.genmodel target/gen</appArgLine>
+					<dependencies>
+						<dependency>
+							<artifactId>org.eclipse.emf.codegen.ecore</artifactId>
+							<type>eclipse-plugin</type>
+						</dependency>
+						<dependency>
+							<artifactId>org.eclipse.emf.ecore</artifactId>
+							<type>eclipse-plugin</type>
+						</dependency>
+					</dependencies>
+
+					<repositories>
+						<repository>
+							<id>eclipse-neon</id>
+							<layout>p2</layout>
+							<url>http://download.eclipse.org/releases/neon</url>
+						</repository>
+					</repositories>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>eclipse-run</goal>
+						</goals>
+						<phase>generate-sources</phase>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>Copy generated model</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						
+						<configuration>
+							<outputDirectory>${project.basedir}/src-gen</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/target/gen/src-gen</directory>
+									<include>**/*.java</include>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>

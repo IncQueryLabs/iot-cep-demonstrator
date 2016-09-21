@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.incquerylabs.iot.leapmotion.emf/src-gen" modelPluginID="com.incquerylabs.iot.leapmotion.emf"
     modelName="Lmemf" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
     importOrganizing="true">
   <foreignModel>lmemf.ecore</foreignModel>
   <genPackages prefix="Lmemf" basePackage="com.incquerylabs.iot.leapmotion" disposableProviderFactory="true"
