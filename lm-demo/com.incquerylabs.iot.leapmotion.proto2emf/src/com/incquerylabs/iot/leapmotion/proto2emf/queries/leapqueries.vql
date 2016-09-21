@@ -14,7 +14,17 @@ pattern allBent(frame : Frame) {
 	check(N == 0);
 }
 
+pattern grabStrengthHigh(frame : Frame) {
+	Frame.hands.frontmost(frame, hand);
+	find grabStrength(hand, S);
+	check(S > 0.5f);
+}
+
+pattern grabStrength(hand : Hand, S : EFloat) {
+	Hand.grabStrength(hand, S);
+}
+
 pattern extendedFinger(frame : Frame, N : EInt) {
-	Frame.fingers(frame, fingers);
-	FingerList.^count(fingers, N);
+	Frame.fingers(frame, fingerList);
+	FingerList.^count(fingerList, N);
 }

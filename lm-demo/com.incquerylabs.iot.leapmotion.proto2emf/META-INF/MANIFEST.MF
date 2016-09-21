@@ -9,10 +9,9 @@ Export-Package: com.incquerylabs.iot.leapmotion.proto2emf,
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.viatra.query.runtime,
  org.eclipse.xtext.xbase.lib,
- com.incquerylabs.iot.leapmotion;bundle-version="1.0.0",
- com.incquerylabs.iot.leapmotion.emf;bundle-version="0.1.0",
- com.incquerylabs.iot.leapmotion.proto;bundle-version="1.0.0",
- com.incquerylabs.iot.commons;bundle-version="1.0.0",
- com.incquerylabs.iot.libs;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+ com.incquerylabs.iot.leapmotion.proto;bundle-version="0.0.1",
+ com.incquerylabs.iot.commons;bundle-version="0.0.1",
+ com.incquerylabs.iot.libs;bundle-version="0.0.1",
+ com.incquerylabs.iot.leapmotion.emf;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j

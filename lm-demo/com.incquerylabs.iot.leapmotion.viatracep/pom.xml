@@ -1,9 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>com.incquerylabs.iot.leapmotion.proto2emf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>${module-packaging}</packaging>
 	<parent>
 		<groupId>com.incquerylabs.iot</groupId>
 		<artifactId>iot-parent</artifactId>
@@ -11,14 +8,9 @@
 		<relativePath>../../parent/com.incquerylabs.iot.parent/pom.xml</relativePath>
 	</parent>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-	</dependencies>
-
+	<artifactId>com.incquerylabs.iot.leapmotion.viatracep</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${module-packaging}</packaging>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -35,7 +27,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<outputDirectory>src-gen</outputDirectory>
+						<outputDirectory>src-gene</outputDirectory>
 						<metamodels>
 							<metamodel>
 								<packageClass>com.incquerylabs.iot.leapmotion.lmemf_base.Lmemf_basePackage</packageClass>
@@ -47,15 +39,19 @@
 					</configuration>
 					<dependencies>
 						<dependency>
-							<groupId>com.incquerylabs.iot.leapmotion</groupId>
+							<groupId>com.incquerylabs.iot</groupId>
 							<artifactId>com.incquerylabs.iot.leapmotion.emf</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+						</dependency>
+
+						<dependency>
+							<groupId>com.incquerylabs.iot</groupId>
+							<artifactId>com.incquerylabs.iot.leapmotion.proto2emf</artifactId>
 							<version>0.0.1-SNAPSHOT</version>
 						</dependency>
 					</dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-
 	</build>
-
 </project>

@@ -8,10 +8,16 @@ queryEvent ALL_BENT() as allBent(_) found
 
 queryEvent EXTENDED_FINGER() as extendedFinger(_) found
 
+queryEvent GRAB_STRENGTH_HIGH() as grabStrengthHigh found
+
+rule grabStrengthRule on GRAB_STRENGTH_HIGH {
+	System.out.println("Grab strength high!")
+}
+
 complexEvent GRAB() {
-	as (ALL_EXTENDED -> ALL_BENT)[100]
+	as (ALL_EXTENDED -> (ALL_BENT AND GRAB_STRENGTH_HIGH))
 }
 
 rule grabRule on GRAB {
-//	System.out.println("GRAB!");
+	System.out.println("GRAB!");
 }

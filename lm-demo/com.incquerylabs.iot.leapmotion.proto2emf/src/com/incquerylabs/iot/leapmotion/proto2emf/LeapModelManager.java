@@ -75,17 +75,17 @@ public class LeapModelManager implements ILeapModelUpdater {
 	public synchronized void updateModel(Frame frame) {
 		currentFrame.setCurrentFramePerSecond(frame.getCurrentFramePerSecond());
 		currentFrame.setValid(frame.getValid());
-
+		currentFrame.setTimestamp(frame.getTimestamp());
+		
+		
+		
 		FingerList fingers = convert(frame.getFingers());
 		currentFrame.setFingers(fingers);
-		fingers.setCount(fingers.getExtended().size());
-		
-		System.out.println("Extended fingers: " + fingers.getExtended().size());
-		
+				
 		HandList hands = convert(frame.getHands());
 		currentFrame.setHands(hands);
+		
+//		System.out.println("Frontmost grab strength: " + hands.getFrontmost().getGrabStrength());
 	}
-	
-	
 	
 }

@@ -13,6 +13,8 @@
 		<module-packaging>eclipse-plugin</module-packaging>
 		<protobuf-version>3.0.0</protobuf-version>
 		<protoc-version>2.6.1</protoc-version>
+		<zeromq-version>3.1.0</zeromq-version>
+		<viatra-plugin-version>1.4.0.M2</viatra-plugin-version>
 	</properties>
 
 	<repositories>
@@ -21,12 +23,26 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/neon</url>
 		</repository>
+		
+		<repository>
+			<id>viatra-ci</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/viatra/updates/integration</url>
+		</repository>
+		
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
 			<id>tycho-snapshots</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>viatra-snapshots</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>https://repo.eclipse.org/content/repositories/viatra2-releases</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -48,7 +64,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
@@ -58,6 +73,8 @@
 		<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
 		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
 		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
+		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto2emf</module>
+		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.viatracep</module>
 	</modules>
 	
 </project>
