@@ -7,11 +7,12 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project-version>0.0.1-SNAPSHOT</project-version>
+		<project-build-sourceEncoding>UTF-8</project-build-sourceEncoding>
 		<tycho-version>0.26.0</tycho-version>
 		<maven-version>3.5.1</maven-version>
 		<maven-clean-version>3.0.0</maven-clean-version>
-		<module-packaging>eclipse-plugin</module-packaging>
+		<module-packaging>jar</module-packaging>
 		<protobuf-version>3.0.0</protobuf-version>
 		<protoc-version>2.6.1</protoc-version>
 		<zeromq-version>3.1.0</zeromq-version>
@@ -24,13 +25,13 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/neon</url>
 		</repository>
-		
+
 		<repository>
 			<id>viatra-ci</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/viatra/updates/integration</url>
 		</repository>
-		
+
 	</repositories>
 
 	<pluginRepositories>
@@ -48,14 +49,14 @@
 	</pluginRepositories>
 
 	<build>
-		<plugins>			
+		<plugins>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -65,28 +66,50 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
-				<configuration>					
-		            <failIfNoTests>false</failIfNoTests>
-		            <skipTests>false</skipTests>
+				<configuration>
+					<failIfNoTests>false</failIfNoTests>
+					<skipTests>false</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
-	<modules>
-		<module>../../lm-demo/com.incquerylabs.iot.libs</module>
-		<module>../../lm-demo/com.incquerylabs.iot.commons</module>
-		<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
-		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
-		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
-		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto2emf</module>
-		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.viatracep</module>
-		<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
-	</modules>
-	
+	<profiles>
+		<profile>
+			<id>eclipse</id>
+			<modules>
+				<module>../../lm-demo/com.incquerylabs.iot.libs</module>
+				<module>../../lm-demo/com.incquerylabs.iot.commons</module>
+				<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto2emf</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.viatracep</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
+			</modules>
+			<properties>
+				<module-packaging>eclipse-plugin</module-packaging>
+			</properties>
+		</profile>
+		<profile>
+			<id>jar</id>
+			<modules>
+				<module>../../lm-demo/com.incquerylabs.iot.libs</module>
+				<module>../../lm-demo/com.incquerylabs.iot.commons</module>
+				<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
+			</modules>
+			<properties>
+				<module-packaging>jar</module-packaging>
+			</properties>
+		</profile>
+	</profiles>
+
+
 </project>
