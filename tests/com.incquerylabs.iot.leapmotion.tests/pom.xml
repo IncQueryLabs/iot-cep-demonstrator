@@ -9,7 +9,7 @@
 
 		<dependency>
 			<groupId>com.incquerylabs.iot</groupId>
-			<artifactId>iot-leapmotion</artifactId>
+			<artifactId>com.incquerylabs.iot.leapmotion.controller</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
@@ -18,7 +18,13 @@
 			<artifactId>leapmotion-drools</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -34,4 +40,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

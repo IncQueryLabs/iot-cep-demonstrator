@@ -13,9 +13,9 @@ import org.junit.Test;
 
 import com.incquerylabs.iot.communication.PublisherPool;
 import com.incquerylabs.iot.communication.SubscriberPool;
+import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
-import com.incquerylabs.iot.leapmotion.YellowPages;
 import com.incquerylabs.iot.leapmotion.drools.stream.DroolsFrameStream;
 import com.incquerylabs.iot.leapmotion.frame.FrameStreamer;
 import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
@@ -23,7 +23,7 @@ import com.leapmotion.leap.Controller;
 
 public class GrabPatternTest {
 	
-	private String testStreamPath = "../test_recordings/grab.lmstream";
+	private String testStreamPath = "../../lm-demo/test_recordings/grab.lmstream";
 	
 	DroolsFrameStream drools;
 	
