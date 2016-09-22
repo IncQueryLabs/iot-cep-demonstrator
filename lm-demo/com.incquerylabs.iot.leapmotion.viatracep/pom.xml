@@ -11,47 +11,4 @@
 	<artifactId>com.incquerylabs.iot.leapmotion.viatracep</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>${module-packaging}</packaging>
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.viatra</groupId>
-					<artifactId>viatra-maven-plugin</artifactId>
-					<version>${viatra-plugin-version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-							<phase>generate-sources</phase>
-						</execution>
-					</executions>
-					<configuration>
-						<outputDirectory>src-gene</outputDirectory>
-						<metamodels>
-							<metamodel>
-								<packageClass>com.incquerylabs.iot.leapmotion.lmemf_base.Lmemf_basePackage</packageClass>
-							</metamodel>
-							<metamodel>
-								<packageClass>com.incquerylabs.iot.leapmotion.lmemf.LmemfPackage</packageClass>
-							</metamodel>
-						</metamodels>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>com.incquerylabs.iot</groupId>
-							<artifactId>com.incquerylabs.iot.leapmotion.emf</artifactId>
-							<version>0.0.1-SNAPSHOT</version>
-						</dependency>
-
-						<dependency>
-							<groupId>com.incquerylabs.iot</groupId>
-							<artifactId>com.incquerylabs.iot.leapmotion.proto2emf</artifactId>
-							<version>0.0.1-SNAPSHOT</version>
-						</dependency>
-					</dependencies>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 </project>

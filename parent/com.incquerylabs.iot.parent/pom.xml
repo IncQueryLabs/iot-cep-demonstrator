@@ -10,6 +10,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho-version>0.26.0</tycho-version>
 		<maven-version>3.5.1</maven-version>
+		<maven-clean-version>3.0.0</maven-clean-version>
 		<module-packaging>eclipse-plugin</module-packaging>
 		<protobuf-version>3.0.0</protobuf-version>
 		<protoc-version>2.6.1</protoc-version>
@@ -47,7 +48,7 @@
 	</pluginRepositories>
 
 	<build>
-		<plugins>
+		<plugins>			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
@@ -62,6 +63,16 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>					
+		            <failIfNoTests>false</failIfNoTests>
+		            <skipTests>false</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
