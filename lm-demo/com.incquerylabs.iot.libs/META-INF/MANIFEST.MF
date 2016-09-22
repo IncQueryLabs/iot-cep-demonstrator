@@ -3,8 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: libs
 Bundle-SymbolicName: com.incquerylabs.iot.libs
 Bundle-Version: 0.0.1.qualifier
-Bundle-ClassPath: protobuf-java-2.6.1.jar,
- jzmq-3.1.0.jar
-Export-Package: com.google.protobuf,
- org.zeromq
+Bundle-ClassPath: lib/jzmq-3.1.0.jar,
+ lib/protobuf-java-3.0.0.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.google.protobuf,
+ com.google.protobuf.compiler,
+ org.zeromq

@@ -4,12 +4,51 @@
 	<artifactId>com.incquerylabs.iot.libs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>${module-packaging}</packaging>
-	
+
 	<parent>
 		<groupId>com.incquerylabs.iot</groupId>
 		<artifactId>iot-parent</artifactId>
 		<version>0.0.1</version>
 		<relativePath>../../parent/com.incquerylabs.iot.parent/pom.xml</relativePath>
 	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>${protobuf-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zeromq</groupId>
+			<artifactId>jzmq</artifactId>
+			<version>${zeromq-version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
