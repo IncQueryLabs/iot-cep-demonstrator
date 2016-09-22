@@ -13,6 +13,7 @@
 		<maven-version>3.5.1</maven-version>
 		<maven-clean-version>3.0.0</maven-clean-version>
 		<module-packaging>jar</module-packaging>
+		<test-packaging>jar</test-packaging>
 		<protobuf-version>3.0.0</protobuf-version>
 		<protoc-version>2.6.1</protoc-version>
 		<zeromq-version>3.1.0</zeromq-version>
@@ -72,8 +73,9 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<failIfNoTests>false</failIfNoTests>
-					<skipTests>false</skipTests>
+					<!-- <argLine>-Xmx2048m -XX:MaxPermSize=256m ${tycho.testArgLine} ${cps.test.vmargs}</argLine> -->					
+		            <failIfNoTests>false</failIfNoTests>
+		            <skipTests>false</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -90,10 +92,13 @@
 				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
 				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto2emf</module>
 				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.viatracep</module>
-				<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.controller</module>
+				<module>../../tests/com.incquerylabs.iot.leapmotion.basetests</module>
+				<module>../../tests/com.incquerylabs.iot.leapmotion.plugintests</module>
 			</modules>
 			<properties>
 				<module-packaging>eclipse-plugin</module-packaging>
+				<test-packaging>eclipse-test-plugin</test-packaging>
 			</properties>
 		</profile>
 		<profile>
@@ -103,7 +108,8 @@
 				<module>../../lm-demo/com.incquerylabs.iot.commons</module>
 				<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
 				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto</module>
-				<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
+				<module>../../lm-demo/com.incquerylabs.iot.leapmotion.controller</module>
+				<module>../../tests/com.incquerylabs.iot.leapmotion.basetests</module>
 			</modules>
 			<properties>
 				<module-packaging>jar</module-packaging>

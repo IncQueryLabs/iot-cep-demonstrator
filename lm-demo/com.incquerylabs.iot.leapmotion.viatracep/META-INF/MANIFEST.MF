@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.incquerylabs.iot.leapmotion.viatracep
-Bundle-SymbolicName: com.incquerylabs.iot.leapmotion.viatracep;singleton:=true
+Bundle-SymbolicName: com.incquerylabs.iot.leapmotion.viatracep
 Bundle-Version: 0.0.1.qualifier
-Bundle-Activator: com.incquerylabs.iot.leapmotion.viatracep.Activator
-Export-Package: com.incquerylabs.iot.leapmotion.viatracep.vepl,
+Export-Package: com.incquerylabs.iot.leapmotion.viatracep,
+ com.incquerylabs.iot.leapmotion.viatracep.vepl,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.jobs,
  com.incquerylabs.iot.leapmotion.viatracep.vepl.mapping,

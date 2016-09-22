@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>com.incquerylabs.iot.leapmotion.basetests</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${test-packaging}</packaging>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.incquerylabs.iot</groupId>
+			<artifactId>com.incquerylabs.iot.leapmotion.controller</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.incquerylabs.iot</groupId>
+			<artifactId>com.incquerylabs.iot.libs</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<parent>
+		<groupId>com.incquerylabs.iot</groupId>
+		<artifactId>iot-parent</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../../parent/com.incquerylabs.iot.parent/pom.xml</relativePath>
+	</parent>
+
+	<build>
+	</build>
+</project>
