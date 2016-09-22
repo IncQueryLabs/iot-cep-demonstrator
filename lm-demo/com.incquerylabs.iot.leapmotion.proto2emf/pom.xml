@@ -20,7 +20,6 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.eclipse.viatra</groupId>
@@ -54,7 +53,6 @@
 					</dependencies>
 				</plugin>
 			</plugins>
-		</pluginManagement>
 
 	</build>
 
