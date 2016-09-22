@@ -5,6 +5,7 @@ import com.incquerylabs.iot.processor.AbstractProcessorComponent;
 import com.incquerylabs.iot.processor.IDataProcessor;
 import com.leapmotion.leap.Frame;
 
+@Deprecated
 public abstract class AbstractLeapFrameStream extends AbstractProcessorComponent implements IDataProcessor {
 
 	public AbstractLeapFrameStream(IAddress sourceAddress) {

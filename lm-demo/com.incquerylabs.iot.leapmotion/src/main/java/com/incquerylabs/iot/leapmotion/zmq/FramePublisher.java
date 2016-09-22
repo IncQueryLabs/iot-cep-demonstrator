@@ -4,8 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import com.incquerylabs.iot.communication.PublisherPool;
+import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
-import com.incquerylabs.iot.leapmotion.YellowPages;
 import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
 
 import com.leapmotion.leap.Controller;

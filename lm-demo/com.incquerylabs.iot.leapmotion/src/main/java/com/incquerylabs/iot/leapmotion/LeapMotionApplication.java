@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.leapmotion.cli.CommandOptions.Commands;
 import com.incquerylabs.iot.leapmotion.frame.FrameRecorder;

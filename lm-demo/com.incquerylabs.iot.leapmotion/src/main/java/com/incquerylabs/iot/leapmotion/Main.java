@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.PosixParser;
 
 import com.incquerylabs.iot.communication.PublisherPool;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
@@ -28,7 +28,7 @@ public class Main {
 		
 		PublisherPool.initializePool(new ZMQFactory());
 		
-		CommandLineParser parser = new DefaultParser();
+		CommandLineParser parser = new PosixParser();
 		
 		CommandLine cli = null;
 		

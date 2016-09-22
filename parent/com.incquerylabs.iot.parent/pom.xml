@@ -86,6 +86,7 @@
 		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.emf</module>
 		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.proto2emf</module>
 		<module>../../lm-demo/com.incquerylabs.iot.leapmotion.viatracep</module>
+		<module>../../lm-demo/com.incquerylabs.iot.leapmotion</module>
 	</modules>
 	
 </project>
