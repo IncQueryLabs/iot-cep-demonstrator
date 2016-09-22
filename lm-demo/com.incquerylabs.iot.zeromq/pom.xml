@@ -13,45 +13,17 @@
 	<packaging>${module-packaging}</packaging>
 
 	<dependencies>
-
 		<dependency>
-			<groupId>org.zeromq</groupId>
-			<artifactId>jzmq</artifactId>
-			<version>${zeromq-version}</version>
+		    <groupId>com.incquerylabs.iot</groupId>
+			<artifactId>com.incquerylabs.iot.commons</artifactId>
+			<version>${project-version}</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>com.incquerylabs.iot</groupId>
+			<artifactId>com.incquerylabs.iot.libs</artifactId>
+			<version>${project-version}</version>
+		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>Unpack ZMQ libraries</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.zeromq</groupId>
-									<artifactId>jzmq</artifactId>
-									<version>3.1.0</version>
-									<version>${zeromq-version}</version>
-									<type>jar</type>
-									<overWrite>true</overWrite>
-									<outputDirectory>${project.basedir}/target/classes</outputDirectory>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

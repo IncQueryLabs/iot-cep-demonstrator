@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Leapmotion
 Bundle-SymbolicName: com.incquerylabs.iot.leapmotion.controller
 Bundle-Version: 0.0.1.qualifier
-Bundle-Classpath: LeapJava.jar
+Bundle-Classpath: repo/com/leapmotion/api/leapjava-1.0.0.jar
 Export-Package: com.incquerylabs.iot.leapmotion,
  com.incquerylabs.iot.leapmotion.cli,
  com.incquerylabs.iot.leapmotion.frame,
