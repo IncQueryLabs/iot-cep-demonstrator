@@ -1,15 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Leapmotion
+Bundle-Name: com.incquerylabs.iot.leapmotion.controller
 Bundle-SymbolicName: com.incquerylabs.iot.leapmotion.controller
 Bundle-Version: 0.0.1.qualifier
-Bundle-Classpath: repo/com/leapmotion/api/leapjava-1.0.0.jar
+Bundle-Classpath: repo/com/leapmotion/api/leapjava-1.0.0.jar,
+ src/main/java/,
+ .
 Export-Package: com.incquerylabs.iot.leapmotion,
  com.incquerylabs.iot.leapmotion.cli,
  com.incquerylabs.iot.leapmotion.frame,
  com.incquerylabs.iot.leapmotion.processor,
  com.incquerylabs.iot.leapmotion.transform,
- com.incquerylabs.iot.leapmotion.zmq
+ com.incquerylabs.iot.leapmotion.zmq,
+ com.leapmotion.leap
 Import-Package: com.incquerylabs.iot.leapmotion.proto
 Require-Bundle: com.incquerylabs.iot.zeromq;bundle-version="0.0.1",
  com.incquerylabs.iot.commons;bundle-version="0.0.1",

@@ -76,13 +76,31 @@
 	</dependencies>
 
 	<build>
-
-		<resources>
-			<resource>
-				<directory>${project.basedir}/lib</directory>
-			</resource>
-		</resources>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven-clean-version}</version>
+				<executions>
+					<execution>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>bin</directory>
+									<excludes>
+										<exclude>.gitignore</exclude>
+									</excludes>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.0.1</version>
@@ -97,7 +115,7 @@
 							<outputDirectory>${project.basedir}/target/classes</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/lib</directory>
+									<directory>${project.basedir}/repo/com/leapmotion/api</directory>
 									<include>**/*.jar</include>
 								</resource>
 							</resources>
