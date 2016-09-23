@@ -20,7 +20,7 @@
 		<viatra-plugin-version>1.4.0.M2</viatra-plugin-version>
 		<native-library-paths>-Djava.library.path=/opt/leapmotion/LeapSDK/lib/x64:/usr/local/lib</native-library-paths>
 		<stream-path>-Dstream.path=../../lm-demo/test_recordings/grab.lmstream</stream-path>
-
+		<viatra.repository.url>http://download.eclipse.org/viatra/updates/integration</viatra.repository.url>
 	</properties>
 
 	<repositories>
@@ -33,7 +33,7 @@
 		<repository>
 			<id>viatra-ci</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/viatra/updates/integration</url>
+			<url>${viatra.repository.url}</url>
 		</repository>
 
 	</repositories>
