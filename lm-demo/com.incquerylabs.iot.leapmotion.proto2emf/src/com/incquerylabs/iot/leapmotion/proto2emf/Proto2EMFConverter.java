@@ -47,7 +47,7 @@ public class Proto2EMFConverter {
 	 */
 	public static FingerList convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.FingerList source) {
 		FingerList target = LmemfFactory.eINSTANCE.createFingerList();
-		target.setCount(source.getCount());
+		target.setCount(source.getExtendedCount());
 		target.setEmpty(source.getEmpty());
 		source.getExtendedList().forEach(finger -> {
 			target.getExtended().add(convert(finger));

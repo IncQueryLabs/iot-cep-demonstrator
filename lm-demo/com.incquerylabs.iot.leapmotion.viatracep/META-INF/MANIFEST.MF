@@ -20,7 +20,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  com.incquerylabs.iot.leapmotion.emf;bundle-version="0.0.1",
  com.incquerylabs.iot.libs;bundle-version="0.0.1",
  com.incquerylabs.iot.leapmotion.proto;bundle-version="0.0.1",
- com.incquerylabs.iot.zeromq;bundle-version="0.0.1"
+ com.incquerylabs.iot.zeromq;bundle-version="0.0.1",
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.incquerylabs.iot.communication,
  com.incquerylabs.iot.communication.zmq,

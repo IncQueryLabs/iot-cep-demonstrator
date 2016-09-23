@@ -18,6 +18,9 @@
 		<protoc-version>2.6.1</protoc-version>
 		<zeromq-version>3.1.0</zeromq-version>
 		<viatra-plugin-version>1.4.0.M2</viatra-plugin-version>
+		<native-library-paths>-Djava.library.path=/opt/leapmotion/LeapSDK/lib/x64:/usr/local/lib</native-library-paths>
+		<stream-path>-Dstream.path=../../lm-demo/test_recordings/grab.lmstream</stream-path>
+
 	</properties>
 
 	<repositories>
@@ -73,7 +76,7 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<!-- <argLine>-Xmx2048m -XX:MaxPermSize=256m ${tycho.testArgLine} ${cps.test.vmargs}</argLine> -->					
+					<argLine>${native-library-paths} ${stream-path}</argLine>					
 		            <failIfNoTests>false</failIfNoTests>
 		            <skipTests>false</skipTests>
 				</configuration>

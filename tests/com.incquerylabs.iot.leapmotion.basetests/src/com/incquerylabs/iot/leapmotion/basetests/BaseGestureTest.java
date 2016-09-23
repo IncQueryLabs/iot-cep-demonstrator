@@ -1,5 +1,7 @@
 package com.incquerylabs.iot.leapmotion.basetests;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -13,6 +15,7 @@ import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
 import com.incquerylabs.iot.leapmotion.frame.FrameStreamer;
+import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture;
 import com.leapmotion.leap.Controller;
 
 public abstract class BaseGestureTest {
@@ -24,6 +27,12 @@ public abstract class BaseGestureTest {
 	FrameStreamer streamer;
 	
 	protected GestureCollector collector;
+	
+	protected Gesture.Type expectedType;
+	
+	public BaseGestureTest(Gesture.Type type) {
+		this.expectedType = type;
+	}
 	
 	@Before
 	public void setUp() throws FileNotFoundException, IOException {
@@ -40,7 +49,7 @@ public abstract class BaseGestureTest {
 	}
 	
 	@Test
-	public void runGestureTest() throws InterruptedException, PoolNotInitializedException {
+	public void singleGestureTest() throws InterruptedException, PoolNotInitializedException {
 		System.out.println(this.getClass().getSimpleName() + " gesture test started!");
 		collector.start();
 		startCepComponent();
@@ -50,7 +59,8 @@ public abstract class BaseGestureTest {
 		while(streamer.hasNextFrame())
 			Thread.sleep(100);
 		
-		performAssertions();
+		assertEquals(1, collector.getGestures().size());
+		assertEquals(expectedType, collector.gestures.get(0).getType());
 	}
 	
 	@After
@@ -60,9 +70,8 @@ public abstract class BaseGestureTest {
 		collector.stop();
 		PublisherPool.getInstance().dispose();
 	}
-	
+		
 	protected abstract void initializeCEPComponent();
-	protected abstract void performAssertions();
 	protected abstract void startCepComponent();
 	protected abstract void stopCepComponent();
 		

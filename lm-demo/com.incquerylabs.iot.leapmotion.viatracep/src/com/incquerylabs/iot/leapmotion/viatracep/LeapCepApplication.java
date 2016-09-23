@@ -32,14 +32,12 @@ public class LeapCepApplication {
 	}
 	
 	public void start() throws PoolNotInitializedException, ViatraQueryException, ViatraBaseException {
-		SubscriberPool.initializePool(new ZMQFactory());
 		mapping  = QueryEngine2ViatraCep.register(LeapModelManager.getInstance().initialize(), eventStream);
 		stream.start();
 	}
 	
 	public void stop() throws PoolNotInitializedException {
 		stream.stop();
-		engine.reset();
 	}
 	
 }

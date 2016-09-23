@@ -2,22 +2,31 @@ package com.incquerylabs.iot.leapmotion.viatracep.vepl
 
 import-queries com.incquerylabs.iot.leapmotion.proto2emf.queries.*
 
-queryEvent ALL_EXTENDED() as allExtended(_) found
+queryEvent ALL_EXTENDED()
+	as allExtended(_) found
 
-queryEvent ALL_BENT() as allBent(_) found
+queryEvent ALL_BENT()
+	as allBent(_) found
 
-queryEvent EXTENDED_FINGER() as extendedFinger(_) found
+queryEvent EXTENDED_FINGER()
+	as extendedFinger(_) found
 
-queryEvent GRAB_STRENGTH_HIGH() as grabStrengthHigh found
+queryEvent GRAB_STRENGTH_HIGH()
+	as grabStrengthHigh found
 
-rule grabStrengthRule on GRAB_STRENGTH_HIGH {
+rule grabStrengthRule on GRAB_STRENGTH_HIGH{
 	System.out.println("Grab strength high!")
 }
 
-complexEvent GRAB() {
-	as (ALL_EXTENDED -> (ALL_BENT AND GRAB_STRENGTH_HIGH))
+complexEvent GRAB(){
+	as (ALL_EXTENDED -> ALL_BENT)[2000]
 }
 
-rule grabRule on GRAB {
-	System.out.println("GRAB!");
+rule grabRule on GRAB{
+	val bentEvents =
+	ruleInstance.atom.observedAtomicEventInstances.filter(com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event);
+	if(!bentEvents.empty){
+		val timestamp = bentEvents.last.timestamp;
+		com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.performGesture(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture.Type.TYPE_GRAB, timestamp)
+	}
 }
