@@ -70,7 +70,30 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
+			
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>com.incquerylabs.iot</groupId>
+							<artifactId>com.incquerylabs.iot.target</artifactId>
+							<version>${project-version}</version>
+							<relativePath>../../releng/com.incquerylabs.iot.target/pom.xml</relativePath>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
@@ -88,6 +111,7 @@
 		<profile>
 			<id>eclipse</id>
 			<modules>
+			    <module>../../releng/com.incquerylabs.iot.target</module>
 				<module>../../lm-demo/com.incquerylabs.iot.libs</module>
 				<module>../../lm-demo/com.incquerylabs.iot.commons</module>
 				<module>../../lm-demo/com.incquerylabs.iot.zeromq</module>
