@@ -240,11 +240,11 @@ message HandList {
 
 message Gesture {
   required int64 id = 1;
-  required int64 duration = 2;
-  required float durationSeconds = 3;
-  required int64 frame = 4;
-  required HandList hands = 5;
-  required PointableList pointables = 6;
+  optional int64 duration = 2;
+  optional float durationSeconds = 3;
+  optional int64 frame = 4;
+  optional HandList hands = 5;
+  optional PointableList pointables = 6;
   required bool valid = 7;
 
   enum State {
@@ -253,7 +253,7 @@ message Gesture {
     STATE_UPDATE = 2;
     STATE_STOP = 3;
   }
-  required State state = 8;
+  optional State state = 8;
 
   enum Type {
     TYPE_INVALID = 0;
@@ -261,8 +261,10 @@ message Gesture {
     TYPE_CIRCLE = 2;
     TYPE_SCREEN_TAP = 3;
     TYPE_KEY_TAP = 4;
+    TYPE_GRAB = 5;
   }
   required Type type = 9;
+  optional int64 timestamp = 10;
 }
 
 message GestureList {

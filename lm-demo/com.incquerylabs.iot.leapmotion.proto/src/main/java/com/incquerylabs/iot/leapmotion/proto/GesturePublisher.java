@@ -13,7 +13,7 @@ public class GesturePublisher {
 	public static void publishGesture(Gesture gesture) throws IOException, PoolNotInitializedException {
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		gesture.writeTo(stream);
-		PublisherPool.getInstance().next(YellowPages.getFrameStreamAddress()).publish(stream.toByteArray(), 0);
+		PublisherPool.getInstance().next(YellowPages.getGesturesStreamAddress()).publish(stream.toByteArray(), 0);
 		stream.close();
 	}
 	
