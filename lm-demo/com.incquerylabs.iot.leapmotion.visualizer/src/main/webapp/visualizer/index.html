@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Atmosphere -->
+<script type="text/javascript"
+	src="../javascript/atmosphere-javascript/2.3.0/atmosphere.js"></script>
+<!-- Application -->
+<script type="text/javascript" src="../javascript/jquery/2.2.4/jquery.js"></script>
+<script type="text/javascript" src="../javascript/wsbridge.js"></script>
+
+<script type="text/javascript">
+
+	var subscriber = new WSConnection(2, '127.0.0.1', 5555, 'framestream');
+	subscriber.connect();
+
+	subscriber.onMessageArrived = function(frame) {
+		console.log(frame.id);
+	}
+	var publisher = new WSConnection(1, '127.0.0.1', 5556, 'commands');
+	publisher.connect();
+
+</script>
+</head>
+
+<body>
+
+	<h3>Leap Motion visualizer</h3>
+
+</body>
+
+</html>
