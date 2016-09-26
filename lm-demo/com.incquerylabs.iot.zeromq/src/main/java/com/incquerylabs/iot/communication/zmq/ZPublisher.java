@@ -1,6 +1,7 @@
 package com.incquerylabs.iot.communication.zmq;
 
 import org.zeromq.ZMQ;
+import org.zeromq.ZMQException;
 
 import com.incquerylabs.iot.communication.IAddress;
 import com.incquerylabs.iot.communication.IPublisher;
@@ -22,7 +23,11 @@ public class ZPublisher implements IPublisher {
 	
 	@Override
 	public void connect(IAddress address) {
-		publisher.bind(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
+		try {
+			publisher.bind(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
+		} catch(ZMQException ex) {
+			publisher.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));			
+		}
 		this.topic = address.getTopic();
 	}
 	

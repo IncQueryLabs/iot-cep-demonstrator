@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.zeromq.ZMQ;
+import org.zeromq.ZMQException;
 
 import com.incquerylabs.iot.communication.IAddress;
 import com.incquerylabs.iot.communication.IExecutorPool;
@@ -39,7 +40,11 @@ public class ZSubscriber implements ISubscriber, Runnable {
 		// If not subscribed yet
 		if(address == null) {
 			this.address = _address;
-			sub.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
+			try {
+				sub.bind(String.format("tcp://%s:%d", address.getHost(), address.getPort()));
+			} catch(ZMQException ex) {
+				sub.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));				
+			}
 			sub.subscribe(address.getTopic().getBytes());
 		}
 		callbacks.get().add(callback);
