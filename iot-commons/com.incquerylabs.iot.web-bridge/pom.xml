@@ -88,7 +88,6 @@
 									<outputDirectory>${project.basedir}/target</outputDirectory>
 									<includes>**/*.js</includes>
 									<excludes>**/*.min.js</excludes>
-									<needsProcessing></needsProcessing>
 								</artifactItem>
 								<artifactItem>
 									<groupId>org.webjars</groupId>
@@ -99,7 +98,6 @@
 									<outputDirectory>${project.basedir}/target</outputDirectory>
 									<includes>**/*.js</includes>
 									<excludes>**/*.min.js</excludes>
-									<needsProcessing></needsProcessing>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
@@ -158,10 +156,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/target/javascript</directory>
-			</resource>
-		</resources>
 	</build>
 </project>

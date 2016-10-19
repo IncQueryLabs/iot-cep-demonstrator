@@ -3,19 +3,15 @@ package com.incquerylabs.iot.communication.zmq;
 import org.zeromq.ZMQ;
 import org.zeromq.ZMQException;
 
+import com.incquerylabs.iot.communication.AbstractPublisher;
 import com.incquerylabs.iot.communication.IAddress;
-import com.incquerylabs.iot.communication.IPublisher;
 
-public class ZPublisher implements IPublisher {
+public class ZPublisher extends AbstractPublisher {
 	
 	private ZMQ.Context context;
 	
 	private ZMQ.Socket publisher;
-	
-	private String topic = "";
-	
-	private volatile boolean inprogress = false;
-	
+		
 	public ZPublisher() {
 		context = ZMQ.context(10);
 		publisher = context.socket(ZMQ.PUB);
@@ -28,12 +24,6 @@ public class ZPublisher implements IPublisher {
 		} catch(ZMQException ex) {
 			publisher.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));			
 		}
-		this.topic = address.getTopic();
-	}
-	
-	@Override
-	public boolean isReady() {
-		return !inprogress;
 	}
 	
 	@Override
