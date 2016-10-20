@@ -3,19 +3,19 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lmemf_base" nsURI="http://incquerylabs.com/iot/leapmotion/lmemf_base"
     nsPrefix="lmemf_base">
   <eClassifiers xsi:type="ecore:EClass" name="LMElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vector" eSuperTypes="#//LMElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="magnitude" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="magnitudeSquared" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="normalized" lowerBound="1"
         eType="#//Vector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" lowerBound="1"
@@ -51,7 +51,7 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
         iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Matrix" eSuperTypes="#//LMElement">
@@ -87,17 +87,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VisibleElement" abstract="true" eSuperTypes="#//LMElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeVisible" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pointable" abstract="true" eSuperTypes="#//DirectionalElement #//Identifiable #//MeasurableElement #//VisibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="ecore:EClass lmemf.ecore#//Frame"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hand" lowerBound="1" eType="ecore:EClass lmemf.ecore#//Hand"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="finger" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" lowerBound="1" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stabilizedTipPosition"
         lowerBound="1" eType="#//Vector" containment="true"/>
@@ -108,7 +108,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchZone" lowerBound="1"
         eType="ecore:EEnum lmemf.ecore#//PointableZone"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchDistance" lowerBound="1"
-        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PointableList" abstract="true">
     <eTypeParameters name="T">
