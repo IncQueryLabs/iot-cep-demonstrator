@@ -66,7 +66,7 @@ public class Leap2ProtoConverter {
 				builder.setNormal(convert(cg.normal()));
 				break;
 			default:
-				builder.setNormal(Vector.getDefaultInstance());
+				break;
 		}
 
 		return builder.build();

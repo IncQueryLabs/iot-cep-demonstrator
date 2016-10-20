@@ -48,7 +48,7 @@ public class LeapMotionApplication extends Controller {
 				streamer = new FrameStreamer(prepareStreamFile(filepath), YellowPages.getFrameStreamAddress(), fps);
 				break;
 			case DEFAULT:
-				listeners.add(new FramePublisher());
+				listeners.add(new FramePublisher(fps));
 		}
 	
 	}
