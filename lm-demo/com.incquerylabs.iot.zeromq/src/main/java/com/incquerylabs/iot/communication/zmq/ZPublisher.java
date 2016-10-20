@@ -24,6 +24,7 @@ public class ZPublisher extends AbstractPublisher {
 		} catch(ZMQException ex) {
 			publisher.connect(String.format("tcp://%s:%d", address.getHost(), address.getPort()));			
 		}
+		super.connect(address);
 	}
 	
 	@Override
