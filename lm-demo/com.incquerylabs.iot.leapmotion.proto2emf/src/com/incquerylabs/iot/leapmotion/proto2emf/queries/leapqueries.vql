@@ -14,6 +14,38 @@ pattern allBent(frame : Frame) {
 	check(N == 0);
 }
 
+pattern circleGesture(gesture : Gesture) {
+	Gesture.type(gesture, ::TYPE_CIRCLE);
+	find continuousGesture(gesture, _);
+}
+
+pattern clockwiseCircleGesture(gesture : Gesture) {
+	find circleGesture(gesture);
+	find pointableNormal(gesture, DZ, NZ);
+	check(DZ * NZ > 0.0);
+}
+
+pattern nonClockwiseCircleGesture(gesture : Gesture) {
+	find circleGesture(gesture);
+	find pointableNormal(gesture, DZ, NZ);
+	check(DZ * NZ <= 0.0);
+}
+
+pattern continuousGesture(gesture : Gesture, duration : ELong) {
+	Gesture.duration(gesture, duration);
+}
+
+pattern pointableNormal(gesture : Gesture, DZ : EFloat, NZ : EFloat) {
+	Gesture.pointables.frontmost(gesture, pointable);
+	Pointable.direction.z(pointable, DZ);
+	Gesture.normal.z(gesture, NZ);
+}
+
+pattern clockwiseRoll(gesture : Gesture) {
+	find clockwiseCircleGesture(gesture);
+	find continuousGesture(gesture, _);
+}
+
 pattern grabStrengthHigh(frame : Frame) {
 	Frame.hands.frontmost(frame, hand);
 	find grabStrength(hand, S);

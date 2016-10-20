@@ -12,6 +12,7 @@ import org.eclipse.viatra.transformation.evm.api.Activation;
 import org.eclipse.viatra.transformation.evm.api.Context;
 import org.eclipse.viatra.transformation.evm.api.event.ActivationState;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
@@ -33,6 +34,7 @@ public class GrabRule_Job extends CepJob<IObservableComplexEventPattern> {
         final long timestamp = _last.getTimestamp();
         GestureUtils.INSTANCE.performGesture(LeapMotionProtos.Gesture.Type.TYPE_GRAB, timestamp);
       }
+      InputOutput.<String>println("Grab gesture!");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

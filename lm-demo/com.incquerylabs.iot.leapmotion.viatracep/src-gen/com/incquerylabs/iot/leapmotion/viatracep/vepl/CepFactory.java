@@ -3,15 +3,21 @@ package com.incquerylabs.iot.leapmotion.viatracep.vepl;
 import com.google.common.collect.Lists;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.CLOCKWISE_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.EXTENDED_FINGER_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.GRAB_STRENGTH_HIGH_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.NCLOCKWISE_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_BENT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_EXTENDED_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.CLOCKWISE_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.EXTENDED_FINGER_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.GRAB_STRENGTH_HIGH_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.NCLOCKWISE_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.GRAB_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.ClockwiseRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabStrengthRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.NotClockwiseRule;
 import java.util.List;
 import org.eclipse.viatra.cep.core.api.rules.ICepRule;
 import org.eclipse.viatra.cep.core.metamodels.events.EventSource;
@@ -84,6 +90,34 @@ public class CepFactory {
   }
   
   /**
+   * Factory method for event class {@link CLOCKWISE_Event}.
+   */
+  public CLOCKWISE_Event createCLOCKWISE_Event(final EventSource eventSource) {
+    return new CLOCKWISE_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link CLOCKWISE_Event}.
+   */
+  public CLOCKWISE_Event createCLOCKWISE_Event() {
+    return new CLOCKWISE_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link NCLOCKWISE_Event}.
+   */
+  public NCLOCKWISE_Event createNCLOCKWISE_Event(final EventSource eventSource) {
+    return new NCLOCKWISE_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link NCLOCKWISE_Event}.
+   */
+  public NCLOCKWISE_Event createNCLOCKWISE_Event() {
+    return new NCLOCKWISE_Event(null);
+  }
+  
+  /**
    * Factory method for atomic query result event pattern {@link ALL_EXTENDED_Pattern}.
    */
   public ALL_EXTENDED_Pattern createALL_EXTENDED_Pattern() {
@@ -112,10 +146,38 @@ public class CepFactory {
   }
   
   /**
+   * Factory method for atomic query result event pattern {@link CLOCKWISE_Pattern}.
+   */
+  public CLOCKWISE_Pattern createCLOCKWISE_Pattern() {
+    return new CLOCKWISE_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link NCLOCKWISE_Pattern}.
+   */
+  public NCLOCKWISE_Pattern createNCLOCKWISE_Pattern() {
+    return new NCLOCKWISE_Pattern();
+  }
+  
+  /**
    * Factory method for complex event pattern {@link GRAB_Pattern}.
    */
   public GRAB_Pattern createGRAB_Pattern() {
     return new GRAB_Pattern();
+  }
+  
+  /**
+   * Factory method for rule {@link ClockwiseRule}.
+   */
+  public Class<? extends ICepRule> rule_ClockwiseRule() {
+    return ClockwiseRule.class;
+  }
+  
+  /**
+   * Factory method for rule {@link NotClockwiseRule}.
+   */
+  public Class<? extends ICepRule> rule_NotClockwiseRule() {
+    return NotClockwiseRule.class;
   }
   
   /**
@@ -137,6 +199,8 @@ public class CepFactory {
    */
   public List<Class<? extends ICepRule>> allRules() {
     List<Class<? extends ICepRule>> rules = Lists.newArrayList();
+    rules.add(ClockwiseRule.class);
+    rules.add(NotClockwiseRule.class);
     rules.add(GrabStrengthRule.class);
     rules.add(GrabRule.class);
     return rules;

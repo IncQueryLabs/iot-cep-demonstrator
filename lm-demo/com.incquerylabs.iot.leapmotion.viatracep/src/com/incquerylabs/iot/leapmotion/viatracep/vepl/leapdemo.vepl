@@ -12,7 +12,19 @@ queryEvent EXTENDED_FINGER()
 	as extendedFinger(_) found
 
 queryEvent GRAB_STRENGTH_HIGH()
-	as grabStrengthHigh found
+	as grabStrengthHigh(_) found
+
+queryEvent CLOCKWISE(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as clockwiseCircleGesture(_) found
+
+rule clockwiseRule on CLOCKWISE {
+	println("CLOCKWISE ROLL");
+}
+
+queryEvent NCLOCKWISE(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as nonClockwiseCircleGesture(_) found
+
+rule notClockwiseRule on NCLOCKWISE {
+	println("NOT CLOCKWISE ROLL");
+}
 
 rule grabStrengthRule on GRAB_STRENGTH_HIGH{
 	System.out.println("Grab strength high!")
@@ -29,4 +41,5 @@ rule grabRule on GRAB{
 		val timestamp = bentEvents.last.timestamp;
 		com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.performGesture(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture.Type.TYPE_GRAB, timestamp)
 	}
+	println("Grab gesture!");
 }

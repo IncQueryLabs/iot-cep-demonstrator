@@ -6,10 +6,8 @@ import org.eclipse.viatra.cep.core.streams.EventStream;
 import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
-import com.incquerylabs.iot.communication.SubscriberPool;
 import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
-import com.incquerylabs.iot.communication.zmq.ZMQFactory;
 import com.incquerylabs.iot.leapmotion.proto2emf.LeapModelManager;
 import com.incquerylabs.iot.leapmotion.proto2emf.Proto2EMFFrameStream;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.CepFactory;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="com.incquerylabs.iot.leapmotion.viatracep.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.incquerylabs.iot.leapmotion.viatracep.application"
+            name="LeapMotion Viatra-CEP demo">
+         <property
+               name="appName"
+               value="LeapMotion Viatra-CEP demo">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

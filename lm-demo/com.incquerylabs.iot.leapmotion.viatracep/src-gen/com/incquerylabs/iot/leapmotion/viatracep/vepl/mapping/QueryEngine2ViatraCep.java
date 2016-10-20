@@ -4,14 +4,20 @@ import com.incquerylabs.iot.leapmotion.proto2emf.queries.AllBentMatch;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.AllBentMatcher;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.AllExtendedMatch;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.AllExtendedMatcher;
+import com.incquerylabs.iot.leapmotion.proto2emf.queries.ClockwiseCircleGestureMatch;
+import com.incquerylabs.iot.leapmotion.proto2emf.queries.ClockwiseCircleGestureMatcher;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.ExtendedFingerMatch;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.ExtendedFingerMatcher;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.GrabStrengthHighMatch;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.GrabStrengthHighMatcher;
+import com.incquerylabs.iot.leapmotion.proto2emf.queries.NonClockwiseCircleGestureMatch;
+import com.incquerylabs.iot.leapmotion.proto2emf.queries.NonClockwiseCircleGestureMatcher;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.CLOCKWISE_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.EXTENDED_FINGER_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.GRAB_STRENGTH_HIGH_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.NCLOCKWISE_Event;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.viatra.cep.core.streams.EventStream;
 import org.eclipse.viatra.query.runtime.api.IMatchProcessor;
@@ -46,9 +52,11 @@ public class QueryEngine2ViatraCep {
   public EventDrivenTransformationRuleGroup getRules() {
     EventDrivenTransformationRuleGroup ruleGroup = new EventDrivenTransformationRuleGroup(
     	createallExtended_MappingRule(), 
-    	createextendedFinger_MappingRule(), 
     	createallBent_MappingRule(), 
-    	creategrabStrengthHigh_MappingRule()
+    	createclockwiseCircleGesture_MappingRule(), 
+    	creategrabStrengthHigh_MappingRule(), 
+    	createnonClockwiseCircleGesture_MappingRule(), 
+    	createextendedFinger_MappingRule()
     );
     return ruleGroup;
   }
@@ -78,36 +86,6 @@ public class QueryEngine2ViatraCep {
       
       IMatchProcessor<AllExtendedMatch> actionOnDisappear_0 = new IMatchProcessor<AllExtendedMatch>() {
         public void process(final AllExtendedMatch matchedPattern) {
-        }
-      };
-      builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
-      
-      return builder.build();
-    } catch (ViatraQueryException e) {
-      e.printStackTrace();
-    } catch (InconsistentEventSemanticsException e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
-  
-  public EventDrivenTransformationRule<ExtendedFingerMatch, ExtendedFingerMatcher> createextendedFinger_MappingRule() {
-    try{
-      EventDrivenTransformationRuleFactory.EventDrivenTransformationRuleBuilder<ExtendedFingerMatch, ExtendedFingerMatcher> builder = new EventDrivenTransformationRuleFactory().createRule();
-      builder.addLifeCycle(Lifecycles.getDefault(false, true));
-      builder.precondition(ExtendedFingerMatcher.querySpecification());
-      
-      IMatchProcessor<ExtendedFingerMatch> actionOnAppear_0 = new IMatchProcessor<ExtendedFingerMatch>() {
-        public void process(final ExtendedFingerMatch matchedPattern) {
-          EXTENDED_FINGER_Event event = new EXTENDED_FINGER_Event(null);
-          event.setQueryMatch(matchedPattern);
-          eventStream.push(event);
-        }
-      };
-      builder.action(CRUDActivationStateEnum.CREATED, actionOnAppear_0);
-      
-      IMatchProcessor<ExtendedFingerMatch> actionOnDisappear_0 = new IMatchProcessor<ExtendedFingerMatch>() {
-        public void process(final ExtendedFingerMatch matchedPattern) {
         }
       };
       builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
@@ -151,6 +129,36 @@ public class QueryEngine2ViatraCep {
     return null;
   }
   
+  public EventDrivenTransformationRule<ClockwiseCircleGestureMatch, ClockwiseCircleGestureMatcher> createclockwiseCircleGesture_MappingRule() {
+    try{
+      EventDrivenTransformationRuleFactory.EventDrivenTransformationRuleBuilder<ClockwiseCircleGestureMatch, ClockwiseCircleGestureMatcher> builder = new EventDrivenTransformationRuleFactory().createRule();
+      builder.addLifeCycle(Lifecycles.getDefault(false, true));
+      builder.precondition(ClockwiseCircleGestureMatcher.querySpecification());
+      
+      IMatchProcessor<ClockwiseCircleGestureMatch> actionOnAppear_0 = new IMatchProcessor<ClockwiseCircleGestureMatch>() {
+        public void process(final ClockwiseCircleGestureMatch matchedPattern) {
+          CLOCKWISE_Event event = new CLOCKWISE_Event(null);
+          event.setQueryMatch(matchedPattern);
+          eventStream.push(event);
+        }
+      };
+      builder.action(CRUDActivationStateEnum.CREATED, actionOnAppear_0);
+      
+      IMatchProcessor<ClockwiseCircleGestureMatch> actionOnDisappear_0 = new IMatchProcessor<ClockwiseCircleGestureMatch>() {
+        public void process(final ClockwiseCircleGestureMatch matchedPattern) {
+        }
+      };
+      builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
+      
+      return builder.build();
+    } catch (ViatraQueryException e) {
+      e.printStackTrace();
+    } catch (InconsistentEventSemanticsException e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+  
   public EventDrivenTransformationRule<GrabStrengthHighMatch, GrabStrengthHighMatcher> creategrabStrengthHigh_MappingRule() {
     try{
       EventDrivenTransformationRuleFactory.EventDrivenTransformationRuleBuilder<GrabStrengthHighMatch, GrabStrengthHighMatcher> builder = new EventDrivenTransformationRuleFactory().createRule();
@@ -168,6 +176,66 @@ public class QueryEngine2ViatraCep {
       
       IMatchProcessor<GrabStrengthHighMatch> actionOnDisappear_0 = new IMatchProcessor<GrabStrengthHighMatch>() {
         public void process(final GrabStrengthHighMatch matchedPattern) {
+        }
+      };
+      builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
+      
+      return builder.build();
+    } catch (ViatraQueryException e) {
+      e.printStackTrace();
+    } catch (InconsistentEventSemanticsException e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+  
+  public EventDrivenTransformationRule<NonClockwiseCircleGestureMatch, NonClockwiseCircleGestureMatcher> createnonClockwiseCircleGesture_MappingRule() {
+    try{
+      EventDrivenTransformationRuleFactory.EventDrivenTransformationRuleBuilder<NonClockwiseCircleGestureMatch, NonClockwiseCircleGestureMatcher> builder = new EventDrivenTransformationRuleFactory().createRule();
+      builder.addLifeCycle(Lifecycles.getDefault(false, true));
+      builder.precondition(NonClockwiseCircleGestureMatcher.querySpecification());
+      
+      IMatchProcessor<NonClockwiseCircleGestureMatch> actionOnAppear_0 = new IMatchProcessor<NonClockwiseCircleGestureMatch>() {
+        public void process(final NonClockwiseCircleGestureMatch matchedPattern) {
+          NCLOCKWISE_Event event = new NCLOCKWISE_Event(null);
+          event.setQueryMatch(matchedPattern);
+          eventStream.push(event);
+        }
+      };
+      builder.action(CRUDActivationStateEnum.CREATED, actionOnAppear_0);
+      
+      IMatchProcessor<NonClockwiseCircleGestureMatch> actionOnDisappear_0 = new IMatchProcessor<NonClockwiseCircleGestureMatch>() {
+        public void process(final NonClockwiseCircleGestureMatch matchedPattern) {
+        }
+      };
+      builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
+      
+      return builder.build();
+    } catch (ViatraQueryException e) {
+      e.printStackTrace();
+    } catch (InconsistentEventSemanticsException e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+  
+  public EventDrivenTransformationRule<ExtendedFingerMatch, ExtendedFingerMatcher> createextendedFinger_MappingRule() {
+    try{
+      EventDrivenTransformationRuleFactory.EventDrivenTransformationRuleBuilder<ExtendedFingerMatch, ExtendedFingerMatcher> builder = new EventDrivenTransformationRuleFactory().createRule();
+      builder.addLifeCycle(Lifecycles.getDefault(false, true));
+      builder.precondition(ExtendedFingerMatcher.querySpecification());
+      
+      IMatchProcessor<ExtendedFingerMatch> actionOnAppear_0 = new IMatchProcessor<ExtendedFingerMatch>() {
+        public void process(final ExtendedFingerMatch matchedPattern) {
+          EXTENDED_FINGER_Event event = new EXTENDED_FINGER_Event(null);
+          event.setQueryMatch(matchedPattern);
+          eventStream.push(event);
+        }
+      };
+      builder.action(CRUDActivationStateEnum.CREATED, actionOnAppear_0);
+      
+      IMatchProcessor<ExtendedFingerMatch> actionOnDisappear_0 = new IMatchProcessor<ExtendedFingerMatch>() {
+        public void process(final ExtendedFingerMatch matchedPattern) {
         }
       };
       builder.action(CRUDActivationStateEnum.DELETED, actionOnDisappear_0);
