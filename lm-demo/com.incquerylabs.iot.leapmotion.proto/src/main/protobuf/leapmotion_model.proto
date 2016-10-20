@@ -265,6 +265,7 @@ message Gesture {
   }
   required Type type = 9;
   optional int64 timestamp = 10;
+  optional Vector normal = 11;
 }
 
 message GestureList {

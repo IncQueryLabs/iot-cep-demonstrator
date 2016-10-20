@@ -2,23 +2,27 @@ package com.incquerylabs.iot.leapmotion.proto2emf;
 
 import com.incquerylabs.iot.leapmotion.lmemf.Finger;
 import com.incquerylabs.iot.leapmotion.lmemf.FingerList;
+import com.incquerylabs.iot.leapmotion.lmemf.Gesture;
+import com.incquerylabs.iot.leapmotion.lmemf.GestureState;
+import com.incquerylabs.iot.leapmotion.lmemf.GestureType;
 import com.incquerylabs.iot.leapmotion.lmemf.Hand;
 import com.incquerylabs.iot.leapmotion.lmemf.HandList;
 import com.incquerylabs.iot.leapmotion.lmemf.LmemfFactory;
 import com.incquerylabs.iot.leapmotion.lmemf_base.Lmemf_baseFactory;
+import com.incquerylabs.iot.leapmotion.lmemf_base.PointableList;
 import com.incquerylabs.iot.leapmotion.lmemf_base.Vector;
 
+// XXX: Temporary minimal implementation - only convert the needed part of the model. Will be replaced with reflective solution
 public class Proto2EMFConverter {
 	
 	/**
-	 * Convert vector.
+	 * Convert vector
 	 */
 	public static Vector convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Vector source) {
 		Vector target = Lmemf_baseFactory.eINSTANCE.createVector();
 		target.setX(source.getX());
 		target.setY(source.getY());
 		target.setZ(source.getZ());
-		
 		return target;
 	}
 	
@@ -43,6 +47,25 @@ public class Proto2EMFConverter {
 	}
 	
 	/**
+	 * PointableList conversion
+	 */
+	public static PointableList<Finger> convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.PointableList source) {
+		PointableList<Finger> target = LmemfFactory.eINSTANCE.createFingerList();
+		target.setFrontmost(convert(source.getFrontmost()));
+		return target;
+	}
+	
+	/**
+	 * Pointable conversion
+	 */
+	public static Finger convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Pointable source) {
+		Finger target = LmemfFactory.eINSTANCE.createFinger();
+		target.setDirection(convert(source.getDirection()));
+		target.setLength(source.getLength());
+		return target;
+	}
+	
+	/**
 	 * FingerList
 	 */
 	public static FingerList convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.FingerList source) {
@@ -62,6 +85,23 @@ public class Proto2EMFConverter {
 		Finger target = LmemfFactory.eINSTANCE.createFinger();
 		target.setExtended(source.getExtended());
 		target.setLength(source.getLength());
+		return target;
+	}
+	
+	/**
+	 * Gesture conversion
+	 */
+	public static Gesture convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture source) {
+		Gesture target = LmemfFactory.eINSTANCE.createGesture();
+		return merge(target, source);
+	}
+	
+	public static Gesture merge(Gesture target, com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture source) {
+		target.setType(GestureType.valueOf(source.getType().name()));
+		target.setState(GestureState.valueOf(source.getState().name()));
+		target.setDuration(source.getDuration());
+		target.setNormal(convert(source.getNormal()));
+		target.setPointables(convert(source.getPointables()));
 		return target;
 	}
 	

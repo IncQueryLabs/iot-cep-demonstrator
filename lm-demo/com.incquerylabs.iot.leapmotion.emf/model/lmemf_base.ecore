@@ -29,7 +29,8 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        containment="true">
       <eGenericType eTypeParameter="#//LMList/T"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -37,13 +38,16 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//LMElement"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightmost" lowerBound="1"
+        containment="true">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftmost" lowerBound="1"
+        containment="true">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="frontmost" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frontmost" lowerBound="1"
+        containment="true">
       <eGenericType eTypeParameter="#//ArrangementList/T"/>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//LMList">
@@ -69,7 +73,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DirectionalElement" abstract="true"
       eSuperTypes="#//LMElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="direction" lowerBound="1"
-        eType="#//Matrix" containment="true"/>
+        eType="#//Vector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CenterableElement" abstract="true" eSuperTypes="#//LMElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="center" lowerBound="1"
@@ -114,7 +118,8 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Pointable"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extended" upperBound="-1"
+        containment="true">
       <eGenericType eTypeParameter="#//PointableList/T"/>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//ArrangementList">

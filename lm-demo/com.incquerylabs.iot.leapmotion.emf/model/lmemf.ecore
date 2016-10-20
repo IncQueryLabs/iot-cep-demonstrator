@@ -41,12 +41,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Gesture" eSuperTypes="lmemf_base.ecore#//LMElement lmemf_base.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="frame" lowerBound="1" eType="#//Frame"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pointables" lowerBound="1"
-        eType="ecore:EClass lmemf_base.ecore#//PointableList"/>
+        eType="ecore:EClass lmemf_base.ecore#//PointableList" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hands" lowerBound="1" eType="#//HandList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//GestureState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GestureType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normal" lowerBound="1"
+        eType="ecore:EClass lmemf_base.ecore#//Vector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GestureList">
     <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//LMList">

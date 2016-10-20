@@ -1,5 +1,10 @@
 package com.incquerylabs.iot.leapmotion.proto2emf;
 
+import static com.incquerylabs.iot.leapmotion.proto2emf.Proto2EMFConverter.convert;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -18,6 +23,7 @@ import com.incquerylabs.iot.leapmotion.lmemf.FingerList;
 import com.incquerylabs.iot.leapmotion.lmemf.HandList;
 import com.incquerylabs.iot.leapmotion.lmemf.LmemfFactory;
 import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Frame;
+import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture;
 import com.incquerylabs.iot.leapmotion.proto2emf.queries.Leapqueries;
 
 import static com.incquerylabs.iot.leapmotion.proto2emf.Proto2EMFConverter.*;
@@ -60,6 +66,7 @@ public class LeapModelManager implements ILeapModelUpdater {
 			engine = AdvancedViatraQueryEngine.createUnmanagedEngine(new EMFScope(resourceSet));
 		
 		currentFrame = LmemfFactory.eINSTANCE.createFrame();
+		currentFrame.setGestures(LmemfFactory.eINSTANCE.createGestureList());
 		
 		navigationHelper = ViatraBaseFactory.getInstance().createNavigationHelper(currentFrame, true, null);
 		
@@ -76,13 +83,39 @@ public class LeapModelManager implements ILeapModelUpdater {
 		currentFrame.setCurrentFramePerSecond(frame.getCurrentFramePerSecond());
 		currentFrame.setValid(frame.getValid());
 		currentFrame.setTimestamp(frame.getTimestamp());
-
+		
+		List<com.incquerylabs.iot.leapmotion.lmemf.Gesture> gesturesToDelete = new ArrayList<>();
+		
+		currentFrame.getGestures().getElements().forEach(target -> {
+			Gesture source = null;
+			for(Gesture src : frame.getGestures().getElementList()) {
+				if(src.getId() == target.getId())
+					source = src;
+			}
+			if(source != null) {
+				merge(target, source);
+				frame.getGestures().getElementList().remove(source); // Removed processed element from source list.
+			} else {
+				gesturesToDelete.add(target);
+			}
+		});
+		
+		gesturesToDelete.forEach(gesture -> {
+			EcoreUtil.remove(gesture);
+		});
+		
+		gesturesToDelete.clear();
+		
+		frame.getGestures().getElementList().forEach(source -> {
+			com.incquerylabs.iot.leapmotion.lmemf.Gesture target = convert(source);
+			currentFrame.getGestures().getElements().add(target);
+		});
+		
 		FingerList fingers = convert(frame.getFingers());
 		currentFrame.setFingers(fingers);
 				
 		HandList hands = convert(frame.getHands());
 		currentFrame.setHands(hands);
-
 	}
 	
 }
