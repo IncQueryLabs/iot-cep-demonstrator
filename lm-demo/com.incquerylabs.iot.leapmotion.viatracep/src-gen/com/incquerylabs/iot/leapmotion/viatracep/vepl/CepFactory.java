@@ -16,7 +16,6 @@ import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresul
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.GRAB_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.ClockwiseRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabRule;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabStrengthRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.NotClockwiseRule;
 import java.util.List;
 import org.eclipse.viatra.cep.core.api.rules.ICepRule;
@@ -181,13 +180,6 @@ public class CepFactory {
   }
   
   /**
-   * Factory method for rule {@link GrabStrengthRule}.
-   */
-  public Class<? extends ICepRule> rule_GrabStrengthRule() {
-    return GrabStrengthRule.class;
-  }
-  
-  /**
    * Factory method for rule {@link GrabRule}.
    */
   public Class<? extends ICepRule> rule_GrabRule() {
@@ -201,7 +193,6 @@ public class CepFactory {
     List<Class<? extends ICepRule>> rules = Lists.newArrayList();
     rules.add(ClockwiseRule.class);
     rules.add(NotClockwiseRule.class);
-    rules.add(GrabStrengthRule.class);
     rules.add(GrabRule.class);
     return rules;
   }

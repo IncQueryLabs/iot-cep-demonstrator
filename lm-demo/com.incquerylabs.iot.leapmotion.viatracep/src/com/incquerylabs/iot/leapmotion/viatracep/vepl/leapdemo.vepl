@@ -26,10 +26,6 @@ rule notClockwiseRule on NCLOCKWISE {
 	println("NOT CLOCKWISE ROLL");
 }
 
-rule grabStrengthRule on GRAB_STRENGTH_HIGH{
-	System.out.println("Grab strength high!")
-}
-
 complexEvent GRAB(){
 	as (ALL_EXTENDED -> ALL_BENT)[2000]
 }
@@ -41,5 +37,4 @@ rule grabRule on GRAB{
 		val timestamp = bentEvents.last.timestamp;
 		com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.performGesture(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture.Type.TYPE_GRAB, timestamp)
 	}
-	println("Grab gesture!");
 }

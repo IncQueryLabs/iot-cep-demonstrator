@@ -87,10 +87,10 @@
 						</goals>
 						
 						<configuration>
-							<outputDirectory>${project.basedir}/src-gen</outputDirectory>
+							<outputDirectory>${basedir}/src-gen</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/target/gen/src-gen</directory>
+									<directory>${basedir}/target/gen/src-gen</directory>
 									<include>**/*.java</include>
 								</resource>
 							</resources>
