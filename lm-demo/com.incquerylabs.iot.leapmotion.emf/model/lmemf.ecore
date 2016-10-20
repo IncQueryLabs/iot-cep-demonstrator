@@ -46,6 +46,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//GestureState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GestureType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GestureList">
     <eGenericSuperTypes eClassifier="ecore:EClass lmemf_base.ecore#//LMList">
