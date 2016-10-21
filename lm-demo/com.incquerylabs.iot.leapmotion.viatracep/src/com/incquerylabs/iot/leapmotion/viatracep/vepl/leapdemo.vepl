@@ -1,29 +1,53 @@
 package com.incquerylabs.iot.leapmotion.viatracep.vepl
 
+import com.incquerylabs.iot.leapmotion.proto.ComplexGestures.ComplexGesture.*
 import-queries com.incquerylabs.iot.leapmotion.proto2emf.queries.*
 
 queryEvent ALL_EXTENDED()
 	as allExtended(_) found
 
-queryEvent ALL_BENT()
-	as allBent(_) found
+queryEvent ALL_BENT() as allBent(_) found
 
-queryEvent EXTENDED_FINGER()
-	as extendedFinger(_) found
+queryEvent EXTENDED_FINGER() as extendedFinger(_) found
 
-queryEvent GRAB_STRENGTH_HIGH()
-	as grabStrengthHigh(_) found
+queryEvent GRAB_STRENGTH_HIGH() as grabStrengthHigh(_) found
 
-queryEvent CLOCKWISE(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as clockwiseCircleGesture(_) found
+queryEvent TAP(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as tapGesture(gesture) found
 
-rule clockwiseRule on CLOCKWISE {
-	println("CLOCKWISE ROLL");
+queryEvent SPEED_UP_LEFT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as leftSpeedUp(_) found
+queryEvent SLOW_DOWN_LEFT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as leftSlowDown(_) found
+
+queryEvent SPEED_UP_RIGHT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as rightSpeedUp(_) found
+queryEvent SLOW_DOWN_RIGHT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as rightSlowDown(_) found
+
+complexEvent SELECTION() {
+	as (TAP AND EXTENDED_FINGER)[50]
 }
 
-queryEvent NCLOCKWISE(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as nonClockwiseCircleGesture(_) found
+rule speedUpLeftRule on SPEED_UP_LEFT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SPEED_UP, t, 10)
+}
 
-rule notClockwiseRule on NCLOCKWISE {
-	println("NOT CLOCKWISE ROLL");
+rule slowDownLeftRule on SLOW_DOWN_LEFT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SLOW_DOWN, t, 10)
+}
+
+rule speedUpRightRule on SPEED_UP_RIGHT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SPEED_UP, t, 9)
+}
+
+rule slowDownRightRule on SLOW_DOWN_RIGHT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SLOW_DOWN, t, 9)
+}
+
+rule selectionRule on SELECTION {
+	val event = ruleInstance.atom.observedAtomicEventInstances.filter(com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.EXTENDED_FINGER_Event).get(0);
+	val id = event.patternMatch.get("n")
+//	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.performGesture(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture.Type.TYPE_SELECTION, event.timestamp, id);
 }
 
 complexEvent GRAB(){
@@ -35,6 +59,6 @@ rule grabRule on GRAB{
 	ruleInstance.atom.observedAtomicEventInstances.filter(com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event);
 	if(!bentEvents.empty){
 		val timestamp = bentEvents.last.timestamp;
-		com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.performGesture(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture.Type.TYPE_GRAB, timestamp)
+		com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_GRAB, timestamp, 0)
 	}
 }

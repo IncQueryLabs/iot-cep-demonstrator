@@ -6,3 +6,14 @@
 /.CircleGestureRule.java._trace
 /.ClockwiseRule.java._trace
 /.NotClockwiseRule.java._trace
+/.ClockwiseRollRule.java._trace
+/.NonClockwiseRule.java._trace
+/.SpeeedUp.java._trace
+/.SlowDownRule.java._trace
+/.SpeedUpRule.java._trace
+/.TapRule.java._trace
+/.SelectionRule.java._trace
+/.SlowDownLeftRule.java._trace
+/.SlowDownRightRule.java._trace
+/.SpeedUpLeftRule.java._trace
+/.SpeedUpRightRule.java._trace

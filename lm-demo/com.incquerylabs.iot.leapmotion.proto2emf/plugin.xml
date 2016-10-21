@@ -4,8 +4,15 @@
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.allExtended"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.allBent"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.circleGesture"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.leftSpeedUp"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.leftSlowDown"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.rightSpeedUp"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.rightSlowDown"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.rightHandGesture"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.leftHandGesture"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.clockwiseCircleGesture"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.nonClockwiseCircleGesture"/>
+      <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.tapGesture"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.continuousGesture"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.pointableNormal"/>
       <query-specification fqn="com.incquerylabs.iot.leapmotion.proto2emf.queries.clockwiseRoll"/>

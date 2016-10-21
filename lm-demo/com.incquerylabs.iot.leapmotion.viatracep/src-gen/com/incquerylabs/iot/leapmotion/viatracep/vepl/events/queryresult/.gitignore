@@ -7,3 +7,12 @@
 /.CG_Event.java._trace
 /.CLOCKWISE_Event.java._trace
 /.NCLOCKWISE_Event.java._trace
+/.TAP_Event.java._trace
+/.CLOCKWISEROLL_Event.java._trace
+/.NCLOCKWISEROLL_Event.java._trace
+/.SPEED_UP_Event.java._trace
+/.SLOW_DOWN_Event.java._trace
+/.SLOW_DOWN_LEFT_Event.java._trace
+/.SLOW_DOWN_RIGHT_Event.java._trace
+/.SPEED_UP_LEFT_Event.java._trace
+/.SPEED_UP_RIGHT_Event.java._trace

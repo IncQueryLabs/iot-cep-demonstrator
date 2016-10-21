@@ -5,10 +5,10 @@ import org.eclipse.viatra.cep.core.api.events.ParameterizableViatraQueryPatternE
 import org.eclipse.viatra.cep.core.metamodels.events.EventSource;
 
 @SuppressWarnings("all")
-public class NCLOCKWISE_Event extends ParameterizableViatraQueryPatternEventInstance {
+public class SPEED_UP_LEFT_Event extends ParameterizableViatraQueryPatternEventInstance {
   private Gesture gesture;
   
-  public NCLOCKWISE_Event(final EventSource eventSource) {
+  public SPEED_UP_LEFT_Event(final EventSource eventSource) {
     super(eventSource);
     getParameters().add(gesture);
     

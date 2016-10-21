@@ -19,6 +19,39 @@ pattern circleGesture(gesture : Gesture) {
 	find continuousGesture(gesture, _);
 }
 
+pattern leftSpeedUp(gesture : Gesture) {
+	find clockwiseCircleGesture(gesture);
+	find leftHandGesture(gesture);
+}
+
+pattern leftSlowDown(gesture : Gesture) {
+	find nonClockwiseCircleGesture(gesture);
+	find leftHandGesture(gesture);
+}
+
+
+pattern rightSpeedUp(gesture : Gesture) {
+	find clockwiseCircleGesture(gesture);
+	find rightHandGesture(gesture);
+}
+
+pattern rightSlowDown(gesture : Gesture) {
+	find nonClockwiseCircleGesture(gesture);
+	find rightHandGesture(gesture);
+}
+
+pattern rightHandGesture(gesture : Gesture) {
+	Gesture.hands.frontmost(gesture, hand);
+	Hand.right(hand, h);
+	check(h == true);
+}
+
+pattern leftHandGesture(gesture : Gesture) {
+	Gesture.hands.frontmost(gesture, hand);
+	Hand.left(hand, h);
+	check(h == true);
+}
+
 pattern clockwiseCircleGesture(gesture : Gesture) {
 	find circleGesture(gesture);
 	find pointableNormal(gesture, DZ, NZ);
@@ -29,6 +62,12 @@ pattern nonClockwiseCircleGesture(gesture : Gesture) {
 	find circleGesture(gesture);
 	find pointableNormal(gesture, DZ, NZ);
 	check(DZ * NZ <= 0.0);
+}
+
+pattern tapGesture(gesture : Gesture) {
+	Gesture.type(gesture, ::TYPE_KEY_TAP);
+} or {
+	Gesture.type(gesture, ::TYPE_SCREEN_TAP);
 }
 
 pattern continuousGesture(gesture : Gesture, duration : ELong) {
@@ -56,7 +95,7 @@ pattern grabStrength(hand : Hand, S : EFloat) {
 	Hand.grabStrength(hand, S);
 }
 
-pattern extendedFinger(frame : Frame, N : EInt) {
+pattern extendedFinger(frame : Frame, n : EInt) {
 	Frame.fingers(frame, fingerList);
-	FingerList.^count(fingerList, N);
+	FingerList.^count(fingerList, n);
 }

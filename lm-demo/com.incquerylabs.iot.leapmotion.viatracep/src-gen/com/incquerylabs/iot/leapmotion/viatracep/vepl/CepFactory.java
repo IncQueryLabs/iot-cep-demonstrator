@@ -3,20 +3,30 @@ package com.incquerylabs.iot.leapmotion.viatracep.vepl;
 import com.google.common.collect.Lists;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_Event;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.CLOCKWISE_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.EXTENDED_FINGER_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.GRAB_STRENGTH_HIGH_Event;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.NCLOCKWISE_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SLOW_DOWN_LEFT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SLOW_DOWN_RIGHT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SPEED_UP_LEFT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SPEED_UP_RIGHT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.TAP_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_BENT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_EXTENDED_Pattern;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.CLOCKWISE_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.EXTENDED_FINGER_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.GRAB_STRENGTH_HIGH_Pattern;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.NCLOCKWISE_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.SLOW_DOWN_LEFT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.SLOW_DOWN_RIGHT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.SPEED_UP_LEFT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.SPEED_UP_RIGHT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.TAP_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.GRAB_Pattern;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.ClockwiseRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.SELECTION_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabRule;
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.NotClockwiseRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SelectionRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SlowDownLeftRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SlowDownRightRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SpeedUpLeftRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SpeedUpRightRule;
 import java.util.List;
 import org.eclipse.viatra.cep.core.api.rules.ICepRule;
 import org.eclipse.viatra.cep.core.metamodels.events.EventSource;
@@ -89,31 +99,73 @@ public class CepFactory {
   }
   
   /**
-   * Factory method for event class {@link CLOCKWISE_Event}.
+   * Factory method for event class {@link TAP_Event}.
    */
-  public CLOCKWISE_Event createCLOCKWISE_Event(final EventSource eventSource) {
-    return new CLOCKWISE_Event(eventSource);
+  public TAP_Event createTAP_Event(final EventSource eventSource) {
+    return new TAP_Event(eventSource);
   }
   
   /**
-   * Factory method for event class {@link CLOCKWISE_Event}.
+   * Factory method for event class {@link TAP_Event}.
    */
-  public CLOCKWISE_Event createCLOCKWISE_Event() {
-    return new CLOCKWISE_Event(null);
+  public TAP_Event createTAP_Event() {
+    return new TAP_Event(null);
   }
   
   /**
-   * Factory method for event class {@link NCLOCKWISE_Event}.
+   * Factory method for event class {@link SPEED_UP_LEFT_Event}.
    */
-  public NCLOCKWISE_Event createNCLOCKWISE_Event(final EventSource eventSource) {
-    return new NCLOCKWISE_Event(eventSource);
+  public SPEED_UP_LEFT_Event createSPEED_UP_LEFT_Event(final EventSource eventSource) {
+    return new SPEED_UP_LEFT_Event(eventSource);
   }
   
   /**
-   * Factory method for event class {@link NCLOCKWISE_Event}.
+   * Factory method for event class {@link SPEED_UP_LEFT_Event}.
    */
-  public NCLOCKWISE_Event createNCLOCKWISE_Event() {
-    return new NCLOCKWISE_Event(null);
+  public SPEED_UP_LEFT_Event createSPEED_UP_LEFT_Event() {
+    return new SPEED_UP_LEFT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link SLOW_DOWN_LEFT_Event}.
+   */
+  public SLOW_DOWN_LEFT_Event createSLOW_DOWN_LEFT_Event(final EventSource eventSource) {
+    return new SLOW_DOWN_LEFT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link SLOW_DOWN_LEFT_Event}.
+   */
+  public SLOW_DOWN_LEFT_Event createSLOW_DOWN_LEFT_Event() {
+    return new SLOW_DOWN_LEFT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link SPEED_UP_RIGHT_Event}.
+   */
+  public SPEED_UP_RIGHT_Event createSPEED_UP_RIGHT_Event(final EventSource eventSource) {
+    return new SPEED_UP_RIGHT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link SPEED_UP_RIGHT_Event}.
+   */
+  public SPEED_UP_RIGHT_Event createSPEED_UP_RIGHT_Event() {
+    return new SPEED_UP_RIGHT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link SLOW_DOWN_RIGHT_Event}.
+   */
+  public SLOW_DOWN_RIGHT_Event createSLOW_DOWN_RIGHT_Event(final EventSource eventSource) {
+    return new SLOW_DOWN_RIGHT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link SLOW_DOWN_RIGHT_Event}.
+   */
+  public SLOW_DOWN_RIGHT_Event createSLOW_DOWN_RIGHT_Event() {
+    return new SLOW_DOWN_RIGHT_Event(null);
   }
   
   /**
@@ -145,17 +197,45 @@ public class CepFactory {
   }
   
   /**
-   * Factory method for atomic query result event pattern {@link CLOCKWISE_Pattern}.
+   * Factory method for atomic query result event pattern {@link TAP_Pattern}.
    */
-  public CLOCKWISE_Pattern createCLOCKWISE_Pattern() {
-    return new CLOCKWISE_Pattern();
+  public TAP_Pattern createTAP_Pattern() {
+    return new TAP_Pattern();
   }
   
   /**
-   * Factory method for atomic query result event pattern {@link NCLOCKWISE_Pattern}.
+   * Factory method for atomic query result event pattern {@link SPEED_UP_LEFT_Pattern}.
    */
-  public NCLOCKWISE_Pattern createNCLOCKWISE_Pattern() {
-    return new NCLOCKWISE_Pattern();
+  public SPEED_UP_LEFT_Pattern createSPEED_UP_LEFT_Pattern() {
+    return new SPEED_UP_LEFT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link SLOW_DOWN_LEFT_Pattern}.
+   */
+  public SLOW_DOWN_LEFT_Pattern createSLOW_DOWN_LEFT_Pattern() {
+    return new SLOW_DOWN_LEFT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link SPEED_UP_RIGHT_Pattern}.
+   */
+  public SPEED_UP_RIGHT_Pattern createSPEED_UP_RIGHT_Pattern() {
+    return new SPEED_UP_RIGHT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link SLOW_DOWN_RIGHT_Pattern}.
+   */
+  public SLOW_DOWN_RIGHT_Pattern createSLOW_DOWN_RIGHT_Pattern() {
+    return new SLOW_DOWN_RIGHT_Pattern();
+  }
+  
+  /**
+   * Factory method for complex event pattern {@link SELECTION_Pattern}.
+   */
+  public SELECTION_Pattern createSELECTION_Pattern() {
+    return new SELECTION_Pattern();
   }
   
   /**
@@ -166,17 +246,38 @@ public class CepFactory {
   }
   
   /**
-   * Factory method for rule {@link ClockwiseRule}.
+   * Factory method for rule {@link SpeedUpLeftRule}.
    */
-  public Class<? extends ICepRule> rule_ClockwiseRule() {
-    return ClockwiseRule.class;
+  public Class<? extends ICepRule> rule_SpeedUpLeftRule() {
+    return SpeedUpLeftRule.class;
   }
   
   /**
-   * Factory method for rule {@link NotClockwiseRule}.
+   * Factory method for rule {@link SlowDownLeftRule}.
    */
-  public Class<? extends ICepRule> rule_NotClockwiseRule() {
-    return NotClockwiseRule.class;
+  public Class<? extends ICepRule> rule_SlowDownLeftRule() {
+    return SlowDownLeftRule.class;
+  }
+  
+  /**
+   * Factory method for rule {@link SpeedUpRightRule}.
+   */
+  public Class<? extends ICepRule> rule_SpeedUpRightRule() {
+    return SpeedUpRightRule.class;
+  }
+  
+  /**
+   * Factory method for rule {@link SlowDownRightRule}.
+   */
+  public Class<? extends ICepRule> rule_SlowDownRightRule() {
+    return SlowDownRightRule.class;
+  }
+  
+  /**
+   * Factory method for rule {@link SelectionRule}.
+   */
+  public Class<? extends ICepRule> rule_SelectionRule() {
+    return SelectionRule.class;
   }
   
   /**
@@ -191,8 +292,11 @@ public class CepFactory {
    */
   public List<Class<? extends ICepRule>> allRules() {
     List<Class<? extends ICepRule>> rules = Lists.newArrayList();
-    rules.add(ClockwiseRule.class);
-    rules.add(NotClockwiseRule.class);
+    rules.add(SpeedUpLeftRule.class);
+    rules.add(SlowDownLeftRule.class);
+    rules.add(SpeedUpRightRule.class);
+    rules.add(SlowDownRightRule.class);
+    rules.add(SelectionRule.class);
     rules.add(GrabRule.class);
     return rules;
   }
