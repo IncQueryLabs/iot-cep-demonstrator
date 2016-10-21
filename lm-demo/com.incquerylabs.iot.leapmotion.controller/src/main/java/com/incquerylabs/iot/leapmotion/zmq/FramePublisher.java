@@ -57,7 +57,7 @@ public class FramePublisher extends Listener {
 		Frame converted = convert(frame);
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		converted.writeTo(stream);
-		PublisherPool.getInstance().next(YellowPages.getFrameStreamAddress()).publish(stream.toByteArray(), 0);
+		PublisherPool.getInstance().next(YellowPages.INSTANCE.getFrameStreamAddress()).publish(stream.toByteArray(), 0);
 		stream.close();
 	}
 	
