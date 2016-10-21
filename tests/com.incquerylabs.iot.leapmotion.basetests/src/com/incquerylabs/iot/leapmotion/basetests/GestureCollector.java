@@ -7,11 +7,11 @@ import java.util.List;
 import com.incquerylabs.iot.communication.IAddress;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.leapmotion.proto.AbstractProtoGestureStream;
-import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture;
+import com.incquerylabs.iot.leapmotion.proto.ComplexGestures.ComplexGesture;
 
 public class GestureCollector extends AbstractProtoGestureStream {
 	
-	List<Gesture> gestures;
+	List<ComplexGesture> gestures;
 	
 	public GestureCollector(IAddress sourceAddress) {
 		super(sourceAddress);
@@ -19,11 +19,11 @@ public class GestureCollector extends AbstractProtoGestureStream {
 	}
 
 	@Override
-	public void processGesture(Gesture gesture) {
+	public void processGesture(ComplexGesture gesture) {
 		gestures.add(gesture);
 	}
 	
-	public Collection<Gesture> getGestures() {
+	public Collection<ComplexGesture> getGestures() {
 		return gestures;
 	}
 

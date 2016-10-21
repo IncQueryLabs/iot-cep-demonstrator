@@ -15,7 +15,7 @@ import com.incquerylabs.iot.communication.YellowPages;
 import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
 import com.incquerylabs.iot.leapmotion.frame.FrameStreamer;
-import com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Gesture;
+import com.incquerylabs.iot.leapmotion.proto.ComplexGestures.ComplexGesture;
 import com.leapmotion.leap.Controller;
 
 public abstract class BaseGestureTest {
@@ -28,9 +28,9 @@ public abstract class BaseGestureTest {
 	
 	protected GestureCollector collector;
 	
-	protected Gesture.Type expectedType;
+	protected ComplexGesture.Type expectedType;
 	
-	public BaseGestureTest(Gesture.Type type) {
+	public BaseGestureTest(ComplexGesture.Type type) {
 		this.expectedType = type;
 	}
 	
@@ -42,10 +42,10 @@ public abstract class BaseGestureTest {
 		
 		initializeCEPComponent();
 		
-		streamer = new FrameStreamer(streamPath, YellowPages.getFrameStreamAddress(), 10);
+		streamer = new FrameStreamer(streamPath, YellowPages.INSTANCE.getFrameStreamAddress(), 10);
 		new Controller();
 		
-		collector = new GestureCollector(YellowPages.getGesturesStreamAddress());
+		collector = new GestureCollector(YellowPages.INSTANCE.getGesturesStreamAddress());
 	}
 	
 	@Test

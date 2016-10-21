@@ -1,287 +1,257 @@
-
 syntax = "proto2"; // In the latest stable release (2.6.1) proto3 syntax is not supported yet.
-
 package leapmotion;
 
 option java_package = "com.incquerylabs.iot.leapmotion.proto";
 option java_outer_classname = "LeapMotionProtos";
-
 message Vector {
-  required float x = 1;
-  required float y = 2;
-  required float z = 3;
-  required bool valid = 4;
-  required float magnitude = 5;
-  required float magnitudeSquared = 6;
-  optional Vector normalized = 7;
-  optional Vector opposite = 8;
-  required float pitch = 9;
-  required float roll = 10;
-  required float yaw = 11;
+	required float x = 1;
+	required float y = 2;
+	required float z = 3;
+	required bool valid = 4;
+	required float magnitude = 5;
+	required float magnitudeSquared = 6;
+	optional Vector normalized = 7;
+	optional Vector opposite = 8;
+	required float pitch = 9;
+	required float roll = 10;
+	required float yaw = 11;
 }
 
 message Matrix {
-  required Vector xBasis = 1;
-  required Vector yBasis = 2;
-  required Vector zBasis = 3;
-  required Vector origin = 4;
-  optional Matrix rigidInverse = 5;
+	required Vector xBasis = 1;
+	required Vector yBasis = 2;
+	required Vector zBasis = 3;
+	required Vector origin = 4;
+	optional Matrix rigidInverse = 5;
 }
 
 message Bone {
+	enum Type {
+		TYPE_METACARPAL = 0;
+		TYPE_PROXIMAL = 1;
+		TYPE_INTERMEDIATE = 2;
+		TYPE_DISTAL = 3;
+	}
 
-  enum Type {
-    TYPE_METACARPAL = 0;
-    TYPE_PROXIMAL = 1;
-    TYPE_INTERMEDIATE = 2;
-    TYPE_DISTAL = 3;
-  }
-
-  required Matrix basis = 1;
-  required Vector center = 2;
-  required Vector direction = 3;
-  required bool valid = 4;
-  required float length = 5;
-  required Vector nextJoint = 6;
-  required Vector prevJoint = 7;
-  required Type type = 8;
+	required Matrix basis = 1;
+	required Vector center = 2;
+	required Vector direction = 3;
+	required bool valid = 4;
+	required float length = 5;
+	required Vector nextJoint = 6;
+	required Vector prevJoint = 7;
+	required Type type = 8;
 }
 
 message BoneList {
-  repeated Bone element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
-  required Bone metacarpal = 4;
-  required Bone proximal = 5;
-  required Bone intermediate = 6;
-  required Bone distal = 7;
+	repeated Bone element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
+	required Bone metacarpal = 4;
+	required Bone proximal = 5;
+	required Bone intermediate = 6;
+	required Bone distal = 7;
 }
 
 message Arm {
-  required Matrix basis = 1;
-  required Vector center = 2;
-  required Vector direction = 3;
-  required Vector elbowPosition = 4;
-  required bool valid = 5;
-  required float width = 6;
-  required Vector wristPosition = 7;
+	required Matrix basis = 1;
+	required Vector center = 2;
+	required Vector direction = 3;
+	required Vector elbowPosition = 4;
+	required bool valid = 5;
+	required float width = 6;
+	required Vector wristPosition = 7;
 }
 
 message Pointable {
+	required int64 id = 1;
+	required bool valid = 2;
+	required Vector direction = 3;
+	required float length = 4;
+	required float width = 5;
+	required int64 frame = 6;
+	required int64 hand = 7;
+	required bool extended = 8;
+	required bool finger = 9;
+	required bool tool = 10;
+	required Vector stabilizedTipPosition = 11;
+	required Vector tipPosition = 12;
+	required Vector tipVelocity = 13;
+	enum Zone {
+		ZONE_NONE = 0;
+		ZONE_HOVERING = 1;
+		ZONE_TOUCHING = 2;
+	}
 
-  required int64 id = 1;
-  required bool valid = 2;
-  required Vector direction = 3;
-
-  required float length = 4;
-  required float width = 5;
-
-  required int64 frame = 6;
-  required int64 hand = 7;
-
-  required bool extended = 8;
-  required bool finger = 9;
-  required bool tool = 10;
-
-  required Vector stabilizedTipPosition = 11;
-  required Vector tipPosition = 12;
-  required Vector tipVelocity = 13;
-
-  enum Zone {
-    ZONE_NONE = 0;
-    ZONE_HOVERING = 1;
-    ZONE_TOUCHING = 2;
-  }
-
-  required Pointable.Zone touchZone = 14;
-
-  required float touchDistance = 15;
-  required float timeVisible = 16;
+	required Pointable.Zone touchZone = 14;
+	required float touchDistance = 15;
+	required float timeVisible = 16;
 }
 
 message PointableList {
-  repeated Finger element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
-
-  required Pointable frontmost = 4;
-  required Pointable leftmost = 5;
-  required Pointable rightmost = 6;
-
-  repeated Finger extended = 7;
+	repeated Finger element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
+	required Pointable frontmost = 4;
+	required Pointable leftmost = 5;
+	required Pointable rightmost = 6;
+	repeated Finger extended = 7;
 }
 
 message Tool {
-
-  required int64 id = 1;
-  required bool valid = 2;
-  required Vector direction = 3;
-
-  required float length = 4;
-  required float width = 5;
-
-  required int64 frame = 6;
-  required int64 hand = 7;
-
-  required bool extended = 8;
-  required bool finger = 9;
-  required bool tool = 10;
-
-  required Vector stabilizedTipPosition = 11;
-  required Vector tipPosition = 12;
-  required Vector tipVelocity = 13;
-
-  required Pointable.Zone touchZone = 14;
-
-  required float touchDistance = 15;
-  required float timeVisible = 16;
+	required int64 id = 1;
+	required bool valid = 2;
+	required Vector direction = 3;
+	required float length = 4;
+	required float width = 5;
+	required int64 frame = 6;
+	required int64 hand = 7;
+	required bool extended = 8;
+	required bool finger = 9;
+	required bool tool = 10;
+	required Vector stabilizedTipPosition = 11;
+	required Vector tipPosition = 12;
+	required Vector tipVelocity = 13;
+	required Pointable.Zone touchZone = 14;
+	required float touchDistance = 15;
+	required float timeVisible = 16;
 }
 
 message ToolList {
-  repeated Tool element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
-
-  required Tool frontmost = 4;
-  required Tool leftmost = 5;
-  required Tool rightmost = 6;
-
-  repeated Tool extended = 7;
+	repeated Tool element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
+	required Tool frontmost = 4;
+	required Tool leftmost = 5;
+	required Tool rightmost = 6;
+	repeated Tool extended = 7;
 }
 
 message Finger {
+	required int64 id = 1;
+	required bool valid = 2;
+	required Vector direction = 3;
+	required float length = 4;
+	required float width = 5;
+	required int64 frame = 6;
+	required int64 hand = 7;
+	required bool extended = 8;
+	required bool finger = 9;
+	required bool tool = 10;
+	required Vector stabilizedTipPosition = 11;
+	required Vector tipPosition = 12;
+	required Vector tipVelocity = 13;
+	required Pointable.Zone touchZone = 14;
+	required float touchDistance = 15;
+	required float timeVisible = 16;
+	required BoneList bones = 17;
+	enum Type {
+		TYPE_THUMB = 0;
+		TYPE_INDEX = 1;
+		TYPE_MIDDLE = 2;
+		TYPE_RING = 3;
+		TYPE_PINKY = 4;
+	}
 
-  required int64 id = 1;
-  required bool valid = 2;
-  required Vector direction = 3;
-
-  required float length = 4;
-  required float width = 5;
-
-  required int64 frame = 6;
-  required int64 hand = 7;
-
-  required bool extended = 8;
-  required bool finger = 9;
-  required bool tool = 10;
-
-  required Vector stabilizedTipPosition = 11;
-  required Vector tipPosition = 12;
-  required Vector tipVelocity = 13;
-
-  required Pointable.Zone touchZone = 14;
-
-  required float touchDistance = 15;
-  required float timeVisible = 16;
-
-  required BoneList bones = 17;
-
-  enum Type {
-    TYPE_THUMB  = 0;
-    TYPE_INDEX  = 1;
-    TYPE_MIDDLE = 2;
-    TYPE_RING   = 3;
-    TYPE_PINKY  = 4;
-  }
-  required Type type = 18;
+	required Type type = 18;
 }
 
 message FingerList {
-  repeated Finger element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
-
-  required Finger frontmost = 4;
-  required Finger leftmost = 5;
-  required Finger rightmost = 6;
-
-  repeated Finger extended = 7;
-  repeated Finger thumbs = 8;
-  repeated Finger indexes = 9;
-  repeated Finger middles = 10;
-  repeated Finger rings = 11;
-  repeated Finger pinkies = 12;
-
+	repeated Finger element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
+	required Finger frontmost = 4;
+	required Finger leftmost = 5;
+	required Finger rightmost = 6;
+	repeated Finger extended = 7;
+	repeated Finger thumbs = 8;
+	repeated Finger indexes = 9;
+	repeated Finger middles = 10;
+	repeated Finger rings = 11;
+	repeated Finger pinkies = 12;
 }
 
 message Hand {
-  required Arm arm = 1;
-  required Matrix basis = 2;
-  required float confidence = 3;
-  required Vector direction = 4;
-  required int64 frame = 5;
-  required FingerList fingers = 6;
-  required PointableList pointables = 7;
-  required float grabStrength = 8;
-  required int64 id = 9;
-  required bool left = 10;
-  required bool right = 11;
-  required bool valid = 12;
-  required Vector palmNormal = 13;
-  required Vector palmPosition = 14;
-  required Vector palmVelocity = 15;
-  required float palmWidth = 16;
-  required float pinchStrength = 17;
-  required Vector sphereCenter = 18;
-  required float sphereRadius = 19;
-  required Vector stabilizedPalmPosition = 20;
-  required float timeVisible = 21;
-  required Vector wristPosition = 22;
+	required Arm arm = 1;
+	required Matrix basis = 2;
+	required float confidence = 3;
+	required Vector direction = 4;
+	required int64 frame = 5;
+	required FingerList fingers = 6;
+	required PointableList pointables = 7;
+	required float grabStrength = 8;
+	required int64 id = 9;
+	required bool left = 10;
+	required bool right = 11;
+	required bool valid = 12;
+	required Vector palmNormal = 13;
+	required Vector palmPosition = 14;
+	required Vector palmVelocity = 15;
+	required float palmWidth = 16;
+	required float pinchStrength = 17;
+	required Vector sphereCenter = 18;
+	required float sphereRadius = 19;
+	required Vector stabilizedPalmPosition = 20;
+	required float timeVisible = 21;
+	required Vector wristPosition = 22;
 }
 
 message HandList {
-  repeated Hand element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
-  required Hand frontmost = 4;
-  required Hand leftmost = 5;
-  required Hand rightmost = 6;
+	repeated Hand element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
+	required Hand frontmost = 4;
+	required Hand leftmost = 5;
+	required Hand rightmost = 6;
 }
 
 message Gesture {
-  required int64 id = 1;
-  optional int64 duration = 2;
-  optional float durationSeconds = 3;
-  optional int64 frame = 4;
-  optional HandList hands = 5;
-  optional PointableList pointables = 6;
-  required bool valid = 7;
+	required int64 id = 1;
+	optional int64 duration = 2;
+	optional float durationSeconds = 3;
+	optional int64 frame = 4;
+	optional HandList hands = 5;
+	optional PointableList pointables = 6;
+	required bool valid = 7;
+	enum State {
+		STATE_INVALID = 0;
+		STATE_START = 1;
+		STATE_UPDATE = 2;
+		STATE_STOP = 3;
+	}
 
-  enum State {
-    STATE_INVALID = 0;
-    STATE_START = 1;
-    STATE_UPDATE = 2;
-    STATE_STOP = 3;
-  }
-  optional State state = 8;
+	optional State state = 8;
+	enum Type {
+		TYPE_INVALID = 0;
+		TYPE_SWIPE = 1;
+		TYPE_CIRCLE = 2;
+		TYPE_SCREEN_TAP = 3;
+		TYPE_KEY_TAP = 4;
+		TYPE_GRAB = 5;
+		TYPE_SPEED_UP = 6;
+		TYPE_SLOW_DOWN = 7;
+		TYPE_SELECTION = 8;
+	}
 
-  enum Type {
-    TYPE_INVALID = 0;
-    TYPE_SWIPE = 1;
-    TYPE_CIRCLE = 2;
-    TYPE_SCREEN_TAP = 3;
-    TYPE_KEY_TAP = 4;
-    TYPE_GRAB = 5;
-  }
-  required Type type = 9;
-  optional int64 timestamp = 10;
-  optional Vector normal = 11;
+	required Type type = 9;
+	optional int64 timestamp = 10;
+	optional Vector normal = 11;
 }
 
 message GestureList {
-  repeated Gesture element = 1;
-  required int32 count = 2;
-  required bool empty = 3;
+	repeated Gesture element = 1;
+	required int32 count = 2;
+	required bool empty = 3;
 }
 
 message Frame {
-  required int64 id = 1;
-  required FingerList fingers = 2;
-  required GestureList gestures = 3;
-  required HandList hands = 4;
-  required PointableList pointables = 5;
-  required ToolList tools = 6;
-  required float currentFramePerSecond = 7;
-  required bool valid = 8;
-  required int64 timestamp = 9;
+	required int64 id = 1;
+	required FingerList fingers = 2;
+	required GestureList gestures = 3;
+	required HandList hands = 4;
+	required PointableList pointables = 5;
+	required ToolList tools = 6;
+	required float currentFramePerSecond = 7;
+	required bool valid = 8;
+	required int64 timestamp = 9;
 }
