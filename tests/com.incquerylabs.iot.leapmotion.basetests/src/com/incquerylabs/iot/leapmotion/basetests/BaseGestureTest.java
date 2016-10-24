@@ -16,6 +16,7 @@ import com.incquerylabs.iot.communication.exception.PoolNotInitializedException;
 import com.incquerylabs.iot.communication.zmq.ZMQFactory;
 import com.incquerylabs.iot.leapmotion.frame.FrameStreamer;
 import com.incquerylabs.iot.leapmotion.proto.ComplexGestures.ComplexGesture;
+import com.incquerylabs.iot.leapmotion.proto.ComplexGestures.ComplexGesture.Type;
 import com.leapmotion.leap.Controller;
 
 public abstract class BaseGestureTest {
@@ -59,7 +60,7 @@ public abstract class BaseGestureTest {
 		while(streamer.hasNextFrame())
 			Thread.sleep(100);
 		
-		assertEquals(1, collector.getGestures().size());
+		assertEquals(1, collector.getGestures().parallelStream().filter((x)-> x.getType() == Type.TYPE_GRAB).count());
 		assertEquals(expectedType, collector.gestures.get(0).getType());
 	}
 	
