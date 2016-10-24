@@ -27,6 +27,7 @@ public class GestureUtils {
 		gestureDurationsMs.put(Type.TYPE_SWIPE, new Long(1000));
 		gestureDurationsMs.put(Type.TYPE_SLOW_DOWN, new Long(500));
 		gestureDurationsMs.put(Type.TYPE_SPEED_UP, new Long(500));
+		gestureDurationsMs.put(Type.TYPE_STOP, new Long(2000));
 	}
 	
 	public final static GestureUtils INSTANCE = new GestureUtils();

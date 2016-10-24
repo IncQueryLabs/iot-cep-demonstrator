@@ -46,8 +46,12 @@ public class Proto2EMFConverter {
 	public static Hand convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.Hand source) {
 		Hand target = LmemfFactory.eINSTANCE.createHand();
 		target.setGrabStrength(source.getGrabStrength());
+		target.setPalmNormal(convert(source.getPalmNormal()));
+		target.setPalmPosition(convert(source.getPalmPosition()));
+		target.setPalmVelocity(convert(source.getPalmVelocity()));
 		target.setLeft(source.getLeft());
 		target.setRight(source.getRight());
+		target.setFingers(convert(source.getFingers()));
 		return target;
 	}
 	
@@ -78,7 +82,7 @@ public class Proto2EMFConverter {
 	 */
 	public static FingerList convert(com.incquerylabs.iot.leapmotion.proto.LeapMotionProtos.FingerList source) {
 		FingerList target = LmemfFactory.eINSTANCE.createFingerList();
-		target.setCount(source.getExtendedCount());
+		target.setCount(source.getCount());
 		target.setEmpty(source.getEmpty());
 		source.getExtendedList().forEach(finger -> {
 			target.getExtended().add(convert(finger));

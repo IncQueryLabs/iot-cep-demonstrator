@@ -19,6 +19,7 @@ message ComplexGesture {
     TYPE_SPEED_UP = 6;
     TYPE_SLOW_DOWN = 7;
     TYPE_SELECTION = 8;
+    TYPE_STOP = 9;
   }
 
   optional Type type = 9;

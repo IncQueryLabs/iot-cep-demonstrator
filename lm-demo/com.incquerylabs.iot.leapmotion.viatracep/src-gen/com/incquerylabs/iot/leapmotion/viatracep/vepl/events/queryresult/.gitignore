@@ -16,3 +16,7 @@
 /.SLOW_DOWN_RIGHT_Event.java._trace
 /.SPEED_UP_LEFT_Event.java._trace
 /.SPEED_UP_RIGHT_Event.java._trace
+/.ALL_EXTENDED_LEFT_Event.java._trace
+/.ALL_EXTENDED_RIGHT_Event.java._trace
+/.ALL_BENT_LEFT_Event.java._trace
+/.ALL_BENT_RIGHT_Event.java._trace

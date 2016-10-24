@@ -2,7 +2,11 @@ package com.incquerylabs.iot.leapmotion.viatracep.vepl;
 
 import com.google.common.collect.Lists;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_LEFT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_BENT_RIGHT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_LEFT_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.ALL_EXTENDED_RIGHT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.EXTENDED_FINGER_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.GRAB_STRENGTH_HIGH_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SLOW_DOWN_LEFT_Event;
@@ -10,8 +14,12 @@ import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SLOW_DO
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SPEED_UP_LEFT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.SPEED_UP_RIGHT_Event;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.events.queryresult.TAP_Event;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_BENT_LEFT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_BENT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_BENT_RIGHT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_EXTENDED_LEFT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_EXTENDED_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.ALL_EXTENDED_RIGHT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.EXTENDED_FINGER_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.GRAB_STRENGTH_HIGH_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.SLOW_DOWN_LEFT_Pattern;
@@ -21,12 +29,16 @@ import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresul
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.atomic.queryresult.TAP_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.GRAB_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.SELECTION_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.STOP_LEFT_Pattern;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.STOP_RIGHT_Pattern;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.GrabRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SelectionRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SlowDownLeftRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SlowDownRightRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SpeedUpLeftRule;
 import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.SpeedUpRightRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.StopLeftRule;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.rules.StopRightRule;
 import java.util.List;
 import org.eclipse.viatra.cep.core.api.rules.ICepRule;
 import org.eclipse.viatra.cep.core.metamodels.events.EventSource;
@@ -169,6 +181,62 @@ public class CepFactory {
   }
   
   /**
+   * Factory method for event class {@link ALL_EXTENDED_LEFT_Event}.
+   */
+  public ALL_EXTENDED_LEFT_Event createALL_EXTENDED_LEFT_Event(final EventSource eventSource) {
+    return new ALL_EXTENDED_LEFT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_EXTENDED_LEFT_Event}.
+   */
+  public ALL_EXTENDED_LEFT_Event createALL_EXTENDED_LEFT_Event() {
+    return new ALL_EXTENDED_LEFT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_EXTENDED_RIGHT_Event}.
+   */
+  public ALL_EXTENDED_RIGHT_Event createALL_EXTENDED_RIGHT_Event(final EventSource eventSource) {
+    return new ALL_EXTENDED_RIGHT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_EXTENDED_RIGHT_Event}.
+   */
+  public ALL_EXTENDED_RIGHT_Event createALL_EXTENDED_RIGHT_Event() {
+    return new ALL_EXTENDED_RIGHT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_BENT_LEFT_Event}.
+   */
+  public ALL_BENT_LEFT_Event createALL_BENT_LEFT_Event(final EventSource eventSource) {
+    return new ALL_BENT_LEFT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_BENT_LEFT_Event}.
+   */
+  public ALL_BENT_LEFT_Event createALL_BENT_LEFT_Event() {
+    return new ALL_BENT_LEFT_Event(null);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_BENT_RIGHT_Event}.
+   */
+  public ALL_BENT_RIGHT_Event createALL_BENT_RIGHT_Event(final EventSource eventSource) {
+    return new ALL_BENT_RIGHT_Event(eventSource);
+  }
+  
+  /**
+   * Factory method for event class {@link ALL_BENT_RIGHT_Event}.
+   */
+  public ALL_BENT_RIGHT_Event createALL_BENT_RIGHT_Event() {
+    return new ALL_BENT_RIGHT_Event(null);
+  }
+  
+  /**
    * Factory method for atomic query result event pattern {@link ALL_EXTENDED_Pattern}.
    */
   public ALL_EXTENDED_Pattern createALL_EXTENDED_Pattern() {
@@ -232,6 +300,48 @@ public class CepFactory {
   }
   
   /**
+   * Factory method for atomic query result event pattern {@link ALL_EXTENDED_LEFT_Pattern}.
+   */
+  public ALL_EXTENDED_LEFT_Pattern createALL_EXTENDED_LEFT_Pattern() {
+    return new ALL_EXTENDED_LEFT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link ALL_EXTENDED_RIGHT_Pattern}.
+   */
+  public ALL_EXTENDED_RIGHT_Pattern createALL_EXTENDED_RIGHT_Pattern() {
+    return new ALL_EXTENDED_RIGHT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link ALL_BENT_LEFT_Pattern}.
+   */
+  public ALL_BENT_LEFT_Pattern createALL_BENT_LEFT_Pattern() {
+    return new ALL_BENT_LEFT_Pattern();
+  }
+  
+  /**
+   * Factory method for atomic query result event pattern {@link ALL_BENT_RIGHT_Pattern}.
+   */
+  public ALL_BENT_RIGHT_Pattern createALL_BENT_RIGHT_Pattern() {
+    return new ALL_BENT_RIGHT_Pattern();
+  }
+  
+  /**
+   * Factory method for complex event pattern {@link STOP_LEFT_Pattern}.
+   */
+  public STOP_LEFT_Pattern createSTOP_LEFT_Pattern() {
+    return new STOP_LEFT_Pattern();
+  }
+  
+  /**
+   * Factory method for complex event pattern {@link STOP_RIGHT_Pattern}.
+   */
+  public STOP_RIGHT_Pattern createSTOP_RIGHT_Pattern() {
+    return new STOP_RIGHT_Pattern();
+  }
+  
+  /**
    * Factory method for complex event pattern {@link SELECTION_Pattern}.
    */
   public SELECTION_Pattern createSELECTION_Pattern() {
@@ -274,6 +384,20 @@ public class CepFactory {
   }
   
   /**
+   * Factory method for rule {@link StopLeftRule}.
+   */
+  public Class<? extends ICepRule> rule_StopLeftRule() {
+    return StopLeftRule.class;
+  }
+  
+  /**
+   * Factory method for rule {@link StopRightRule}.
+   */
+  public Class<? extends ICepRule> rule_StopRightRule() {
+    return StopRightRule.class;
+  }
+  
+  /**
    * Factory method for rule {@link SelectionRule}.
    */
   public Class<? extends ICepRule> rule_SelectionRule() {
@@ -296,6 +420,8 @@ public class CepFactory {
     rules.add(SlowDownLeftRule.class);
     rules.add(SpeedUpRightRule.class);
     rules.add(SlowDownRightRule.class);
+    rules.add(StopLeftRule.class);
+    rules.add(StopRightRule.class);
     rules.add(SelectionRule.class);
     rules.add(GrabRule.class);
     return rules;

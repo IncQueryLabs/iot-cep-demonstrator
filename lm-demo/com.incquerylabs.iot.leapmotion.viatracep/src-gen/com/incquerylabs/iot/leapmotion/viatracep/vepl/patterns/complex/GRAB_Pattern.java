@@ -1,6 +1,6 @@
 package com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex;
 
-import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.anonymous._AnonymousPattern_2;
+import com.incquerylabs.iot.leapmotion.viatracep.vepl.patterns.complex.anonymous._AnonymousPattern_4;
 import org.eclipse.viatra.cep.core.api.patterns.ParameterizableComplexEventPattern;
 import org.eclipse.viatra.cep.core.metamodels.automaton.EventContext;
 import org.eclipse.viatra.cep.core.metamodels.events.EventsFactory;
@@ -13,7 +13,7 @@ public class GRAB_Pattern extends ParameterizableComplexEventPattern {
     setOperator(EventsFactory.eINSTANCE.createFOLLOWS());
     
     // contained event patterns
-    addEventPatternRefrence(new _AnonymousPattern_2(), 1);
+    addEventPatternRefrence(new _AnonymousPattern_4(), 1);
     						
     Timewindow timewindow = EventsFactory.eINSTANCE.createTimewindow();
     timewindow.setTime(2000);

@@ -4,21 +4,40 @@ import "http://incquerylabs.com/iot/leapmotion/lmemf"
 import "http://incquerylabs.com/iot/leapmotion/lmemf_base"
 import "http://www.eclipse.org/emf/2002/Ecore"
 
-pattern allExtended(frame : Frame) {
-	find extendedFinger(frame, N);
-	check(N == 5);
+// Complex gesture patterns - GRAB
+pattern allExtended(frame : Frame, hand : Hand) {
+	find frameHand(frame, hand);
+	find frameFingers(frame, fingers);
+	find allFingersExtended(fingers);
 }
 
-pattern allBent(frame : Frame) {
-	find extendedFinger(frame, N);
-	check(N == 0);
+pattern allBent(frame : Frame, hand : Hand) {
+	find frameHand(frame, hand);
+	find frameFingers(frame, fingers);
+	find allFingersBent(fingers);
 }
 
-pattern circleGesture(gesture : Gesture) {
-	Gesture.type(gesture, ::TYPE_CIRCLE);
-	find continuousGesture(gesture, _);
+pattern allBentRight(frame : Frame) {
+	find allBent(frame, hand);
+	find rightHand(hand);
 }
 
+pattern allBentLeft(frame : Frame) {
+	find allBent(frame, hand);
+	find leftHand(hand);
+}
+
+pattern allExtendedRight(frame : Frame) {
+	find allExtended(frame, hand);
+	find rightHand(hand);
+}
+
+pattern allExtendedLeft(frame : Frame) {
+	find allExtended(frame, hand);
+	find leftHand(hand);
+}
+
+// Complex gesture patterns - Speed control
 pattern leftSpeedUp(gesture : Gesture) {
 	find clockwiseCircleGesture(gesture);
 	find leftHandGesture(gesture);
@@ -28,7 +47,6 @@ pattern leftSlowDown(gesture : Gesture) {
 	find nonClockwiseCircleGesture(gesture);
 	find leftHandGesture(gesture);
 }
-
 
 pattern rightSpeedUp(gesture : Gesture) {
 	find clockwiseCircleGesture(gesture);
@@ -40,28 +58,48 @@ pattern rightSlowDown(gesture : Gesture) {
 	find rightHandGesture(gesture);
 }
 
+// Complex gesture patterns - Stop
+
+
+// Gesture helper patterns
 pattern rightHandGesture(gesture : Gesture) {
 	Gesture.hands.frontmost(gesture, hand);
-	Hand.right(hand, h);
-	check(h == true);
+	find rightHand(hand);
 }
 
 pattern leftHandGesture(gesture : Gesture) {
 	Gesture.hands.frontmost(gesture, hand);
-	Hand.left(hand, h);
-	check(h == true);
+	find leftHand(hand);
 }
 
 pattern clockwiseCircleGesture(gesture : Gesture) {
-	find circleGesture(gesture);
-	find pointableNormal(gesture, DZ, NZ);
+	find circleGestureVectors(gesture, NV, DV);
+	find vectorZ(NV, NZ);
+	find vectorZ(DV, DZ);
 	check(DZ * NZ > 0.0);
 }
 
 pattern nonClockwiseCircleGesture(gesture : Gesture) {
-	find circleGesture(gesture);
-	find pointableNormal(gesture, DZ, NZ);
+	find circleGestureVectors(gesture, NV, DV);
+	find vectorZ(NV, NZ);
+	find vectorZ(DV, DZ);
 	check(DZ * NZ <= 0.0);
+}
+
+pattern circleGesture(gesture : Gesture) {
+	Gesture.type(gesture, ::TYPE_CIRCLE);
+	find continuousGesture(gesture, _);
+}
+
+pattern circleGestureVectors(gesture : Gesture, NV : Vector, DV : Vector) {
+	Gesture.pointables.frontmost(gesture, pointable);
+	find circleGesture(gesture);
+	find pointableDirection(pointable, DV);
+	find gestureNormal(gesture, NV);
+}
+
+pattern continuousGesture(gesture : Gesture, duration : ELong) {
+	Gesture.duration(gesture, duration);
 }
 
 pattern tapGesture(gesture : Gesture) {
@@ -70,32 +108,68 @@ pattern tapGesture(gesture : Gesture) {
 	Gesture.type(gesture, ::TYPE_SCREEN_TAP);
 }
 
-pattern continuousGesture(gesture : Gesture, duration : ELong) {
-	Gesture.duration(gesture, duration);
+// Vector helper patterns
+pattern pointableDirection(pointable : Pointable, DV : Vector) {
+	Pointable.direction(pointable, DV);
 }
 
-pattern pointableNormal(gesture : Gesture, DZ : EFloat, NZ : EFloat) {
-	Gesture.pointables.frontmost(gesture, pointable);
-	Pointable.direction.z(pointable, DZ);
-	Gesture.normal.z(gesture, NZ);
+pattern gestureNormal(gesture : Gesture, NV : Vector) {
+	Gesture.normal(gesture, NV);
 }
 
-pattern clockwiseRoll(gesture : Gesture) {
-	find clockwiseCircleGesture(gesture);
-	find continuousGesture(gesture, _);
+pattern vectorZ(vector : Vector, z : EFloat) {
+	Vector.z(vector, z);
 }
 
-pattern grabStrengthHigh(frame : Frame) {
-	Frame.hands.frontmost(frame, hand);
+
+// Hand helper patterns
+pattern grabStrengthHigh(hand : Hand) {
 	find grabStrength(hand, S);
 	check(S > 0.5f);
+}
+
+pattern frameHand(frame : Frame, hand : Hand) {
+	Frame.hands.elements(frame, hand);
 }
 
 pattern grabStrength(hand : Hand, S : EFloat) {
 	Hand.grabStrength(hand, S);
 }
 
-pattern extendedFinger(frame : Frame, n : EInt) {
-	Frame.fingers(frame, fingerList);
-	FingerList.^count(fingerList, n);
+pattern rightHand(hand : Hand) {
+	Hand.right(hand, right);
+	check(right == true);
 }
+
+pattern leftHand(hand : Hand) {
+	Hand.left(hand, left);
+	check(left == true);
+}
+
+// Finger helper patterns
+pattern frameFingers(frame : Frame, fingers : FingerList) {
+	Frame.fingers(frame, fingers);
+}
+
+pattern handFingers(hand : Hand, fingers : FingerList) {
+	Hand.fingers(hand, fingers);
+}
+
+pattern allFingersExtended(fingers : FingerList) {
+	find extendedFingers(fingers, N);
+	check(N == 5);
+}
+
+pattern allFingersBent(fingers : FingerList) {
+	find extendedFingers(fingers, N);
+	check(N == 0);
+}
+
+pattern extendedFingers(fingers : FingerList, N : EInt) {
+	N == count find extendedFinger(fingers, _);
+}
+
+pattern extendedFinger(fingers : FingerList, finger : Finger) {
+	FingerList.extended(fingers, finger);
+}
+

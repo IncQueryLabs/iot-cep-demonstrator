@@ -20,10 +20,12 @@ queryEvent SLOW_DOWN_LEFT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gestur
 queryEvent SPEED_UP_RIGHT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as rightSpeedUp(_) found
 queryEvent SLOW_DOWN_RIGHT(gesture : com.incquerylabs.iot.leapmotion.lmemf.Gesture) as rightSlowDown(_) found
 
-complexEvent SELECTION() {
-	as (TAP AND EXTENDED_FINGER)[50]
-}
+queryEvent ALL_EXTENDED_LEFT() as allExtendedLeft found
+queryEvent ALL_EXTENDED_RIGHT() as allExtendedRight found
+queryEvent ALL_BENT_LEFT() as allBentLeft found
+queryEvent ALL_BENT_RIGHT() as allBentRight found
 
+// Speed control rules
 rule speedUpLeftRule on SPEED_UP_LEFT {
 	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
 	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SPEED_UP, t, 10)
@@ -42,6 +44,30 @@ rule speedUpRightRule on SPEED_UP_RIGHT {
 rule slowDownRightRule on SLOW_DOWN_RIGHT {
 	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
 	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_SLOW_DOWN, t, 9)
+}
+
+// Emergency stop
+complexEvent STOP_LEFT() {
+	as (ALL_BENT_LEFT -> ALL_EXTENDED_LEFT)[2000]
+}
+
+complexEvent STOP_RIGHT() {
+	as (ALL_BENT_RIGHT -> ALL_EXTENDED_RIGHT)[2000]
+}
+
+rule stopLeftRule on STOP_LEFT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_STOP, t, 10)
+}
+
+rule stopRightRule on STOP_RIGHT {
+	val t = ruleInstance.atom.observedAtomicEventInstances.get(0).timestamp
+	com.incquerylabs.iot.leapmotion.viatracep.util.GestureUtils.INSTANCE.processGesture(Type.TYPE_STOP, t, 9)
+}
+
+// Selection rule - currently NOT USED
+complexEvent SELECTION() {
+	as (TAP AND EXTENDED_FINGER)[50]
 }
 
 rule selectionRule on SELECTION {
