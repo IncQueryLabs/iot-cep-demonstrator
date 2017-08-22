@@ -1,3 +1,5 @@
 bin/
 target/
 **/src-gen/
+
+openhab/esh-event-bus/com\.incquerylabs\.iot\.droolswrapper/\.settings/org\.eclipse\.core\.resources\.prefs

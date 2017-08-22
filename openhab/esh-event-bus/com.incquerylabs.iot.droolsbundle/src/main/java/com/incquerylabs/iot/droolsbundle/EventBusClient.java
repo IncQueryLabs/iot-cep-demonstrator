@@ -1,9 +1,8 @@
-package com.incquerylabs.iot.esheventbusdroolsclient;
+package com.incquerylabs.iot.droolsbundle;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.iot.esheventbusdroolsclient.internal.EventBusSubscriber;
 import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
 import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
 
@@ -12,12 +11,6 @@ public class EventBusClient {
 
     private IEventBusService eventBusService;
     private IEventBusSubscriber eventBusSubscriber;
-
-    public static final int allowPirSwitch = 0;
-    public static final int mqttPir = 1;
-    public static final int mqttSwitch = 2;
-
-    public static final String[] registeredItems = { "allowPirSwitch", "mqttPir", "mqttSwitch" };
 
     public void activate() {
 
